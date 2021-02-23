@@ -205,6 +205,9 @@ em.search-keyword {
 .tagcloud .entry .row .more{
 	font-family: DOS;
 }
+.tagcloud .entry .row .date{
+	font-family: DOS;
+}
 
 
 a {
