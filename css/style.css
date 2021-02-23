@@ -202,11 +202,11 @@ em.search-keyword {
 	font-family: "cnpixel";
 }
 
-.tagcloud .entry .row .more{
-	font-family: DOS;
+.mypage .date{
+	font-family: "DOS";
 }
-.tagcloud .entry .row .date{
-	font-family: DOS;
+.mypage .btn{
+	font-family: "DOS";
 }
 
 
