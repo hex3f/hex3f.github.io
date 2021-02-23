@@ -202,6 +202,11 @@ em.search-keyword {
 	font-family: "cnpixel";
 }
 
+.tagcloud .entry .row .more{
+	font-family: DOS;
+}
+
+
 a {
 	color: #fff
 }
