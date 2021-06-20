@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hex3f.com/"/>
-  <updated>2021-06-20T16:12:51.678Z</updated>
+  <updated>2021-06-20T16:20:41.763Z</updated>
   <id>https://hex3f.com/</id>
   
   <author>
@@ -21,11 +21,12 @@
     <link href="https://hex3f.com/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/"/>
     <id>https://hex3f.com/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/</id>
     <published>2021-06-20T15:40:44.000Z</published>
-    <updated>2021-06-20T16:12:51.678Z</updated>
+    <updated>2021-06-20T16:20:41.763Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Key words：&lt;br&gt;remote: fatal: pack exceeds maximum allowed size&lt;br&gt;fatal: sha1 file ‘&lt;stdout&gt;‘ write error: Broken pipe&lt;br&gt;error: remote unpack failed: index-pack abnormal exit&lt;br&gt;To github.com:    &lt;a href=&quot;mailto:git@github.com&quot;&gt;git@github.com&lt;/a&gt;:xxx/xxx.git&lt;br&gt; ! [remote rejected]    main -&amp;gt; main (failed)&lt;br&gt;error: failed to push some refs to ‘git@github.com:xxx/xxx.git’&lt;/stdout&gt;&lt;/p&gt;
+      &lt;p&gt;Key words：&lt;br&gt;remote: fatal: pack exceeds maximum allowed size&lt;br&gt;fatal: sha1 file ‘&lt;stdout&gt;‘ write error: Broken pipe&lt;br&gt;error: remote unpack failed: index-pack abnormal exit&lt;br&gt;To github.com:    &lt;a href=&quot;mailto:git@github.com&quot;&gt;git@github.com&lt;/a&gt;:xxx/xxx.git&lt;br&gt; ! [remote rejected]    main -&amp;gt; main (failed)&lt;br&gt;error: failed to push some refs to &lt;a href=&quot;mailto:&#39;git@github.com&quot;&gt;&#39;git@github.com&lt;/a&gt;:xxx/xxx.git’&lt;/stdout&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div style=&quot;align:left;height:273px;width:483px;&quot;&gt;&lt;img src=&quot;/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/error.png&quot; class=&quot;&quot; title=&quot;git error&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;p&gt;&lt;/p&gt;
     
     </summary>
     
