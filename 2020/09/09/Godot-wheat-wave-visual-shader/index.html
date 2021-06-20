@@ -105,26 +105,8 @@
 	<div class="mypage">		
 	  		
 
-	  <p>实现Godot麦浪shader<br><span id="more"></span><br>这个shader困惑我挺久的，思路就是让图片移动，然后在上面制造像水浪的那种效果，这样看上去就会像麦浪了。<br>首先需要一张麦浪的图片<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/WheatWave.png" class="" title="麦浪素材图"><br>把麦浪图片的显示模式更改为重复。这样在播放的时候就不会只播放一次。点击图片然后再点击Import标签里的Flags修改Repeat为Enabled。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Change-wheat-image-mode-to-repeat.PNG" class="" title="更改麦田图片模式"><br>然后在麦田sprite上创建shader，创建UV贴图将x,y轴分开，在x,y轴上新建一个ScalarOp，方法为Multiply。再在a或者b上创建一个Scalar Uniform，这样可以在外部控制变量。让他乘以某个数可以做到对图片的放大缩小。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-size.PNG" class="" title="Shader更改UV大小"><br>然后再用x,y轴加上一个值乘以time做到图片上下移动，在乘法上的a或者b连接Scalar Uniform在外部控制移动速度。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-move-uv.PNG" class="" title="Shader移动UV"><br>做完上面的操作，再用一个VectorCompose将x跟y连接在一起。最终连接上麦浪的Texture与Output的Color值跟Alpha值连接就可以看到麦浪移动的效果了。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-connect-output.PNG" class="" title="Shader连接output"><br>效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave_1.gif" class="" title="无波纹麦浪"><br>但是目前这样的效果太单调了，单纯是一张图片在移动，所以可以做一个类似波浪的效果在麦浪上面，这样麦浪看上去一直在变换。<br>现在就需要一张noise，然后在贴图上移动，所以noise做的操作跟上面的步骤也是类似的。<br>noise大小，2048 pixel * 2048pixel，做法就是用Photoshop的滤镜分层云彩或者云彩，然后用涂抹工具涂抹。<br>Noise效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/noise.png" class="" title="噪声效果图"><br>导入Noise图片的时候注意也要把Repeat改成Enabled，播放一遍就没了。<br>连线跟上面也一样，首先创建UV贴图，然后要可以控制噪声的大小，移动速度。最后再连接到噪声的贴图上。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseShader.PNG" class="" title="噪声shader连线"><br>Output连线：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseConnectOutput.PNG" class="" title="噪声shader_output连线"><br>最后再跟上面的连接到一起就OK了！<br><br>参数参考：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Parameter-reference.PNG" class="" title="参数参考"><br>最终效果<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave.gif" class="" title="麦浪"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>	  
+	  <p>实现Godot麦浪shader<br><span id="more"></span><br>这个shader困惑我挺久的，思路就是让图片移动，然后在上面制造像水浪的那种效果，这样看上去就会像麦浪了。<br>首先需要一张麦浪的图片<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/WheatWave.png" class title="麦浪素材图"><br>把麦浪图片的显示模式更改为重复。这样在播放的时候就不会只播放一次。点击图片然后再点击Import标签里的Flags修改Repeat为Enabled。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Change-wheat-image-mode-to-repeat.PNG" class title="更改麦田图片模式"><br>然后在麦田sprite上创建shader，创建UV贴图将x,y轴分开，在x,y轴上新建一个ScalarOp，方法为Multiply。再在a或者b上创建一个Scalar Uniform，这样可以在外部控制变量。让他乘以某个数可以做到对图片的放大缩小。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-size.PNG" class title="Shader更改UV大小"><br>然后再用x,y轴加上一个值乘以time做到图片上下移动，在乘法上的a或者b连接Scalar Uniform在外部控制移动速度。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-move-uv.PNG" class title="Shader移动UV"><br>做完上面的操作，再用一个VectorCompose将x跟y连接在一起。最终连接上麦浪的Texture与Output的Color值跟Alpha值连接就可以看到麦浪移动的效果了。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-connect-output.PNG" class title="Shader连接output"><br>效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave_1.gif" class title="无波纹麦浪"><br>但是目前这样的效果太单调了，单纯是一张图片在移动，所以可以做一个类似波浪的效果在麦浪上面，这样麦浪看上去一直在变换。<br>现在就需要一张noise，然后在贴图上移动，所以noise做的操作跟上面的步骤也是类似的。<br>noise大小，2048 pixel * 2048pixel，做法就是用Photoshop的滤镜分层云彩或者云彩，然后用涂抹工具涂抹。<br>Noise效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/noise.png" class title="噪声效果图"><br>导入Noise图片的时候注意也要把Repeat改成Enabled，播放一遍就没了。<br>连线跟上面也一样，首先创建UV贴图，然后要可以控制噪声的大小，移动速度。最后再连接到噪声的贴图上。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseShader.PNG" class title="噪声shader连线"><br>Output连线：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseConnectOutput.PNG" class title="噪声shader_output连线"><br>最后再跟上面的连接到一起就OK了！<br><br>参数参考：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Parameter-reference.PNG" class title="参数参考"><br>最终效果<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave.gif" class title="麦浪"></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>	  
 	</div>
 
 	<div>
