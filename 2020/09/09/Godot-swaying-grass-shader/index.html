@@ -46,9 +46,9 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><link rel="alternate" href="/atom.xml" title="Hex3F" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hex3F" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
  <body>  
   <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -105,23 +105,8 @@
 	<div class="mypage">		
 	  		
 
-	  <p>实现Godot草丛晃动shader</p>
-<span id="more"></span> 
-<p>在做项目的时候有个需求，就是让草会摇晃起来，找到了下面这个解决方案<br>在一个sprite上添加一个shader</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> vertex()&#123;</span><br><span class="line">	VERTEX.x += <span class="built_in">cos</span>(TIME * shake_speed) * (VERTEX.y - moving_speed) * stretch_speed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<img src="/2020/09/09/Godot-swaying-grass-shader/Swaying_Grass_No_Limit_Y.gif" class title="摇动的草">
-<p>会发现整颗草都摇起来了，问题是草根的部分也摇起来了，把网格Y轴限制住就好了</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> vertex()&#123;</span><br><span class="line">	<span class="keyword">if</span>(VERTEX.y &lt; Limit)</span><br><span class="line">	VERTEX.x += <span class="built_in">cos</span>(TIME * shake_speed) * (VERTEX.y - moving_speed) * stretch_speed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<img src="/2020/09/09/Godot-swaying-grass-shader/Swaying_Grass_Limit_Y.gif" class title="锁住Y轴摇动的草">
-<p>注意，所有参数都要是float<br>参考：Limit = 10.0,shake_speed = 1.5,moving_speed = 38.0,stretch_speed = 0.1;</p>
-<p>但是你会发现如果放入一堆草丛就会导致好像僵尸一样，都向一个方向一个速度位移</p>
-<img src="/2020/09/09/Godot-swaying-grass-shader/Grass.gif" class title="草从">
-<p>所以接下来就要写脚本了，先在原来的shader里面定义一个外部变量，来控制方向上的速度</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> RandomDir;</span><br></pre></td></tr></table></figure>
-<p>将这个数值替换到shake_speed上<br>然后在sprite身上添加一个脚本，随机一个数值赋值到RandomDir上</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">extends Sprite</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">	randomize();</span><br><span class="line">	self.material.set_shader_param(<span class="string">&quot;RandomDir&quot;</span>, rand_range(<span class="built_in">min</span>,<span class="built_in">max</span>));</span><br></pre></td></tr></table></figure>
-<img src="/2020/09/09/Godot-swaying-grass-shader/Random_Grass.gif" class title="随机草从">
-<p>参考：min = -1,max = 1;<br>意思是方向上的速度1到-1之间随机，这样就达成了群魔乱舞的效果了！</p>
+	  <p>实现Godot草丛晃动shader<br><span id="more"></span><br>在做项目的时候有个需求，就是让草会摇晃起来，找到了下面这个解决方案<br>在一个sprite上添加一个shader<br><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> vertex()&#123;</span><br><span class="line">	VERTEX.x += <span class="built_in">cos</span>(TIME * shake_speed) * (VERTEX.y - moving_speed) * stretch_speed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><img src="/2020/09/09/Godot-swaying-grass-shader/Swaying_Grass_No_Limit_Y.gif" class title="摇动的草"><br>会发现整颗草都摇起来了，问题是草根的部分也摇起来了，把网格Y轴限制住就好了<br><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> vertex()&#123;</span><br><span class="line">	<span class="keyword">if</span>(VERTEX.y &lt; Limit)</span><br><span class="line">	VERTEX.x += <span class="built_in">cos</span>(TIME * shake_speed) * (VERTEX.y - moving_speed) * stretch_speed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><img src="/2020/09/09/Godot-swaying-grass-shader/Swaying_Grass_Limit_Y.gif" class title="锁住Y轴摇动的草"><br>注意，所有参数都要是float<br>参考：Limit = 10.0,shake_speed = 1.5,moving_speed = 38.0,stretch_speed = 0.1;</p>
+<p>但是你会发现如果放入一堆草丛就会导致好像僵尸一样，都向一个方向一个速度位移<br><img src="/2020/09/09/Godot-swaying-grass-shader/Grass.gif" class title="草从"><br>所以接下来就要写脚本了，先在原来的shader里面定义一个外部变量，来控制方向上的速度<br><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> RandomDir;</span><br></pre></td></tr></table></figure><br>将这个数值替换到shake_speed上<br>然后在sprite身上添加一个脚本，随机一个数值赋值到RandomDir上<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">extends Sprite</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">	randomize();</span><br><span class="line">	self.material.set_shader_param(<span class="string">&quot;RandomDir&quot;</span>, rand_range(<span class="built_in">min</span>,<span class="built_in">max</span>));</span><br></pre></td></tr></table></figure><br><img src="/2020/09/09/Godot-swaying-grass-shader/Random_Grass.gif" class title="随机草从"><br>参考：min = -1,max = 1;<br>意思是方向上的速度1到-1之间随机，这样就达成了群魔乱舞的效果了！</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>	  
 	</div>
 
