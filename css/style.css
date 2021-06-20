@@ -1,8 +1,8 @@
-/* 定义字体 */
+/* 定义字体 
 @font-face{
   font-family: cnpixel;
   src: url("../fonts/cn_pixel_font.ttf");
-}
+}*/
 
 .spoiler-title{
 	-moz-user-select:none;
@@ -74,7 +74,7 @@ html，body {
 .mypage {
 	padding-bottom: 30px;
 	border-bottom: 1px solid #fff;
-	font-family: "cnpixel";
+	/*font-family: "cnpixel";*/
 }
 
 .navbar-brand {

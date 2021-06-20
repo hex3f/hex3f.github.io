@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hex3f.com/"/>
-  <updated>2021-02-23T10:43:56.000Z</updated>
+  <updated>2021-06-20T16:10:20.943Z</updated>
   <id>https://hex3f.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>github git push remote fatal pack exceeds maximum allowed size error</title>
+    <link href="https://hex3f.com/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/"/>
+    <id>https://hex3f.com/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/</id>
+    <published>2021-06-20T15:40:44.000Z</published>
+    <updated>2021-06-20T16:10:20.943Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Key-words：&quot;&gt;&lt;a href=&quot;#Key-words：&quot; class=&quot;headerlink&quot; title=&quot;Key words：&quot;&gt;&lt;/a&gt;Key words：&lt;/h1&gt;&lt;p&gt;remote: fatal: pack exceeds maximum allowed size&lt;br&gt;fatal: sha1 file ‘&lt;stdout&gt;‘ write error: Broken pipe&lt;br&gt;error: remote unpack failed: index-pack abnormal exit&lt;br&gt;To github.com:    &lt;a href=&quot;mailto:git@github.com&quot;&gt;git@github.com&lt;/a&gt;:xxx/xxx.git&lt;br&gt; ! [remote rejected]    main -&amp;gt; main (failed)&lt;br&gt;error: failed to push some refs to &lt;a href=&quot;mailto:&#39;git@github.com&quot;&gt;&#39;git@github.com&lt;/a&gt;:xxx/xxx.git’&lt;br&gt;&lt;/stdout&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="GithubError" scheme="https://hex3f.com/tags/GithubError/"/>
+    
+  </entry>
   
   <entry>
     <title>GODOT LIGHTNING SHADER</title>
