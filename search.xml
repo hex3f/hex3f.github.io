@@ -3,16 +3,12 @@
   <entry>
     <title>AMD PC install Mac os in VMware</title>
     <url>/2020/01/04/AMD-PC-install-Mac-os-in-VMware/</url>
-    <content><![CDATA[<p>AMD平台在VMware安装mac os</p>
-<span id="more"></span> 
-<p>其实最早之前是在VMware里装过mac的，但之前是intel的cpu，装mac会比较容易，问题也没那么多。最近去看了看unlocker的github项目好像已经删除了，应该是停止更新了。</p>
+    <content><![CDATA[<p>AMD平台在VMware安装mac os<br><span id="more"></span><br>其实最早之前是在VMware里装过mac的，但之前是intel的cpu，装mac会比较容易，问题也没那么多。最近去看了看unlocker的github项目好像已经删除了，应该是停止更新了。</p>
 <p>环境：<br>DATE：2020/1/4 22:53<br>CPU：AMD R9 3900X<br>GPU: MSI RTX 2060 Super GAMING X<br>RAM: 32G<br>OS：Windows 10 Pro 18363<br>MacOS Ver：macOS.Mojave.10.14.4.x5 | <a href="https://pan.baidu.com/s/152M13GESrjKRvXnYVyDleQ">下载该镜像</a> 提取码：ka3h<br>VMware Ver：15.1.0 | <a href="http://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe">点击下载</a>（试过15.5.1，但是装不上，最后会提示 未能启动虚拟机。并且如果系统是win10 1903或以上的版本，就需要使用15.1.0或以上版本，不然装不上。）<br>MK-unlocker | <a href="https://www.mediafire.com/file/w4khcmcu7hqo1a7/MK-unlocker.zip/file">点击前往下载页</a>（这个版本是民间的一位大神改的，可以兼容15的版本，安装方法网上查就行了，一查一大把）</p>
 <h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p>（以下问题如果没遇到则不需要修改，并且建议从头开始操作，不要拿之前的项目来继续操作。）</p>
 <ol>
-<li><p>问题1 （报错 客户机操作系统已禁用CPU，请关闭或重置虚拟机。）：<br>！！！注意，这个方案只适合AMD CPU的电脑！！！<br>前往虚拟机所在目录，使用记事本打开vmx后缀的文件，在最后面加上这些配置（其实加在哪里都行）</p>
-<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">smc.version = "0"</span><br><span class="line">cpuid.0.eax = "0000:0000:0000:0000:0000:0000:0000:1011"</span><br><span class="line">cpuid.0.ebx = "0111:0101:0110:1110:0110:0101:0100:0111"</span><br><span class="line">cpuid.0.ecx = "0110:1100:0110:0101:0111:0100:0110:1110"</span><br><span class="line">cpuid.0.edx = "0100:1001:0110:0101:0110:1110:0110:1001"</span><br><span class="line">cpuid.1.eax = "0000:0000:0000:0001:0000:0110:0111:0001"</span><br><span class="line">cpuid.1.ebx = "0000:0010:0000:0001:0000:1000:0000:0000"</span><br><span class="line">cpuid.1.ecx = "1000:0010:1001:1000:0010:0010:0000:0011"</span><br><span class="line">cpuid.1.edx = "0000:1111:1010:1011:1111:1011:1111:1111"</span><br><span class="line">featureCompat.enable = "FALSE"</span><br></pre></td></tr></tbody></table></figure>
-<p> 分支小问题 （报错 这个虚拟机需要avx2，但是没有avx。）：<br> 将vmx配置文件中 virtualHW.version = “” 中引号内的变量改为 “10”。</p>
-<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">virtualHW.version = "10"</span><br></pre></td></tr></tbody></table></figure></li>
+<li>问题1 （报错 客户机操作系统已禁用CPU，请关闭或重置虚拟机。）：<br>！！！注意，这个方案只适合AMD CPU的电脑！！！<br>前往虚拟机所在目录，使用记事本打开vmx后缀的文件，在最后面加上这些配置（其实加在哪里都行）<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">smc.version = "0"</span><br><span class="line">cpuid.0.eax = "0000:0000:0000:0000:0000:0000:0000:1011"</span><br><span class="line">cpuid.0.ebx = "0111:0101:0110:1110:0110:0101:0100:0111"</span><br><span class="line">cpuid.0.ecx = "0110:1100:0110:0101:0111:0100:0110:1110"</span><br><span class="line">cpuid.0.edx = "0100:1001:0110:0101:0110:1110:0110:1001"</span><br><span class="line">cpuid.1.eax = "0000:0000:0000:0001:0000:0110:0111:0001"</span><br><span class="line">cpuid.1.ebx = "0000:0010:0000:0001:0000:1000:0000:0000"</span><br><span class="line">cpuid.1.ecx = "1000:0010:1001:1000:0010:0010:0000:0011"</span><br><span class="line">cpuid.1.edx = "0000:1111:1010:1011:1111:1011:1111:1111"</span><br><span class="line">featureCompat.enable = "FALSE"</span><br></pre></td></tr></tbody></table></figure>
+ 分支小问题 （报错 这个虚拟机需要avx2，但是没有avx。）：<br> 将vmx配置文件中 virtualHW.version = “” 中引号内的变量改为 “10”。<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">virtualHW.version = "10"</span><br></pre></td></tr></tbody></table></figure></li>
 <li><p>问题2 （语言选择界面无法使用鼠标键盘）：<br>打开vmx配置文件，在最后面加上这些配置</p>
 <figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">keyboard.vusb.enable = "TRUE"</span><br><span class="line">mouse.vusb.enable = "TRUE"</span><br></pre></td></tr></tbody></table></figure>
 <p> 然后点击VMware Workstation菜单里的”虚拟机”-&gt;”设置”，进入&lt;虚拟机设置&gt;界面，选择&lt;硬件&gt;标签页的&lt;USB控制器&gt;，在左侧的界面里勾选&lt;显示所有USB输入设备（S）&gt;，并把顶部的&lt;USB兼容性（C）&gt;改为USB2.0。</p>
@@ -48,9 +44,7 @@
   <entry>
     <title>About me</title>
     <url>/2019/10/18/About%20me/</url>
-    <content><![CDATA[<h1 id="介绍一下我"><a href="#介绍一下我" class="headerlink" title="介绍一下我"></a>介绍一下我</h1><p>欢迎来到<a href="https://hex3f.com/">hex3f</a>，你现在看到的是我的博客，没错，这个博客内容很少，不过我分享的一定是一些干货。那么，这个网站存在的意义是什么呢？</p>
-<span id="more"></span> 
-<p>首先跟大家介绍一下我自己，我，出生于1999年，男，喜欢极限运动，（自称）是一名独立游戏制作人，之前在独立游戏工作室做TA，目前在一家游戏公司做前端开发。一直想做一款完全由自己的想法开发的游戏，上架渠道就是steam。<br>虽然一直做做停停，从5月份开始直到八月中旬我正式成为一名上班族。当然，在空闲时间我也做了另外的事情来赚钱。但是我立志，一定要做出属于我的游戏！<br>所以这个网站存在是为什么？从很早之前我就有很多博客，服务器一过期就换种风格。不知道为什么一直热衷于博客，这个博客估计是我的第五个博客，不过这个博客应该也是最后一个。<br>兴趣？我的风格一直在变，~~最近喜欢悠闲的生活，听听canon，码代码。除了码代码的时间那就是喜欢锻炼，从小就喜欢跑酷跟街健，喜欢探险未知。<br>我觉得我的性格很独特，或许是因为内心吧。无论多经常跟伙伴玩，我都还是喜欢自己一个人独处的感觉！</p>
+    <content><![CDATA[<h1 id="介绍一下我"><a href="#介绍一下我" class="headerlink" title="介绍一下我"></a>介绍一下我</h1><p>欢迎来到<a href="https://hex3f.com">hex3f</a>，你现在看到的是我的博客，没错，这个博客内容很少，不过我分享的一定是一些干货。那么，这个网站存在的意义是什么呢？<br><span id="more"></span><br>首先跟大家介绍一下我自己，我，出生于1999年，男，喜欢极限运动，（自称）是一名独立游戏制作人，之前在独立游戏工作室做TA，目前在一家游戏公司做前端开发。一直想做一款完全由自己的想法开发的游戏，上架渠道就是steam。<br>虽然一直做做停停，从5月份开始直到八月中旬我正式成为一名上班族。当然，在空闲时间我也做了另外的事情来赚钱。但是我立志，一定要做出属于我的游戏！<br>所以这个网站存在是为什么？从很早之前我就有很多博客，服务器一过期就换种风格。不知道为什么一直热衷于博客，这个博客估计是我的第五个博客，不过这个博客应该也是最后一个。<br>兴趣？我的风格一直在变，~~最近喜欢悠闲的生活，听听canon，码代码。除了码代码的时间那就是喜欢锻炼，从小就喜欢跑酷跟街健，喜欢探险未知。<br>我觉得我的性格很独特，或许是因为内心吧。无论多经常跟伙伴玩，我都还是喜欢自己一个人独处的感觉！</p>
 <h1 id="从小开始的学习变化："><a href="#从小开始的学习变化：" class="headerlink" title="从小开始的学习变化："></a>从小开始的学习变化：</h1><ol>
 <li>小学</li>
 </ol>
@@ -74,10 +68,7 @@
 <li>我读职校时候是16年，为什么要来读职校呢，其实刚开始我可以砸钱进高中，可是我非常讨厌文化课，讨厌背那些僵硬的东西，我觉得那东西没卵用（个人感觉）。而且我比较喜欢技术，所以我就进了职校，选了计算机网络与应用专业（每个人的选择、想法与认知都不同，关于进职校的感悟后面可能会写）。</li>
 <li>在职校的前半年，不能说过着迷茫的生活，都是按这老师的进度来，老师教什么，我学什么，放学时间都在玩。我接受知识非常快，而且做的作业还挺不错的，老师还挺看重我的。后来，突然想真正的学技术，感觉我之前都是在浪费时间，包括小学，初中（其实不能算浪费时间，只是说有个阅历，有了解些东西，但是没有真正的学习），第一次学习是在腾讯课堂，当时学技术是为了做游戏，学的是Unity。第一个学的是C#。</li>
 <li>在第二年，Unity跟C#的基础的差不多了，后来去系统的学了html,css,js,php，汇编，感觉做网站还挺有意思的。这时候开始喜欢上搭建博客，用过wordpress,discuz（我知道这是做论坛的，但是我用它做过博客）,z-blog等。我做的最大的博客叫鹰网（hawkweb）,我在里面写了很多技术知识。最后服务器过期了就关了。后来还学了python，因为突然对人工智能感兴趣，然后学到一半就没学了。之后对编曲感兴趣，学了点FL Studio的基础。</li>
-<li>我进过平面设计的兴趣小组，参加过一次平面设计世界技能大赛市选拔赛，但是那时候没啥灵感，就没拿奖。后来进了学校的网络安全兴趣小组，但是学习气氛太差我就进了网页设计兴趣小组，准备去参加网页设计的世界技能大赛。不过在这个时候，我发自内心的想开发游戏，之后我就退出了兴趣小组。正式的开始了游戏开发之旅（这是我自己的选择）！</li>
-</ul>
-<p>4.职业生涯</p>
-<ul>
+<li>我进过平面设计的兴趣小组，参加过一次平面设计世界技能大赛市选拔赛，但是那时候没啥灵感，就没拿奖。后来进了学校的网络安全兴趣小组，但是学习气氛太差我就进了网页设计兴趣小组，准备去参加网页设计的世界技能大赛。不过在这个时候，我发自内心的想开发游戏，之后我就退出了兴趣小组。正式的开始了游戏开发之旅（这是我自己的选择）！<br>4.职业生涯</li>
 <li>游戏音效：为什么一个程序突然去做这个了？因为在19年的时候，参加了一次Game Jam。然后主办方是一家做独立游戏的公司（透露一下，是做纽扣兄弟的，<a href="https://store.steampowered.com/app/623320/Button_Button_Up/">Steam页面</a>）。因为那个时候痴迷于编曲，所以现场就带了把midi键盘编曲。后来因为公司的一个项目需要音效。之前我是有加制作人的微信，后来他就找我谈了这件事情。于是我就阴差阳错的进入了这个行业啦！（原本我是想从事网站开发-后端的）</li>
 <li>技术美术和程序：因为我现在这个部门是专门负责美术的，所以我就学起了特效开发。主要是用shader跟粒子系统。虽然不是非常感兴趣，但是对我未来做游戏帮助还是挺大的，所以就学习了这个。程序就是我们现在游戏的技能编写，主要是用到lua。</li>
 </ul>
@@ -110,42 +101,8 @@
   <entry>
     <title>Godot fabric fluttering shader</title>
     <url>/2020/09/11/Godot-fabric-fluttering-shader/</url>
-    <content><![CDATA[<p>Godot实现布料飘动的shader</p>
-<span id="more"></span> 
-<p>Godot的一些shader是真的不好找，今天在某个论坛里面找到比较不错的shader。<br>可以用在布料飘动上，例如旗帜啥的。<br>出处<a href="https://forum.defold.com/t/2d-pixelated-grass-shader/56501/3">Defold forum</a></p>
-<figure class="highlight glsl"><table><tbody><tr><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> hair_vertical_offs;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> hair_horizontal_offs = - <span class="number">60.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> fragment() {</span><br><span class="line">	<span class="type">float</span> t = TIME;</span><br><span class="line">	<span class="type">vec2</span> uv = UV;</span><br><span class="line">	<span class="type">float</span> uv_x_deform = <span class="built_in">cos</span>(uv.x);</span><br><span class="line">	<span class="type">vec2</span> offs_uv = <span class="type">vec2</span>(<span class="built_in">cos</span>(t * <span class="number">2.0</span> + uv.y * <span class="number">10.0</span>) + hair_horizontal_offs * ( uv.x) * ( uv.x) * <span class="number">0.3</span>, <span class="built_in">cos</span>(t * <span class="number">2.0</span> + uv.x * <span class="number">20.0</span>) + hair_vertical_offs * (<span class="number">1.2</span> - uv.x)) * <span class="number">0.03</span> * (<span class="number">1.0</span> - uv.x);</span><br><span class="line">	</span><br><span class="line">	<span class="type">vec4</span> img = <span class="built_in">texture</span>(TEXTURE, uv + <span class="type">vec2</span>(offs_uv.x, offs_uv.y));</span><br><span class="line">	COLOR = img;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>效果图：</p>
-<img src="/2020/09/11/Godot-fabric-fluttering-shader/Fabric-fluttering.gif" class="" title="飘布"><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <tags>
-        <tag>GodotShader</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GODOT LIGHTNING SHADER</title>
-    <url>/2020/09/15/Godot-lightning-shader/</url>
-    <content><![CDATA[<p>实现Godot雷电shader</p>
-<span id="more"></span> 
-<figure class="highlight glsl"><table><tbody><tr><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> plot(<span class="type">vec2</span> st, <span class="type">float</span> pct,<span class="type">float</span> half_width){</span><br><span class="line">  <span class="keyword">return</span>  <span class="built_in">smoothstep</span>( pct-half_width, pct, st.y) -</span><br><span class="line">          <span class="built_in">smoothstep</span>( pct, pct+half_width, st.y);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> rand(<span class="type">vec2</span> n) {</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">fract</span>(<span class="built_in">sin</span>(<span class="built_in">dot</span>(n, <span class="type">vec2</span>(<span class="number">12.9898</span>, <span class="number">4.1414</span>))) * <span class="number">43758.5453</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> noise(<span class="type">vec2</span> n) {</span><br><span class="line">    <span class="keyword">const</span> <span class="type">vec2</span> d = <span class="type">vec2</span>(<span class="number">0.0</span>, <span class="number">1.0</span>);</span><br><span class="line">    <span class="type">vec2</span> b = <span class="built_in">floor</span>(n), f = <span class="built_in">smoothstep</span>(<span class="type">vec2</span>(<span class="number">0.0</span>), <span class="type">vec2</span>(<span class="number">1.0</span>), <span class="built_in">fract</span>(n));</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">mix</span>(<span class="built_in">mix</span>(rand(b), rand(b + d.yx), f.x), <span class="built_in">mix</span>(rand(b + d.xy), rand(b + d.yy), f.x), f.y);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> fbm(<span class="type">vec2</span> n) {</span><br><span class="line">    <span class="type">float</span> total = <span class="number">0.0</span>, amplitude = <span class="number">1.0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) {</span><br><span class="line">        total += noise(n) * amplitude;</span><br><span class="line">        n += n;</span><br><span class="line">        amplitude *= <span class="number">0.5</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> fragment(){</span><br><span class="line">	<span class="type">vec2</span> uv = UV;</span><br><span class="line">	<span class="type">vec4</span> color = <span class="type">vec4</span>(<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>);</span><br><span class="line">	<span class="type">vec2</span> t;</span><br><span class="line">	<span class="type">float</span> y;</span><br><span class="line">	<span class="type">float</span> pct;</span><br><span class="line">	<span class="type">float</span> <span class="keyword">buffer</span> = plot(uv,y,<span class="number">0.08</span>);</span><br><span class="line">	color += pct * <span class="type">vec4</span>(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>);</span><br><span class="line">	color += <span class="keyword">buffer</span> * <span class="type">vec4</span>(<span class="number">0.2</span>,<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> lightning_number = <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; lightning_number; i++){</span><br><span class="line">		t = uv * <span class="type">vec2</span>(<span class="number">2.0</span>,<span class="number">1.0</span>) + <span class="type">vec2</span>(<span class="type">float</span>(i) - <span class="type">float</span>(i)) - TIME*<span class="number">3.0</span>;</span><br><span class="line">		y = fbm(t)*<span class="number">0.5</span>;</span><br><span class="line">		pct = plot(uv,y,<span class="number">0.02</span>);</span><br><span class="line">		<span class="keyword">buffer</span> = plot(uv,y,<span class="number">0.08</span>);</span><br><span class="line">		color += pct * <span class="type">vec4</span>(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>);</span><br><span class="line">		color += <span class="keyword">buffer</span> * <span class="type">vec4</span>(<span class="number">0.2</span>,<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.0</span>);</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	COLOR = color;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>效果图：</p>
-<img src="/2020/09/15/Godot-lightning-shader/Lightning-shader.gif" class="" title="雷电shader"><script>
+    <content><![CDATA[<p>Godot实现布料飘动的shader<br><span id="more"></span><br>Godot的一些shader是真的不好找，今天在某个论坛里面找到比较不错的shader。<br>可以用在布料飘动上，例如旗帜啥的。<br>出处<a href="https://forum.defold.com/t/2d-pixelated-grass-shader/56501/3">Defold forum</a><br></p><figure class="highlight glsl"><table><tbody><tr><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> hair_vertical_offs;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> hair_horizontal_offs = - <span class="number">60.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> fragment() {</span><br><span class="line">	<span class="type">float</span> t = TIME;</span><br><span class="line">	<span class="type">vec2</span> uv = UV;</span><br><span class="line">	<span class="type">float</span> uv_x_deform = <span class="built_in">cos</span>(uv.x);</span><br><span class="line">	<span class="type">vec2</span> offs_uv = <span class="type">vec2</span>(<span class="built_in">cos</span>(t * <span class="number">2.0</span> + uv.y * <span class="number">10.0</span>) + hair_horizontal_offs * ( uv.x) * ( uv.x) * <span class="number">0.3</span>, <span class="built_in">cos</span>(t * <span class="number">2.0</span> + uv.x * <span class="number">20.0</span>) + hair_vertical_offs * (<span class="number">1.2</span> - uv.x)) * <span class="number">0.03</span> * (<span class="number">1.0</span> - uv.x);</span><br><span class="line">	</span><br><span class="line">	<span class="type">vec4</span> img = <span class="built_in">texture</span>(TEXTURE, uv + <span class="type">vec2</span>(offs_uv.x, offs_uv.y));</span><br><span class="line">	COLOR = img;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><br>效果图：<br><img src="/2020/09/11/Godot-fabric-fluttering-shader/Fabric-fluttering.gif" class="" title="飘布"><p></p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -171,23 +128,35 @@
   <entry>
     <title>Godot swaying grass shader</title>
     <url>/2020/09/09/Godot-swaying-grass-shader/</url>
-    <content><![CDATA[<p>实现Godot草丛晃动shader</p>
-<span id="more"></span> 
-<p>在做项目的时候有个需求，就是让草会摇晃起来，找到了下面这个解决方案<br>在一个sprite上添加一个shader</p>
-<figure class="highlight glsl"><table><tbody><tr><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> vertex(){</span><br><span class="line">	VERTEX.x += <span class="built_in">cos</span>(TIME * shake_speed) * (VERTEX.y - moving_speed) * stretch_speed;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<img src="/2020/09/09/Godot-swaying-grass-shader/Swaying_Grass_No_Limit_Y.gif" class="" title="摇动的草">
-<p>会发现整颗草都摇起来了，问题是草根的部分也摇起来了，把网格Y轴限制住就好了</p>
-<figure class="highlight glsl"><table><tbody><tr><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> vertex(){</span><br><span class="line">	<span class="keyword">if</span>(VERTEX.y &lt; Limit)</span><br><span class="line">	VERTEX.x += <span class="built_in">cos</span>(TIME * shake_speed) * (VERTEX.y - moving_speed) * stretch_speed;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<img src="/2020/09/09/Godot-swaying-grass-shader/Swaying_Grass_Limit_Y.gif" class="" title="锁住Y轴摇动的草">
-<p>注意，所有参数都要是float<br>参考：Limit = 10.0,shake_speed = 1.5,moving_speed = 38.0,stretch_speed = 0.1;</p>
-<p>但是你会发现如果放入一堆草丛就会导致好像僵尸一样，都向一个方向一个速度位移</p>
-<img src="/2020/09/09/Godot-swaying-grass-shader/Grass.gif" class="" title="草从">
-<p>所以接下来就要写脚本了，先在原来的shader里面定义一个外部变量，来控制方向上的速度</p>
-<figure class="highlight glsl"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> RandomDir;</span><br></pre></td></tr></tbody></table></figure>
-<p>将这个数值替换到shake_speed上<br>然后在sprite身上添加一个脚本，随机一个数值赋值到RandomDir上</p>
-<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line">extends Sprite</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">	randomize();</span><br><span class="line">	self.material.set_shader_param(<span class="string">"RandomDir"</span>, rand_range(<span class="built_in">min</span>,<span class="built_in">max</span>));</span><br></pre></td></tr></tbody></table></figure>
-<img src="/2020/09/09/Godot-swaying-grass-shader/Random_Grass.gif" class="" title="随机草从">
-<p>参考：min = -1,max = 1;<br>意思是方向上的速度1到-1之间随机，这样就达成了群魔乱舞的效果了！</p>
+    <content><![CDATA[<p>实现Godot草丛晃动shader<br><span id="more"></span><br>在做项目的时候有个需求，就是让草会摇晃起来，找到了下面这个解决方案<br>在一个sprite上添加一个shader<br></p><figure class="highlight glsl"><table><tbody><tr><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> vertex(){</span><br><span class="line">	VERTEX.x += <span class="built_in">cos</span>(TIME * shake_speed) * (VERTEX.y - moving_speed) * stretch_speed;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><br><img src="/2020/09/09/Godot-swaying-grass-shader/Swaying_Grass_No_Limit_Y.gif" class="" title="摇动的草"><br>会发现整颗草都摇起来了，问题是草根的部分也摇起来了，把网格Y轴限制住就好了<br><figure class="highlight glsl"><table><tbody><tr><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> vertex(){</span><br><span class="line">	<span class="keyword">if</span>(VERTEX.y &lt; Limit)</span><br><span class="line">	VERTEX.x += <span class="built_in">cos</span>(TIME * shake_speed) * (VERTEX.y - moving_speed) * stretch_speed;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><br><img src="/2020/09/09/Godot-swaying-grass-shader/Swaying_Grass_Limit_Y.gif" class="" title="锁住Y轴摇动的草"><br>注意，所有参数都要是float<br>参考：Limit = 10.0,shake_speed = 1.5,moving_speed = 38.0,stretch_speed = 0.1;<p></p>
+<p>但是你会发现如果放入一堆草丛就会导致好像僵尸一样，都向一个方向一个速度位移<br><img src="/2020/09/09/Godot-swaying-grass-shader/Grass.gif" class="" title="草从"><br>所以接下来就要写脚本了，先在原来的shader里面定义一个外部变量，来控制方向上的速度<br></p><figure class="highlight glsl"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> RandomDir;</span><br></pre></td></tr></tbody></table></figure><br>将这个数值替换到shake_speed上<br>然后在sprite身上添加一个脚本，随机一个数值赋值到RandomDir上<br><figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line">extends Sprite</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">	randomize();</span><br><span class="line">	self.material.set_shader_param(<span class="string">"RandomDir"</span>, rand_range(<span class="built_in">min</span>,<span class="built_in">max</span>));</span><br></pre></td></tr></tbody></table></figure><br><img src="/2020/09/09/Godot-swaying-grass-shader/Random_Grass.gif" class="" title="随机草从"><br>参考：min = -1,max = 1;<br>意思是方向上的速度1到-1之间随机，这样就达成了群魔乱舞的效果了！<p></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>GodotShader</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GODOT LIGHTNING SHADER</title>
+    <url>/2020/09/15/Godot-lightning-shader/</url>
+    <content><![CDATA[<p>实现Godot雷电shader<br><span id="more"></span><br></p><figure class="highlight glsl"><table><tbody><tr><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> plot(<span class="type">vec2</span> st, <span class="type">float</span> pct,<span class="type">float</span> half_width){</span><br><span class="line">  <span class="keyword">return</span>  <span class="built_in">smoothstep</span>( pct-half_width, pct, st.y) -</span><br><span class="line">          <span class="built_in">smoothstep</span>( pct, pct+half_width, st.y);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> rand(<span class="type">vec2</span> n) {</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">fract</span>(<span class="built_in">sin</span>(<span class="built_in">dot</span>(n, <span class="type">vec2</span>(<span class="number">12.9898</span>, <span class="number">4.1414</span>))) * <span class="number">43758.5453</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> noise(<span class="type">vec2</span> n) {</span><br><span class="line">    <span class="keyword">const</span> <span class="type">vec2</span> d = <span class="type">vec2</span>(<span class="number">0.0</span>, <span class="number">1.0</span>);</span><br><span class="line">    <span class="type">vec2</span> b = <span class="built_in">floor</span>(n), f = <span class="built_in">smoothstep</span>(<span class="type">vec2</span>(<span class="number">0.0</span>), <span class="type">vec2</span>(<span class="number">1.0</span>), <span class="built_in">fract</span>(n));</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">mix</span>(<span class="built_in">mix</span>(rand(b), rand(b + d.yx), f.x), <span class="built_in">mix</span>(rand(b + d.xy), rand(b + d.yy), f.x), f.y);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> fbm(<span class="type">vec2</span> n) {</span><br><span class="line">    <span class="type">float</span> total = <span class="number">0.0</span>, amplitude = <span class="number">1.0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) {</span><br><span class="line">        total += noise(n) * amplitude;</span><br><span class="line">        n += n;</span><br><span class="line">        amplitude *= <span class="number">0.5</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> fragment(){</span><br><span class="line">	<span class="type">vec2</span> uv = UV;</span><br><span class="line">	<span class="type">vec4</span> color = <span class="type">vec4</span>(<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>);</span><br><span class="line">	<span class="type">vec2</span> t;</span><br><span class="line">	<span class="type">float</span> y;</span><br><span class="line">	<span class="type">float</span> pct;</span><br><span class="line">	<span class="type">float</span> <span class="keyword">buffer</span> = plot(uv,y,<span class="number">0.08</span>);</span><br><span class="line">	color += pct * <span class="type">vec4</span>(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>);</span><br><span class="line">	color += <span class="keyword">buffer</span> * <span class="type">vec4</span>(<span class="number">0.2</span>,<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> lightning_number = <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; lightning_number; i++){</span><br><span class="line">		t = uv * <span class="type">vec2</span>(<span class="number">2.0</span>,<span class="number">1.0</span>) + <span class="type">vec2</span>(<span class="type">float</span>(i) - <span class="type">float</span>(i)) - TIME*<span class="number">3.0</span>;</span><br><span class="line">		y = fbm(t)*<span class="number">0.5</span>;</span><br><span class="line">		pct = plot(uv,y,<span class="number">0.02</span>);</span><br><span class="line">		<span class="keyword">buffer</span> = plot(uv,y,<span class="number">0.08</span>);</span><br><span class="line">		color += pct * <span class="type">vec4</span>(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>);</span><br><span class="line">		color += <span class="keyword">buffer</span> * <span class="type">vec4</span>(<span class="number">0.2</span>,<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.0</span>);</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	COLOR = color;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><br>效果图：<br><img src="/2020/09/15/Godot-lightning-shader/Lightning-shader.gif" class="" title="雷电shader"><p></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -214,32 +183,8 @@
   <entry>
     <title>Godot wheat wave visual shader</title>
     <url>/2020/09/09/Godot-wheat-wave-visual-shader/</url>
-    <content><![CDATA[<p>实现Godot麦浪shader</p>
-<span id="more"></span> 
-<p>这个shader困惑我挺久的，思路就是让图片移动，然后在上面制造像水浪的那种效果，这样看上去就会像麦浪了。<br>首先需要一张麦浪的图片</p>
-<img src="/2020/09/09/Godot-wheat-wave-visual-shader/WheatWave.png" class="" title="麦浪素材图">
-<p>把麦浪图片的显示模式更改为重复。这样在播放的时候就不会只播放一次。点击图片然后再点击Import标签里的Flags修改Repeat为Enabled。</p>
-<img src="/2020/09/09/Godot-wheat-wave-visual-shader/Change-wheat-image-mode-to-repeat.PNG" class="" title="更改麦田图片模式">
-<p>然后在麦田sprite上创建shader，创建UV贴图将x,y轴分开，在x,y轴上新建一个ScalarOp，方法为Multiply。再在a或者b上创建一个Scalar Uniform，这样可以在外部控制变量。让他乘以某个数可以做到对图片的放大缩小。</p>
-<img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-size.PNG" class="" title="Shader更改UV大小">
-<p>然后再用x,y轴加上一个值乘以time做到图片上下移动，在乘法上的a或者b连接Scalar Uniform在外部控制移动速度。</p>
-<img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-move-uv.PNG" class="" title="Shader移动UV">
-<p>做完上面的操作，再用一个VectorCompose将x跟y连接在一起。最终连接上麦浪的Texture与Output的Color值跟Alpha值连接就可以看到麦浪移动的效果了。</p>
-<img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-connect-output.PNG" class="" title="Shader连接output">
-<p>效果图：</p>
-<img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave_1.gif" class="" title="无波纹麦浪">
-<p>但是目前这样的效果太单调了，单纯是一张图片在移动，所以可以做一个类似波浪的效果在麦浪上面，这样麦浪看上去一直在变换。<br>现在就需要一张noise，然后在贴图上移动，所以noise做的操作跟上面的步骤也是类似的。<br>noise大小，2048 pixel * 2048pixel，做法就是用Photoshop的滤镜分层云彩或者云彩，然后用涂抹工具涂抹。<br>Noise效果图：</p>
-<img src="/2020/09/09/Godot-wheat-wave-visual-shader/noise.png" class="" title="噪声效果图">
-<p>导入Noise图片的时候注意也要把Repeat改成Enabled，播放一遍就没了。<br>连线跟上面也一样，首先创建UV贴图，然后要可以控制噪声的大小，移动速度。最后再连接到噪声的贴图上。</p>
-<img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseShader.PNG" class="" title="噪声shader连线">
-<p>Output连线：</p>
-<img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseConnectOutput.PNG" class="" title="噪声shader_output连线">
-<p>最后再跟上面的连接到一起就OK了！</p>
-
-<p>参数参考：</p>
-<img src="/2020/09/09/Godot-wheat-wave-visual-shader/Parameter-reference.PNG" class="" title="参数参考">
-<p>最终效果</p>
-<img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave.gif" class="" title="麦浪"><script>
+    <content><![CDATA[<p>实现Godot麦浪shader<br><span id="more"></span><br>这个shader困惑我挺久的，思路就是让图片移动，然后在上面制造像水浪的那种效果，这样看上去就会像麦浪了。<br>首先需要一张麦浪的图片<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/WheatWave.png" class="" title="麦浪素材图"><br>把麦浪图片的显示模式更改为重复。这样在播放的时候就不会只播放一次。点击图片然后再点击Import标签里的Flags修改Repeat为Enabled。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Change-wheat-image-mode-to-repeat.PNG" class="" title="更改麦田图片模式"><br>然后在麦田sprite上创建shader，创建UV贴图将x,y轴分开，在x,y轴上新建一个ScalarOp，方法为Multiply。再在a或者b上创建一个Scalar Uniform，这样可以在外部控制变量。让他乘以某个数可以做到对图片的放大缩小。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-size.PNG" class="" title="Shader更改UV大小"><br>然后再用x,y轴加上一个值乘以time做到图片上下移动，在乘法上的a或者b连接Scalar Uniform在外部控制移动速度。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-move-uv.PNG" class="" title="Shader移动UV"><br>做完上面的操作，再用一个VectorCompose将x跟y连接在一起。最终连接上麦浪的Texture与Output的Color值跟Alpha值连接就可以看到麦浪移动的效果了。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-connect-output.PNG" class="" title="Shader连接output"><br>效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave_1.gif" class="" title="无波纹麦浪"><br>但是目前这样的效果太单调了，单纯是一张图片在移动，所以可以做一个类似波浪的效果在麦浪上面，这样麦浪看上去一直在变换。<br>现在就需要一张noise，然后在贴图上移动，所以noise做的操作跟上面的步骤也是类似的。<br>noise大小，2048 pixel * 2048pixel，做法就是用Photoshop的滤镜分层云彩或者云彩，然后用涂抹工具涂抹。<br>Noise效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/noise.png" class="" title="噪声效果图"><br>导入Noise图片的时候注意也要把Repeat改成Enabled，播放一遍就没了。<br>连线跟上面也一样，首先创建UV贴图，然后要可以控制噪声的大小，移动速度。最后再连接到噪声的贴图上。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseShader.PNG" class="" title="噪声shader连线"><br>Output连线：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseConnectOutput.PNG" class="" title="噪声shader_output连线"><br>最后再跟上面的连接到一起就OK了！<br><br>参数参考：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Parameter-reference.PNG" class="" title="参数参考"><br>最终效果<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave.gif" class="" title="麦浪"></p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -265,9 +210,7 @@
   <entry>
     <title>Use frequently</title>
     <url>/2019/11/02/Use%20frequently/</url>
-    <content><![CDATA[<h1 id="介绍-Description"><a href="#介绍-Description" class="headerlink" title="介绍 Description"></a>介绍 Description</h1><p>这个页面将会存放一些我经常使用的工具、插件或网站。<br>This page will store some tools, plugins, or websites that I use often.</p>
-<span id="more"></span> 
-
+    <content><![CDATA[<h1 id="介绍-Description"><a href="#介绍-Description" class="headerlink" title="介绍 Description"></a>介绍 Description</h1><p>这个页面将会存放一些我经常使用的工具、插件或网站。<br>This page will store some tools, plugins, or websites that I use often.<br><span id="more"></span> </p>
 <h1 id="Website"><a href="#Website" class="headerlink" title="Website"></a>Website</h1><ul>
 <li>Model download website<br><a href="https://sketchfab.com/">sketchfab</a><br>里面有很多不错的免费模型，也有很好看的付费模型可以下载。对于3D游戏或者建模开发有帮助。</li>
 <li>character model Animation<br><a href="https://www.mixamo.com/">mixamo</a><br>这个网站mixamo目前是被adobe收购的，主要用于人物的动画。里面的动作非常非常多，而且可以免费下载。</li>
@@ -318,10 +261,8 @@
   <entry>
     <title>github git push remote fatal pack exceeds maximum allowed size error</title>
     <url>/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/</url>
-    <content><![CDATA[<p>Key words：<br>remote: fatal: pack exceeds maximum allowed size<br>fatal: sha1 file ‘<stdout>‘ write error: Broken pipe<br>error: remote unpack failed: index-pack abnormal exit<br>To github.com:    <a href="mailto:git@github.com">git@github.com</a>:xxx/xxx.git<br> ! [remote rejected]    main -&gt; main (failed)<br>error: failed to push some refs to ‘git@github.com:xxx/xxx.git’</stdout></p>
-<div style="align:left;height:185.23px;width:483px;"><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/error.png" class="" title="git error"></div>
-<span id="more"></span> 
-
+    <content><![CDATA[<p>Key words：<br>remote: fatal: pack exceeds maximum allowed size<br>fatal: sha1 file ‘<stdout>‘ write error: Broken pipe<br>error: remote unpack failed: index-pack abnormal exit<br>To github.com:    <a href="mailto:git@github.com">git@github.com</a>:xxx/xxx.git<br> ! [remote rejected]    main -&gt; main (failed)<br>error: failed to push some refs to <a href="mailto:'git@github.com">'git@github.com</a>:xxx/xxx.git’</stdout></p>
+<p></p><div style="align:left;height:185.23px;width:483px;"><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/error.png" class="" title="git error"></div><br><span id="more"></span> <p></p>
 <h1 id="Possible-reason"><a href="#Possible-reason" class="headerlink" title="Possible reason"></a>Possible reason</h1><ol>
 <li>single file is larger than 100m and git lfs is not turned on</li>
 <li>Single push size is greater than 2GB</li>
@@ -331,12 +272,12 @@
 </ol>
 <ul>
 <li>Turn on lfs<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">git lfs install</span><br></pre></td></tr></tbody></table></figure></li>
-<li>All large file tracking (It will be written to the gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></tbody></table></figure></li>
-<li>Example: Track all files with png suffix (It will be written to the gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">git lfs track "*.png"</span><br></pre></td></tr></tbody></table></figure></li>
+<li>All large file tracking (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></tbody></table></figure></li>
+<li>Example: Track all files with png suffix (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">git lfs track "*.png"</span><br></pre></td></tr></tbody></table></figure></li>
 <li>View existing file tracking patterns<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></tbody></table></figure></li>
-<li>Push code requires a gitattributes file to be push to the repository. It keeps trace of file.<br>The list of currently tracked files can be displayed after push<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">git lfs ls-files</span><br></pre></td></tr></tbody></table></figure></li>
-<li>Tip:<br>Use lfs must push to use ssh, using https will not work!<br>Github has 1GB lfs repository for free users. Any more than that will be charged. The cost is $5 for 50GB per month.<div float:left=""><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/lfs.png" class="" title="git_lfs"></div></li>
-<li>For Chinese users:<br>Ali cloud code does not support lfs push.</li>
+<li>Commit code requires a .gitattributes file to be commit to the repository. It keeps trace of file.<br>The list of currently tracked files can be displayed after commit<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">git lfs ls-files</span><br></pre></td></tr></tbody></table></figure></li>
+<li>Tip:<br>Use lfs must commit to use ssh, using https will not work!<br>Please be sure to commit .gitattributes files to the repository first before commit other files.<br>Github has 1GB lfs repository for free users. Any more than that will be charged. The cost is $5 for 50GB per month.<div float:left=""><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/lfs.png" class="" title="git_lfs"></div></li>
+<li>For Chinese users:<br>Ali cloud code does not support lfs commit.</li>
 </ul>
 <ol start="2">
 <li>The solution to the second problem is very simple. Because github does not allow a single push larger than 2G, you can push it in batches. Split the push into part1, part2…</li>
@@ -380,7 +321,6 @@
 
     </div>
 </div>
-
 <!-- 文章 -->
 <div class="spoiler collapsed">
     <div class="spoiler-title">
@@ -391,7 +331,6 @@
 
     </div>
 </div>
-
 <!-- 文章 -->
 <div class="spoiler collapsed">
     <div class="spoiler-title">
@@ -402,7 +341,6 @@
 
     </div>
 </div>
-
 <!-- 文章 -->
 <div class="spoiler collapsed">
     <div class="spoiler-title">
@@ -413,7 +351,6 @@
 
     </div>
 </div>
-
 <!-- 文章 -->
 <div class="spoiler collapsed">
     <div class="spoiler-title">
@@ -426,7 +363,6 @@
 
     </div>
 </div>
-
 <!-- 文章 -->
 <div class="spoiler collapsed">
     <div class="spoiler-title">
@@ -439,7 +375,6 @@
 
     </div>
 </div>
-
 <!-- 文章 -->
 <div class="spoiler collapsed">
     <div class="spoiler-title">
@@ -450,7 +385,6 @@
 
     </div>
 </div>
-
 <!-- 文章 -->
 <div class="spoiler collapsed">
     <div class="spoiler-title">
@@ -462,21 +396,20 @@
 
     </div>
 </div>
-
 <!-- 文章 -->
 <div class="spoiler collapsed">
     <div class="spoiler-title">
         谈谈一些事 - DATE:2019/12/12 19:53
     </div>
     <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">谈谈一些事</font></p>
+        <font style="line-height:50px;" color="white">谈谈一些事</font>
+
 <p>今天跟和我一起学游戏开发的同学聊了好多，也算是抱怨吧。聊了聊父母对我们做独立游戏的看法，看来大多数父母都不赞同，大多数父母看来，这是没出路的，除非你要拿出点成绩。不过大多数父母也不会去换位思考，去理解它们的孩子。<br>其实我们跟父母沟通也好，还是你的朋友。沟通交流最后是为了解决问题，而大多数情况下，并不是这样，到最后都是争吵而不了了之。而我们万般无奈，无能为力！这也是很多人会抑郁的原因吧。<br>最后我想说，当你孩子成功之后，希望不要去吹捧你孩子的成就，因为这不是你的功劳。</p>
 <p>在今天算是把电脑该买的都买的，最终配置单如下：<br>MB: ROG B450-I    989RMB<br>CPU: R9 3900x    3939RMB<br>GPU: MSI RTX 2060 SUPER    3169RMB<br>RAM: G.SKILL 16x2 1199RMB<br>SSD: SAMSUNG 970 EVO Plus 768RMB<br>POWER: USCORSAIR SF600 859RMB<br>CASE: LILIAN TU150 739RMB<br>CPU FAN: Thermalright FS140 249RMB<br>RGB FAN: Thermalright TL-C12S 279RMB<br><del>RGB HUB: 19.9RMB（这玩意买了但是没用，因为风扇可以串联）</del></p>
 <p>刚刚双十二，海盗船的SF600白金是没货的，等我买完金牌睡一觉起来，我擦，白金有货了！！！差价就50！最后还是用了金牌。<br>哦对了，突然想起来，昨天在上课的时候有个老师听说我去给另一个老师班级做学习分享，然后让我去他们班也做做分享，感觉有点小慌。</p>
 
     </div>
 </div>
-
 <!-- 文章 -->
 <div class="spoiler collapsed">
     <div class="spoiler-title">
@@ -487,7 +420,6 @@
 
     </div>
 </div>
-
 <!-- 文章 -->
 <div class="spoiler collapsed">
     <div class="spoiler-title">
@@ -498,7 +430,6 @@
 
     </div>
 </div>
-
 <!-- 文章 -->
 <div class="spoiler collapsed">
     <div class="spoiler-title">
@@ -509,7 +440,6 @@
 
     </div>
 </div>
-
 <!-- 文章 -->
 <div class="spoiler collapsed">
     <div class="spoiler-title">

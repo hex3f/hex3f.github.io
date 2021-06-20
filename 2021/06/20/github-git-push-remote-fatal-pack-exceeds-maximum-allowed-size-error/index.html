@@ -105,10 +105,8 @@
 	<div class="mypage">		
 	  		
 
-	  <p>Key words：<br>remote: fatal: pack exceeds maximum allowed size<br>fatal: sha1 file ‘<stdout>‘ write error: Broken pipe<br>error: remote unpack failed: index-pack abnormal exit<br>To github.com:    <a href="mailto:git@github.com">git@github.com</a>:xxx/xxx.git<br> ! [remote rejected]    main -&gt; main (failed)<br>error: failed to push some refs to ‘git@github.com:xxx/xxx.git’</stdout></p>
-<div style="align:left;height:185.23px;width:483px;"><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/error.png" class="" title="git error"></div>
-<span id="more"></span> 
-
+	  <p>Key words：<br>remote: fatal: pack exceeds maximum allowed size<br>fatal: sha1 file ‘<stdout>‘ write error: Broken pipe<br>error: remote unpack failed: index-pack abnormal exit<br>To github.com:    <a href="mailto:git@github.com">git@github.com</a>:xxx/xxx.git<br> ! [remote rejected]    main -&gt; main (failed)<br>error: failed to push some refs to <a href="mailto:'git@github.com">'git@github.com</a>:xxx/xxx.git’</stdout></p>
+<p></p><div style="align:left;height:185.23px;width:483px;"><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/error.png" class="" title="git error"></div><br><span id="more"></span> <p></p>
 <h1 id="Possible-reason"><a href="#Possible-reason" class="headerlink" title="Possible reason"></a>Possible reason</h1><ol>
 <li>single file is larger than 100m and git lfs is not turned on</li>
 <li>Single push size is greater than 2GB</li>
@@ -118,12 +116,12 @@
 </ol>
 <ul>
 <li>Turn on lfs<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs install</span><br></pre></td></tr></tbody></table></figure></li>
-<li>All large file tracking (It will be written to the gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></tbody></table></figure></li>
-<li>Example: Track all files with png suffix (It will be written to the gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs track "*.png"</span><br></pre></td></tr></tbody></table></figure></li>
+<li>All large file tracking (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></tbody></table></figure></li>
+<li>Example: Track all files with png suffix (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs track "*.png"</span><br></pre></td></tr></tbody></table></figure></li>
 <li>View existing file tracking patterns<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></tbody></table></figure></li>
-<li>Push code requires a gitattributes file to be push to the repository. It keeps trace of file.<br>The list of currently tracked files can be displayed after push<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs ls-files</span><br></pre></td></tr></tbody></table></figure></li>
-<li>Tip:<br>Use lfs must push to use ssh, using https will not work!<br>Github has 1GB lfs repository for free users. Any more than that will be charged. The cost is $5 for 50GB per month.<div float:left=""><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/lfs.png" class="" title="git_lfs"></div></li>
-<li>For Chinese users:<br>Ali cloud code does not support lfs push.</li>
+<li>Commit code requires a .gitattributes file to be commit to the repository. It keeps trace of file.<br>The list of currently tracked files can be displayed after commit<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs ls-files</span><br></pre></td></tr></tbody></table></figure></li>
+<li>Tip:<br>Use lfs must commit to use ssh, using https will not work!<br>Please be sure to commit .gitattributes files to the repository first before commit other files.<br>Github has 1GB lfs repository for free users. Any more than that will be charged. The cost is $5 for 50GB per month.<div float:left=""><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/lfs.png" class="" title="git_lfs"></div></li>
+<li>For Chinese users:<br>Ali cloud code does not support lfs commit.</li>
 </ul>
 <ol start="2">
 <li>The solution to the second problem is very simple. Because github does not allow a single push larger than 2G, you can push it in batches. Split the push into part1, part2…</li>
