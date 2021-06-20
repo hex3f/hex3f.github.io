@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AMD PC install Mac os in VMware</title>
+    <url>/2020/01/04/AMD-PC-install-Mac-os-in-VMware/</url>
+    <content><![CDATA[<p>AMD平台在VMware安装mac os<br><span id="more"></span><br>其实最早之前是在VMware里装过mac的，但之前是intel的cpu，装mac会比较容易，问题也没那么多。最近去看了看unlocker的github项目好像已经删除了，应该是停止更新了。</p>
+<p>环境：<br>DATE：2020/1/4 22:53<br>CPU：AMD R9 3900X<br>GPU: MSI RTX 2060 Super GAMING X<br>RAM: 32G<br>OS：Windows 10 Pro 18363<br>MacOS Ver：macOS.Mojave.10.14.4.x5 | <a href="https://pan.baidu.com/s/152M13GESrjKRvXnYVyDleQ">下载该镜像</a> 提取码：ka3h<br>VMware Ver：15.1.0 | <a href="http://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe">点击下载</a>（试过15.5.1，但是装不上，最后会提示 未能启动虚拟机。并且如果系统是win10 1903或以上的版本，就需要使用15.1.0或以上版本，不然装不上。）<br>MK-unlocker | <a href="https://www.mediafire.com/file/w4khcmcu7hqo1a7/MK-unlocker.zip/file">点击前往下载页</a>（这个版本是民间的一位大神改的，可以兼容15的版本，安装方法网上查就行了，一查一大把）</p>
+<h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p>（以下问题如果没遇到则不需要修改，并且建议从头开始操作，不要拿之前的项目来继续操作。）</p>
+<ol>
+<li>问题1 （报错 客户机操作系统已禁用CPU，请关闭或重置虚拟机。）：<br>！！！注意，这个方案只适合AMD CPU的电脑！！！<br>前往虚拟机所在目录，使用记事本打开vmx后缀的文件，在最后面加上这些配置（其实加在哪里都行）<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">smc.version = "0"</span><br><span class="line">cpuid.0.eax = "0000:0000:0000:0000:0000:0000:0000:1011"</span><br><span class="line">cpuid.0.ebx = "0111:0101:0110:1110:0110:0101:0100:0111"</span><br><span class="line">cpuid.0.ecx = "0110:1100:0110:0101:0111:0100:0110:1110"</span><br><span class="line">cpuid.0.edx = "0100:1001:0110:0101:0110:1110:0110:1001"</span><br><span class="line">cpuid.1.eax = "0000:0000:0000:0001:0000:0110:0111:0001"</span><br><span class="line">cpuid.1.ebx = "0000:0010:0000:0001:0000:1000:0000:0000"</span><br><span class="line">cpuid.1.ecx = "1000:0010:1001:1000:0010:0010:0000:0011"</span><br><span class="line">cpuid.1.edx = "0000:1111:1010:1011:1111:1011:1111:1111"</span><br><span class="line">featureCompat.enable = "FALSE"</span><br></pre></td></tr></tbody></table></figure>
+ 分支小问题 （报错 这个虚拟机需要avx2，但是没有avx。）：<br> 将vmx配置文件中 virtualHW.version = “” 中引号内的变量改为 “10”。<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">virtualHW.version = "10"</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>问题2 （语言选择界面无法使用鼠标键盘）：<br>打开vmx配置文件，在最后面加上这些配置</p>
+<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">keyboard.vusb.enable = "TRUE"</span><br><span class="line">mouse.vusb.enable = "TRUE"</span><br></pre></td></tr></tbody></table></figure>
+<p> 然后点击VMware Workstation菜单里的”虚拟机”-&gt;”设置”，进入&lt;虚拟机设置&gt;界面，选择&lt;硬件&gt;标签页的&lt;USB控制器&gt;，在左侧的界面里勾选&lt;显示所有USB输入设备（S）&gt;，并把顶部的&lt;USB兼容性（C）&gt;改为USB2.0。</p>
+</li>
+<li><p>问题3（安装系统时报错 Mojave应用程序副本已损坏,不能用来安装macOS）：<br>首先，断开虚拟机的网络。选择网卡断开即可。<br>然后打开左上角实用工具–&gt;终端<br>在终端输入:</p>
+<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">date 032208102015.20</span><br></pre></td></tr></tbody></table></figure>
+<p> 修改完时间就行了，等进入安装系统的步骤时，再连接网络。<br> 目前只遇到这些问题。</p>
+</li>
+</ol>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>VMware</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>About me</title>
     <url>/2019/10/18/About%20me/</url>
     <content><![CDATA[<h1 id="介绍一下我"><a href="#介绍一下我" class="headerlink" title="介绍一下我"></a>介绍一下我</h1><p>欢迎来到<a href="https://hex3f.com">hex3f</a>，你现在看到的是我的博客，没错，这个博客内容很少，不过我分享的一定是一些干货。那么，这个网站存在的意义是什么呢？<br><span id="more"></span><br>首先跟大家介绍一下我自己，我，出生于1999年，男，喜欢极限运动，（自称）是一名独立游戏制作人，之前在独立游戏工作室做TA，目前在一家游戏公司做前端开发。一直想做一款完全由自己的想法开发的游戏，上架渠道就是steam。<br>虽然一直做做停停，从5月份开始直到八月中旬我正式成为一名上班族。当然，在空闲时间我也做了另外的事情来赚钱。但是我立志，一定要做出属于我的游戏！<br>所以这个网站存在是为什么？从很早之前我就有很多博客，服务器一过期就换种风格。不知道为什么一直热衷于博客，这个博客估计是我的第五个博客，不过这个博客应该也是最后一个。<br>兴趣？我的风格一直在变，~~最近喜欢悠闲的生活，听听canon，码代码。除了码代码的时间那就是喜欢锻炼，从小就喜欢跑酷跟街健，喜欢探险未知。<br>我觉得我的性格很独特，或许是因为内心吧。无论多经常跟伙伴玩，我都还是喜欢自己一个人独处的感觉！</p>
@@ -56,47 +97,6 @@
             document.body.appendChild(img);
           });
       </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-  </entry>
-  <entry>
-    <title>AMD PC install Mac os in VMware</title>
-    <url>/2020/01/04/AMD-PC-install-Mac-os-in-VMware/</url>
-    <content><![CDATA[<p>AMD平台在VMware安装mac os<br><span id="more"></span><br>其实最早之前是在VMware里装过mac的，但之前是intel的cpu，装mac会比较容易，问题也没那么多。最近去看了看unlocker的github项目好像已经删除了，应该是停止更新了。</p>
-<p>环境：<br>DATE：2020/1/4 22:53<br>CPU：AMD R9 3900X<br>GPU: MSI RTX 2060 Super GAMING X<br>RAM: 32G<br>OS：Windows 10 Pro 18363<br>MacOS Ver：macOS.Mojave.10.14.4.x5 | <a href="https://pan.baidu.com/s/152M13GESrjKRvXnYVyDleQ">下载该镜像</a> 提取码：ka3h<br>VMware Ver：15.1.0 | <a href="http://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe">点击下载</a>（试过15.5.1，但是装不上，最后会提示 未能启动虚拟机。并且如果系统是win10 1903或以上的版本，就需要使用15.1.0或以上版本，不然装不上。）<br>MK-unlocker | <a href="https://www.mediafire.com/file/w4khcmcu7hqo1a7/MK-unlocker.zip/file">点击前往下载页</a>（这个版本是民间的一位大神改的，可以兼容15的版本，安装方法网上查就行了，一查一大把）</p>
-<h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p>（以下问题如果没遇到则不需要修改，并且建议从头开始操作，不要拿之前的项目来继续操作。）</p>
-<ol>
-<li>问题1 （报错 客户机操作系统已禁用CPU，请关闭或重置虚拟机。）：<br>！！！注意，这个方案只适合AMD CPU的电脑！！！<br>前往虚拟机所在目录，使用记事本打开vmx后缀的文件，在最后面加上这些配置（其实加在哪里都行）<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">smc.version = "0"</span><br><span class="line">cpuid.0.eax = "0000:0000:0000:0000:0000:0000:0000:1011"</span><br><span class="line">cpuid.0.ebx = "0111:0101:0110:1110:0110:0101:0100:0111"</span><br><span class="line">cpuid.0.ecx = "0110:1100:0110:0101:0111:0100:0110:1110"</span><br><span class="line">cpuid.0.edx = "0100:1001:0110:0101:0110:1110:0110:1001"</span><br><span class="line">cpuid.1.eax = "0000:0000:0000:0001:0000:0110:0111:0001"</span><br><span class="line">cpuid.1.ebx = "0000:0010:0000:0001:0000:1000:0000:0000"</span><br><span class="line">cpuid.1.ecx = "1000:0010:1001:1000:0010:0010:0000:0011"</span><br><span class="line">cpuid.1.edx = "0000:1111:1010:1011:1111:1011:1111:1111"</span><br><span class="line">featureCompat.enable = "FALSE"</span><br></pre></td></tr></tbody></table></figure>
- 分支小问题 （报错 这个虚拟机需要avx2，但是没有avx。）：<br> 将vmx配置文件中 virtualHW.version = “” 中引号内的变量改为 “10”。<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">virtualHW.version = "10"</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>问题2 （语言选择界面无法使用鼠标键盘）：<br>打开vmx配置文件，在最后面加上这些配置</p>
-<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">keyboard.vusb.enable = "TRUE"</span><br><span class="line">mouse.vusb.enable = "TRUE"</span><br></pre></td></tr></tbody></table></figure>
-<p> 然后点击VMware Workstation菜单里的”虚拟机”-&gt;”设置”，进入&lt;虚拟机设置&gt;界面，选择&lt;硬件&gt;标签页的&lt;USB控制器&gt;，在左侧的界面里勾选&lt;显示所有USB输入设备（S）&gt;，并把顶部的&lt;USB兼容性（C）&gt;改为USB2.0。</p>
-</li>
-<li><p>问题3（安装系统时报错 Mojave应用程序副本已损坏,不能用来安装macOS）：<br>首先，断开虚拟机的网络。选择网卡断开即可。<br>然后打开左上角实用工具–&gt;终端<br>在终端输入:</p>
-<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">date 032208102015.20</span><br></pre></td></tr></tbody></table></figure>
-<p> 修改完时间就行了，等进入安装系统的步骤时，再连接网络。<br> 目前只遇到这些问题。</p>
-</li>
-</ol>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <tags>
-        <tag>VMware</tag>
-      </tags>
   </entry>
   <entry>
     <title>Godot fabric fluttering shader</title>
@@ -268,7 +268,7 @@
 <li>Single push size is greater than 2GB</li>
 </ol>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><ol>
-<li><p>For the first problem, the solution is very simple. You just need to install lfs on your git to turn it on. And write rules in your gitattributes.<br>If your git doesn’t have lfs integration then you need to go download. <a href="https://github.com/git-lfs/git-lfs/releases">git lfs</a><br>Open git bash and enter the command:<br>Turn on lfs</p>
+<li><p>For the first problem, the solution is very simple. Uploading a single file that is larger than 100MB means you have to use git lfs for push. You just need to install lfs on your git to turn it on. And write rules in your gitattributes.<br>If your git doesn’t have lfs integration then you need to go download. <a href="https://github.com/git-lfs/git-lfs/releases">git lfs</a><br>Open git bash and enter the command:<br>Turn on lfs</p>
 <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">git lfs install</span><br></pre></td></tr></tbody></table></figure>
 <p>All large file tracking (It will be written to the gitattributes file, if not it will be generated)</p>
 <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></tbody></table></figure>
