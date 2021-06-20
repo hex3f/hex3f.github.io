@@ -25,8 +25,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;Key words：&lt;br&gt;remote: fatal: pack exceeds maximum allowed size&lt;br&gt;fatal: sha1 file ‘&amp;lt;stdout&amp;gt;’ write error: Broken pipe&lt;br&gt;error: remote unpack failed: index-pack abnormal exit&lt;br&gt;To github.com: &lt;a href=&quot;mailto:git@github.com&quot;&gt;git@github.com&lt;/a&gt;:xxx/xxx.git&lt;br&gt;![remote rejected]    main -&amp;gt; main (failed)&lt;br&gt;error: failed to push some refs to &lt;a href=&quot;mailto:&amp;#39;git@github.com&quot;&gt;&amp;#39;git@github.com&lt;/a&gt;:xxx/xxx.git’&lt;/p&gt;
-&lt;p&gt;&lt;div style=&quot;align:left;height:185.23px;width:483px;&quot;&gt;&lt;img src=&quot;/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/error.png&quot; class title=&quot;git error&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;/p&gt;
+      &lt;p&gt;Key words：&lt;br&gt;remote: fatal: pack exceeds maximum allowed size&lt;br&gt;fatal: sha1 file ‘&amp;lt;stdout&amp;gt;’ write error: Broken pipe&lt;br&gt;error: remote unpack failed: index-pack abnormal exit&lt;br&gt;To github.com: &lt;a href=&quot;mailto:&amp;#103;&amp;#105;&amp;#116;&amp;#x40;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#46;&amp;#99;&amp;#111;&amp;#x6d;&quot;&gt;&amp;#103;&amp;#105;&amp;#116;&amp;#x40;&amp;#103;&amp;#x69;&amp;#116;&amp;#104;&amp;#x75;&amp;#98;&amp;#46;&amp;#99;&amp;#111;&amp;#x6d;&lt;/a&gt;:xxx/xxx.git&lt;br&gt;![remote rejected]    main -&amp;gt; main (failed)&lt;br&gt;error: failed to push some refs to ‘git@github.com:xxx/xxx.git’&lt;/p&gt;
+&lt;div style=&quot;align:left;height:185.23px;width:483px;&quot;&gt;&lt;img src=&quot;/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/error.png&quot; class title=&quot;git error&quot;&gt;&lt;/div&gt;
     
     </summary>
     
@@ -45,7 +45,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;实现Godot雷电shader&lt;br&gt;&lt;/p&gt;
+      &lt;p&gt;实现Godot雷电shader&lt;/p&gt;
     
     </summary>
     
@@ -64,7 +64,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Godot实现布料飘动的shader&lt;br&gt;&lt;/p&gt;
+      &lt;p&gt;Godot实现布料飘动的shader&lt;/p&gt;
     
     </summary>
     
@@ -83,7 +83,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;实现Godot麦浪shader&lt;br&gt;&lt;/p&gt;
+      &lt;p&gt;实现Godot麦浪shader&lt;/p&gt;
     
     </summary>
     
@@ -102,7 +102,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;实现Godot草丛晃动shader&lt;br&gt;&lt;/p&gt;
+      &lt;p&gt;实现Godot草丛晃动shader&lt;/p&gt;
     
     </summary>
     
@@ -117,11 +117,11 @@
     <link href="https://hex3f.com/2020/01/04/AMD-PC-install-Mac-os-in-VMware/"/>
     <id>https://hex3f.com/2020/01/04/AMD-PC-install-Mac-os-in-VMware/</id>
     <published>2020-01-04T14:25:16.000Z</published>
-    <updated>2021-06-20T18:09:58.721Z</updated>
+    <updated>2021-06-20T18:17:30.562Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;AMD平台在VMware安装mac os&lt;br&gt;&lt;/p&gt;
+      &lt;p&gt;AMD平台在VMware安装mac os&lt;/p&gt;
     
     </summary>
     
@@ -140,7 +140,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;介绍-Description&quot;&gt;&lt;a href=&quot;#介绍-Description&quot; class=&quot;headerlink&quot; title=&quot;介绍 Description&quot;&gt;&lt;/a&gt;介绍 Description&lt;/h1&gt;&lt;p&gt;这个页面将会存放一些我经常使用的工具、插件或网站。&lt;br&gt;This page will store some tools, plugins, or websites that I use often.&lt;br&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;介绍-Description&quot;&gt;&lt;a href=&quot;#介绍-Description&quot; class=&quot;headerlink&quot; title=&quot;介绍 Description&quot;&gt;&lt;/a&gt;介绍 Description&lt;/h1&gt;&lt;p&gt;这个页面将会存放一些我经常使用的工具、插件或网站。&lt;br&gt;This page will store some tools, plugins, or websites that I use often.&lt;/p&gt;
     
     </summary>
     
@@ -157,7 +157,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;介绍一下我&quot;&gt;&lt;a href=&quot;#介绍一下我&quot; class=&quot;headerlink&quot; title=&quot;介绍一下我&quot;&gt;&lt;/a&gt;介绍一下我&lt;/h1&gt;&lt;p&gt;欢迎来到&lt;a href=&quot;https://hex3f.com&quot;&gt;hex3f&lt;/a&gt;，你现在看到的是我的博客，没错，这个博客内容很少，不过我分享的一定是一些干货。那么，这个网站存在的意义是什么呢？&lt;br&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;介绍一下我&quot;&gt;&lt;a href=&quot;#介绍一下我&quot; class=&quot;headerlink&quot; title=&quot;介绍一下我&quot;&gt;&lt;/a&gt;介绍一下我&lt;/h1&gt;&lt;p&gt;欢迎来到&lt;a href=&quot;https://hex3f.com/&quot;&gt;hex3f&lt;/a&gt;，你现在看到的是我的博客，没错，这个博客内容很少，不过我分享的一定是一些干货。那么，这个网站存在的意义是什么呢？&lt;/p&gt;
     
     </summary>
     

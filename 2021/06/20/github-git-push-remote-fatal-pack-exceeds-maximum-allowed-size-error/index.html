@@ -46,9 +46,9 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hex3F" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><link rel="alternate" href="/atom.xml" title="Hex3F" type="application/atom+xml">
+</head>
 
  <body>  
   <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -105,8 +105,10 @@
 	<div class="mypage">		
 	  		
 
-	  <p>Key words：<br>remote: fatal: pack exceeds maximum allowed size<br>fatal: sha1 file ‘&lt;stdout&gt;’ write error: Broken pipe<br>error: remote unpack failed: index-pack abnormal exit<br>To github.com: <a href="mailto:git@github.com">git@github.com</a>:xxx/xxx.git<br>![remote rejected]    main -&gt; main (failed)<br>error: failed to push some refs to <a href="mailto:&#39;git@github.com">&#39;git@github.com</a>:xxx/xxx.git’</p>
-<p><div style="align:left;height:185.23px;width:483px;"><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/error.png" class title="git error"></div><br><span id="more"></span> </p>
+	  <p>Key words：<br>remote: fatal: pack exceeds maximum allowed size<br>fatal: sha1 file ‘&lt;stdout&gt;’ write error: Broken pipe<br>error: remote unpack failed: index-pack abnormal exit<br>To github.com: <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a>:xxx/xxx.git<br>![remote rejected]    main -&gt; main (failed)<br>error: failed to push some refs to ‘git@github.com:xxx/xxx.git’</p>
+<div style="align:left;height:185.23px;width:483px;"><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/error.png" class title="git error"></div>
+<span id="more"></span> 
+
 <h1 id="Possible-reason"><a href="#Possible-reason" class="headerlink" title="Possible reason"></a>Possible reason</h1><ol>
 <li>Single file is larger than 100m and git lfs is not turned on</li>
 <li>Single push size is greater than 2GB</li>
