@@ -149,11 +149,13 @@
 <li>Example: Track all files with png suffix (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git lfs track &quot;*.png&quot;</span><br></pre></td></tr></table></figure></li>
 <li>View existing file tracking patterns<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></table></figure></li>
 <li>Commit code requires a .gitattributes file to be commit to the repository. It keeps trace of file.<br>The list of currently tracked files can be displayed after commit<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git lfs ls-files</span><br></pre></td></tr></table></figure></li>
-<li>Tip:<br>Use lfs must commit to use ssh, using https will not work!<br>Please be sure to commit .gitattributes files to the repository first before commit other files.<br>Github has 1GB lfs repository for free users. Any more than that will be charged. The cost is $5 for 50GB per month.<div float:left><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/lfs.png" class title="git_lfs"></div></li>
+<li>Tip:<br>Use lfs must commit to use ssh, using https will not work!<br>Please be sure to commit .gitattributes files to the repository first before commit other files.<br>Github has 1GB lfs repository for free users. Any more than that will be charged. The cost is $5 for 50GB per month.<img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/lfs.png" class title="git_lfs">
+Remember to turn on the Include Git LFS objects in archives option:<img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/Project_Setting.png" class title="Project_Setting">
+<img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/LFS_Open.png" class title="LFS_Open"></li>
 <li>For Chinese users:<br>Ali cloud code does not support lfs commit.</li>
 </ul>
 <ol start="2">
-<li>The solution to the second problem is very simple. Because github does not allow a single push larger than 2G, you can push it in batches. Split the push into part1, part2…</li>
+<li>The solution to the second problem is very simple. Because github does not allow a single push larger than 2GB you can push it in batches. Split the push into part1, part2…</li>
 </ol>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <tags>
