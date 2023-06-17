@@ -1,348 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>AMD PC install Mac os in VMware</title>
-    <url>/2020/01/04/AMD-PC-install-Mac-os-in-VMware/</url>
-    <content><![CDATA[<p>AMD平台在VMware安装mac os<br><span id="more"></span><br>其实最早之前是在VMware里装过mac的，但之前是intel的cpu，装mac会比较容易，问题也没那么多。最近去看了看unlocker的github项目好像已经删除了，应该是停止更新了。</p>
-<p>环境：<br>DATE：2020/1/4 22:53<br>CPU：AMD R9 3900X<br>GPU: MSI RTX 2060 Super GAMING X<br>RAM: 32G<br>OS：Windows 10 Pro 18363<br>MacOS Ver：macOS.Mojave.10.14.4.x5 <a href="https://pan.baidu.com/s/1r1JASj7Zfq7My5NfEBw7EA">下载镜像</a> 提取码：axib<br>VMware Ver：15.1.0 | <a href="http://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe">点击下载</a>（试过15.5.1，但是装不上，最后会提示 未能启动虚拟机。并且如果系统是win10 1903或以上的版本，就需要使用15.1.0或以上版本，不然装不上。）<br>MK-unlocker | <a href="https://www.mediafire.com/file/w4khcmcu7hqo1a7/MK-unlocker.zip/file">点击前往下载页</a>（这个版本是民间的一位大神改的，可以兼容15的版本，安装方法网上查就行了，一查一大把）</p>
-<h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p>（以下问题如果没遇到则不需要修改，并且建议从头开始操作，不要拿之前的项目来继续操作。）</p>
-<ol>
-<li>问题1 （报错 客户机操作系统已禁用CPU，请关闭或重置虚拟机。）：<br>！！！注意，这个方案只适合AMD CPU的电脑！！！<br>前往虚拟机所在目录，使用记事本打开vmx后缀的文件，在最后面加上这些配置（其实加在哪里都行）<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">smc.version = &quot;0&quot;</span><br><span class="line">cpuid.0.eax = &quot;0000:0000:0000:0000:0000:0000:0000:1011&quot;</span><br><span class="line">cpuid.0.ebx = &quot;0111:0101:0110:1110:0110:0101:0100:0111&quot;</span><br><span class="line">cpuid.0.ecx = &quot;0110:1100:0110:0101:0111:0100:0110:1110&quot;</span><br><span class="line">cpuid.0.edx = &quot;0100:1001:0110:0101:0110:1110:0110:1001&quot;</span><br><span class="line">cpuid.1.eax = &quot;0000:0000:0000:0001:0000:0110:0111:0001&quot;</span><br><span class="line">cpuid.1.ebx = &quot;0000:0010:0000:0001:0000:1000:0000:0000&quot;</span><br><span class="line">cpuid.1.ecx = &quot;1000:0010:1001:1000:0010:0010:0000:0011&quot;</span><br><span class="line">cpuid.1.edx = &quot;0000:1111:1010:1011:1111:1011:1111:1111&quot;</span><br><span class="line">featureCompat.enable = &quot;FALSE&quot;</span><br></pre></td></tr></table></figure>
- 分支小问题 （报错 这个虚拟机需要avx2，但是没有avx。）：<br> 将vmx配置文件中 virtualHW.version = “” 中引号内的变量改为 “10”。<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">virtualHW.version = &quot;10&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>问题2 （语言选择界面无法使用鼠标键盘）：<br>打开vmx配置文件，在最后面加上这些配置</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">keyboard.vusb.enable = &quot;TRUE&quot;</span><br><span class="line">mouse.vusb.enable = &quot;TRUE&quot;</span><br></pre></td></tr></table></figure>
-<p> 然后点击VMware Workstation菜单里的”虚拟机”-&gt;”设置”，进入&lt;虚拟机设置&gt;界面，选择&lt;硬件&gt;标签页的&lt;USB控制器&gt;，在左侧的界面里勾选&lt;显示所有USB输入设备（S）&gt;，并把顶部的&lt;USB兼容性（C）&gt;改为USB2.0。</p>
-</li>
-<li><p>问题3（安装系统时报错 Mojave应用程序副本已损坏,不能用来安装macOS）：<br>首先，断开虚拟机的网络。选择网卡断开即可。<br>然后打开左上角实用工具–&gt;终端<br>在终端输入:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">date 032208102015.20</span><br></pre></td></tr></table></figure>
-<p> 修改完时间就行了，等进入安装系统的步骤时，再连接网络。<br> 目前只遇到这些问题。</p>
-</li>
-</ol>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <tags>
-        <tag>VMware</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Expedition</title>
-    <url>/2021/08/19/Expedition/</url>
-    <content><![CDATA[<p>我喜欢安静的环境，就好像真正的大自然。我喜欢独自一人冒险，你可能不会理解我所做的，因为我无法描述我做的事情。这里存放的是我探险之后的留念。</p>
-<span id="more"></span> 
-<hr>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        厦门市高崎废弃铁路 - DATE:2021/8/15
-    </div>
-    <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">废弃铁路</font><br>在高崎你可能会遇到一条在马路中穿梭的铁路，其实你沿着这条铁路走你会发现条新大陆。<br>Google Map Coordinates:<br>24.550399552722684, 118.10851210378102<br>作品 《文明》</p>
-<div style="width:50%;margin: 0 auto;line-height:0;"><br><br><br><br><br><br><br><br><br><br></div>
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        厦门市忠仑公园山中小屋 - DATE:2021/8/18
-    </div>
-    <div class="spoiler-content">
-        <p><font style="width:50%;line-height:50px;" color="white">山中小屋</font><br>忠仑公园内部一处比较隐蔽的地方，好像有人在这里隐居。<br>Google Map Coordinates:<br>24.483732107748622, 118.14195487440023<br>作品 《山中小屋》</p>
-<div style="width:50%;margin: 0 auto;line-height:0;"><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        厦门市云顶山废弃回收站 - DATE:2021/8/19
-    </div>
-    <div class="spoiler-content">
-        <p><font style="width:50%;line-height:50px;" color="white">废弃回收站</font><br>云顶山里面一个比较奇怪的地方，里面有些废弃的车和电箱。旁边还在开发当中。<br>Google Map Coordinates:<br>24.469986944369417, 118.14517372834327<br>作品 《废弃回收站》</p>
-<div style="width:50%;margin: 0 auto;line-height:0;"><br><br><br><br><br><br><br><br><br><br><br><br></div>
-    </div>
-</div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-  </entry>
-  <entry>
-    <title>About me</title>
-    <url>/2019/10/18/About%20me/</url>
-    <content><![CDATA[<h1 id="介绍一下我"><a href="#介绍一下我" class="headerlink" title="介绍一下我"></a>介绍一下我</h1><p>欢迎来到<a href="https://hex3f.com">hex3f</a>，你现在看到的是我的博客，没错，这个博客内容很少，不过我分享的一定是一些干货。那么，这个网站存在的意义是什么呢？<br><span id="more"></span><br>首先跟大家介绍一下我自己，我，出生于1999年，男，喜欢极限运动，（自称）是一名独立游戏制作人，之前在独立游戏工作室做TA，目前在一家游戏公司做前端开发。一直想做一款完全由自己的想法开发的游戏，上架渠道就是steam。<br>虽然一直做做停停，从5月份开始直到八月中旬我正式成为一名上班族。当然，在空闲时间我也做了另外的事情来赚钱。但是我立志，一定要做出属于我的游戏！<br>所以这个网站存在是为什么？从很早之前我就有很多博客，服务器一过期就换种风格。不知道为什么一直热衷于博客，这个博客估计是我的第五个博客，不过这个博客应该也是最后一个。<br>兴趣？我的风格一直在变，~~最近喜欢悠闲的生活，听听canon，码代码。除了码代码的时间那就是喜欢锻炼，从小就喜欢跑酷跟街健，喜欢探险未知。</p>
-<h1 id="从小开始的学习变化："><a href="#从小开始的学习变化：" class="headerlink" title="从小开始的学习变化："></a>从小开始的学习变化：</h1><ol>
-<li>小学</li>
-</ol>
-<ul>
-<li>那时候对游戏有个信仰，接触了很多海外的单机游戏，还不知道steam这个东西，游戏都是在游民星空、3dm和游侠网找的。暴力摩托、帝国时代、孤岛惊魂、孤岛危机等，玩这些游戏感觉真的很有意思，就很好奇是怎么做出来的。后来记得在四年级的时候（好像是2010年），有个跟我很熟的朋友在做游戏，然后问我要不要一起做，当时就对这个非常感兴趣，用的软件是RMXP。当时还创了个工作室叫：天空工作室。后来在六年级的时候还给工作室做了个官网，从那时起就喜欢上了做网站。后来还学了点网络安全的知识，在电脑课上装逼，现在想想就有点搞笑。后来还学了易语言，做完就去电脑课装逼，哈哈哈。</li>
-</ul>
-<ol start="2">
-<li>初中</li>
-</ol>
-<ul>
-<li>黑客技术：这个时候就跟我那个很要好的朋友分开了。小学时代的游戏人之路好像就这么断开了，后来，我就了解到了黑客技术，开始喜欢在网上找这些技术，了解到了一些组织：红客联盟、黑客联盟、华夏黑客联盟、鹰派联盟、绿色兵团等，鹰派联盟还有个主题曲，叫《黑夜的力量》，现在还躺在我网易云的云盘里面。学习了些关于黑客的基础概念。</li>
-<li>跑酷和街健：那时对于跑酷好像不太了解，就是有个小概念，平时喜欢上窜下跳，拉拉单杠，做做俯卧撑。到了初二，这个时候对跑酷跟街健有了个概念，在优酷看洁癖男爱跑酷的视频，还了解到了城市猴子、TNT跑酷、GUP、STORROR、STORM、3F等的跑酷团队跟红牛跑酷赛事，当时真的非常沉迷于跑酷，现在也是。那时还买了本书，叫《城市就是健身房》，因为这本书才对街健有个比较深的概念。</li>
-<li>网站开发：关于网站开发，学了一点HTML，CSS，PHP的知识，那时都不懂JS。怎么学这些技术的我印象还非常深刻，就是百度HTML源码，然后下载一些比较好看的网站源代码开始COPY（2333）。</li>
-<li>游戏开发：我第一个接触是引擎是RMXP，还有RM的系列引擎，也就是在小学时代了解到的，66RPG里面大部分还是RMXP的资源，我经常在里面下载游戏然后改。在初中了解到UDK，好像当时都没有虚幻4或者没啥人用虚幻4，都是用虚幻3，就叫UDK。然后在不知道啥的教学网站看到了呆蛙的视频，不知道有没有知道虚幻引擎的同学知道他，感觉他的教学风格挺有意思的。</li>
-<li>编程：在初中的时候，班里人都感觉我很厉害的样子，这时候，电脑课的老师就盯上了我，问我学不学编程，他教的是C语言，当时给了我一张考卷，当时不知道在上面写了什么，然后就进了小组，后来还去参加什么学生信息技术奥林匹克竞赛，不过对编程好像一点概念都没有，就是你教我学。</li>
-</ul>
-<ol start="3">
-<li>职校</li>
-</ol>
-<ul>
-<li>我读职校时候是16年，为什么要来读职校呢，其实刚开始我可以选择进高中，可是我非常讨厌文化课，讨厌背那些僵硬的东西，觉得那东西没卵用（其实非常受亚伦斯沃茨启发）。而且我比较喜欢技术，所以我就进了职校。原来在于职校时间多，没有那么多作业压力，我想干嘛就干嘛）。</li>
-<li>在职校的前半年，不能说过着迷茫的生活，都是按这老师的进度来，老师教什么，我学什么，放学时间都在玩。我接受知识非常快，而且做的作业还挺不错的，老师还挺看重我的。后来，突然想真正的学技术，感觉我之前都是在浪费时间，包括小学，初中（其实不能算浪费时间，只是说有个阅历，有了解些东西，但是没有真正的学习）当时学技术是为了做游戏，学的是Unity。第一个学的是C#。</li>
-<li>在第二年，Unity跟C#的基础的差不多了，后来去系统的学了html,css,js,php，汇编，感觉做网站还挺有意思的。这时候开始喜欢上搭建博客，用过wordpress,discuz（我知道这是做论坛的，但是我用它做过博客）,z-blog等。我做的最大的博客叫鹰网（hawkweb）,我在里面写了很多技术知识。最后服务器过期了就关了。后来还学了python，因为突然对人工智能感兴趣，然后学到一半就没学了。之后对编曲感兴趣，学了点FL Studio的基础。</li>
-<li>我进过平面设计的兴趣小组，参加过一次平面设计世界技能大赛市选拔赛，但是那时候没啥灵感，就没拿奖。后来进了学校的网络安全兴趣小组，但是学习气氛太差我就进了网页设计兴趣小组，准备去参加网页设计的世界技能大赛。不过在这个时候，我发自内心的想开发游戏，之后我就退出了兴趣小组。正式的开始了游戏开发之旅（这是我自己的选择）！<br>4.职业生涯</li>
-<li>游戏音效：为什么一个程序突然去做这个了？因为在19年的时候，参加了一次Game Jam。然后主办方是一家做独立游戏的公司（透露一下，是做纽扣兄弟的，<a href="https://store.steampowered.com/app/623320/Button_Button_Up/">Steam页面</a>）。因为那个时候痴迷于编曲，所以现场就带了把midi键盘编曲。后来因为公司的一个项目需要音效。之前我是有加制作人的微信，后来他就找我谈了这件事情。于是我就阴差阳错的进入了这个行业啦！（原本我是想从事网站开发-后端的）</li>
-<li>技术美术和程序：因为我现在这个部门是专门负责美术的，所以我就学起了特效开发。主要是用shader跟粒子系统。虽然不是非常感兴趣，但是对我未来做游戏帮助还是挺大的，所以就学习了这个。程序就是我们现在游戏的技能编写，主要是用到lua。</li>
-</ul>
-<h1 id="为什么选择做独立游戏这条路"><a href="#为什么选择做独立游戏这条路" class="headerlink" title="为什么选择做独立游戏这条路"></a>为什么选择做独立游戏这条路</h1><p>我想说说为什么进这么多兴趣小组我都不留下，最终选择游戏开发这条路子。在19年4月份，一次偶然的机会让我参加了Game jam，这是我的作品：<a href="https://www.3839.com/a/112430.htm">感知</a>，这是我跟我们学校一个懂一点点美术的同学做的，我知道这个游戏做的不是很好，不过参加这次活动真的让我很开心，也让我坚定的走做游戏这条路。我知道这条路非常艰难，不过，没试试，谁知道呢？不过更多的，是我从小学开始，让我最不放弃的，是做游戏，因为我不放弃，让我觉得，游戏，我做定了，不然对不起我自己！想跟自己说一句话：为什么要和别人一样呢！<br>我一直觉得，市面上的游戏都不能给我带来快乐，所以一直想做一款能让人带来快乐的游戏。并且我非常喜欢那种特别有意思的游戏。<br>希望我未来做出来的游戏，能带给大家快乐！</p>
-<h1 id="做了啥"><a href="#做了啥" class="headerlink" title="做了啥"></a>做了啥</h1><p>以前参加了啥记不清了，就写一些我大概记得的吧<br>1.初中参加过几次C语言的比赛<br>2.第45届世界技能大赛厦门市选拔赛 - 平面设计<br>3.2018年 GitHub开源作品 《AnswerX》、《Hex3F注册用网站》、《网站热力图技术》<br>3.2018年的世界跑酷日 - 厦门EF跑酷团队举办的<br>4.2019游戏出海，如何建立用户为本的商业化模型论坛会<br>5.2019华为开发者大会 厦门站<br>6.2019年的厦门游戏创作节 - GameJam 作品<a href="https://www.3839.com/a/112430.htm">感知</a><br>7.2020年因为疫情举办的游戏元气弹 - GameJam 作品好像举办方把比赛页面删除了，所以找不到了，有空的开源到GitHub上吧<br>8.2021年 CIGA GameJam 作品《西部火车屠杀事件》<br>9.2021年 GitHub开源作品 《MorseX》<br><del>想出来再继续写</del></p>
-<h1 id="平时喜欢做什么"><a href="#平时喜欢做什么" class="headerlink" title="平时喜欢做什么"></a>平时喜欢做什么</h1><p>在亲戚面前我可能是个怪人，因为我不喜欢跟亲戚交流，甚至不讲一句话。我喜欢安静的环境，就好像真正的大自然。我喜欢冒险，你可能不会理解我所做的，因为我无法描述我做的事情。<br>喜欢看生存类影片，看过电视剧：行尸走肉，僵尸国度，行尸之惧等(有这样的电视剧请一定要推荐给我:)）。电影：127小时，垂直极限等（记忆不大好，忘光光了，想起来再写上去）。</p>
-<h1 id="hex3f名字的来历"><a href="#hex3f名字的来历" class="headerlink" title="hex3f名字的来历"></a>hex3f名字的来历</h1><p>记得当时在学汇编的时候了解到了ASCII码，你们会发现ASCII表3F对应的是符号”?”。之前我用过很多网名1.Hawk 老鹰，我很渴望自由（是那种亲近大自然的自由）所以我叫自己老鹰。2.BlackEnergy，黑暗力量，听名字就很霸气有没有！这是一个病毒软件。我感觉我这个人非常怪异，很想要一个独一无二的网名，问号有一种神秘的感觉，而且它来自于ASCII。后来发现好像没有人用这个名字，所以我就拿这个当网名咯！</p>
-<h1 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h1><p>Email: <a href="mailto:hex3f@outlook.com">hex3f@outlook.com</a><br>QQ: 339999909<br>如果你遇到了什么困难可以来找我，我很乐意帮助你解决（但是要我会）。</p>
-<p><del>下面还不知道要写什么</del></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-  </entry>
-  <entry>
-    <title>Godot fabric fluttering shader</title>
-    <url>/2020/09/11/Godot-fabric-fluttering-shader/</url>
-    <content><![CDATA[<p>Godot实现布料飘动的shader<br><span id="more"></span><br>Godot的一些shader是真的不好找，今天在某个论坛里面找到比较不错的shader。<br>可以用在布料飘动上，例如旗帜啥的。<br>出处<a href="https://forum.defold.com/t/2d-pixelated-grass-shader/56501/3">Defold forum</a><br><figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> hair_vertical_offs;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> hair_horizontal_offs = - <span class="number">60.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> fragment() &#123;</span><br><span class="line">	<span class="type">float</span> t = TIME;</span><br><span class="line">	<span class="type">vec2</span> uv = UV;</span><br><span class="line">	<span class="type">float</span> uv_x_deform = <span class="built_in">cos</span>(uv.x);</span><br><span class="line">	<span class="type">vec2</span> offs_uv = <span class="type">vec2</span>(<span class="built_in">cos</span>(t * <span class="number">2.0</span> + uv.y * <span class="number">10.0</span>) + hair_horizontal_offs * ( uv.x) * ( uv.x) * <span class="number">0.3</span>, <span class="built_in">cos</span>(t * <span class="number">2.0</span> + uv.x * <span class="number">20.0</span>) + hair_vertical_offs * (<span class="number">1.2</span> - uv.x)) * <span class="number">0.03</span> * (<span class="number">1.0</span> - uv.x);</span><br><span class="line">	</span><br><span class="line">	<span class="type">vec4</span> img = <span class="built_in">texture</span>(TEXTURE, uv + <span class="type">vec2</span>(offs_uv.x, offs_uv.y));</span><br><span class="line">	COLOR = img;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>效果图：<br><img src="/2020/09/11/Godot-fabric-fluttering-shader/Fabric-fluttering.gif" class title="飘布"></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <tags>
-        <tag>GodotShader</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GODOT LIGHTNING SHADER</title>
-    <url>/2020/09/15/Godot-lightning-shader/</url>
-    <content><![CDATA[<p>实现Godot雷电shader<br><span id="more"></span><br><figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> plot(<span class="type">vec2</span> st, <span class="type">float</span> pct,<span class="type">float</span> half_width)&#123;</span><br><span class="line">  <span class="keyword">return</span>  <span class="built_in">smoothstep</span>( pct-half_width, pct, st.y) -</span><br><span class="line">          <span class="built_in">smoothstep</span>( pct, pct+half_width, st.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> rand(<span class="type">vec2</span> n) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">fract</span>(<span class="built_in">sin</span>(<span class="built_in">dot</span>(n, <span class="type">vec2</span>(<span class="number">12.9898</span>, <span class="number">4.1414</span>))) * <span class="number">43758.5453</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> noise(<span class="type">vec2</span> n) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="type">vec2</span> d = <span class="type">vec2</span>(<span class="number">0.0</span>, <span class="number">1.0</span>);</span><br><span class="line">    <span class="type">vec2</span> b = <span class="built_in">floor</span>(n), f = <span class="built_in">smoothstep</span>(<span class="type">vec2</span>(<span class="number">0.0</span>), <span class="type">vec2</span>(<span class="number">1.0</span>), <span class="built_in">fract</span>(n));</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">mix</span>(<span class="built_in">mix</span>(rand(b), rand(b + d.yx), f.x), <span class="built_in">mix</span>(rand(b + d.xy), rand(b + d.yy), f.x), f.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> fbm(<span class="type">vec2</span> n) &#123;</span><br><span class="line">    <span class="type">float</span> total = <span class="number">0.0</span>, amplitude = <span class="number">1.0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">        total += noise(n) * amplitude;</span><br><span class="line">        n += n;</span><br><span class="line">        amplitude *= <span class="number">0.5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> fragment()&#123;</span><br><span class="line">	<span class="type">vec2</span> uv = UV;</span><br><span class="line">	<span class="type">vec4</span> color = <span class="type">vec4</span>(<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>);</span><br><span class="line">	<span class="type">vec2</span> t;</span><br><span class="line">	<span class="type">float</span> y;</span><br><span class="line">	<span class="type">float</span> pct;</span><br><span class="line">	<span class="type">float</span> <span class="keyword">buffer</span> = plot(uv,y,<span class="number">0.08</span>);</span><br><span class="line">	color += pct * <span class="type">vec4</span>(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>);</span><br><span class="line">	color += <span class="keyword">buffer</span> * <span class="type">vec4</span>(<span class="number">0.2</span>,<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> lightning_number = <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; lightning_number; i++)&#123;</span><br><span class="line">		t = uv * <span class="type">vec2</span>(<span class="number">2.0</span>,<span class="number">1.0</span>) + <span class="type">vec2</span>(<span class="type">float</span>(i) - <span class="type">float</span>(i)) - TIME*<span class="number">3.0</span>;</span><br><span class="line">		y = fbm(t)*<span class="number">0.5</span>;</span><br><span class="line">		pct = plot(uv,y,<span class="number">0.02</span>);</span><br><span class="line">		<span class="keyword">buffer</span> = plot(uv,y,<span class="number">0.08</span>);</span><br><span class="line">		color += pct * <span class="type">vec4</span>(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>);</span><br><span class="line">		color += <span class="keyword">buffer</span> * <span class="type">vec4</span>(<span class="number">0.2</span>,<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	COLOR = color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>效果图：<br><img src="/2020/09/15/Godot-lightning-shader/Lightning-shader.gif" class title="雷电shader"></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <tags>
-        <tag>GodotShader</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Godot swaying grass shader</title>
-    <url>/2020/09/09/Godot-swaying-grass-shader/</url>
-    <content><![CDATA[<p>实现Godot草丛晃动shader<br><span id="more"></span><br>在做项目的时候有个需求，就是让草会摇晃起来，找到了下面这个解决方案<br>在一个sprite上添加一个shader<br><figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> vertex()&#123;</span><br><span class="line">	VERTEX.x += <span class="built_in">cos</span>(TIME * shake_speed) * (VERTEX.y - moving_speed) * stretch_speed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><img src="/2020/09/09/Godot-swaying-grass-shader/Swaying_Grass_No_Limit_Y.gif" class title="摇动的草"><br>会发现整颗草都摇起来了，问题是草根的部分也摇起来了，把网格Y轴限制住就好了<br><figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> vertex()&#123;</span><br><span class="line">	<span class="keyword">if</span>(VERTEX.y &lt; Limit)</span><br><span class="line">	VERTEX.x += <span class="built_in">cos</span>(TIME * shake_speed) * (VERTEX.y - moving_speed) * stretch_speed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><img src="/2020/09/09/Godot-swaying-grass-shader/Swaying_Grass_Limit_Y.gif" class title="锁住Y轴摇动的草"><br>注意，所有参数都要是float<br>参考：Limit = 10.0,shake_speed = 1.5,moving_speed = 38.0,stretch_speed = 0.1;</p>
-<p>但是你会发现如果放入一堆草丛就会导致好像僵尸一样，都向一个方向一个速度位移<br><img src="/2020/09/09/Godot-swaying-grass-shader/Grass.gif" class title="草从"><br>所以接下来就要写脚本了，先在原来的shader里面定义一个外部变量，来控制方向上的速度<br><figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> RandomDir;</span><br></pre></td></tr></table></figure><br>将这个数值替换到shake_speed上<br>然后在sprite身上添加一个脚本，随机一个数值赋值到RandomDir上<br><figure class="highlight py"><table><tr><td class="code"><pre><span class="line">extends Sprite</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">	randomize();</span><br><span class="line">	self.material.set_shader_param(<span class="string">&quot;RandomDir&quot;</span>, rand_range(<span class="built_in">min</span>,<span class="built_in">max</span>));</span><br></pre></td></tr></table></figure><br><img src="/2020/09/09/Godot-swaying-grass-shader/Random_Grass.gif" class title="随机草从"><br>参考：min = -1,max = 1;<br>意思是方向上的速度1到-1之间随机，这样就达成了群魔乱舞的效果了！</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <tags>
-        <tag>GodotShader</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>I wanna talk</title>
-    <url>/1899/11/30/I%20wanna%20talk/</url>
-    <content><![CDATA[<p><del>最近觉得写日记好像挺好的，打算今天开始写日记。你问我哪天？就是第一篇日记的时间。</del><br>发现写日记没啥可以写的，于是改了个名字叫 I wanna talk ，想谈谈对这个世界的看法，谈谈我的人生。</p>
-<span id="more"></span> 
-<hr>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        瞧瞧我是谁 - DATE:2021/2/23 19:03
-    </div>
-    <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">看看是谁又来了</font><br>嘿！是我。没错，懒惰的我又更新啦！<br>首先是晚来的新年快乐！没更新的这么长时间里发生了好多好多事情。<br>在十月份的时候，我辞掉了在游戏公司的工作。跟同学合伙做起了电商。短短半个月的时间赚了很多钱。但是由于我颈椎出了问题，我离开了。治疗了将近两个多月！<br>治疗好了后开始四处探险，在一次探险中。偶然发现了一只迷路的小山羊。被我带去给别人饲养了，嘿嘿。后来我开始去露营！那几天可是我最快乐的日子！！<br>在之后的时间，我开始策划要开发的游戏。这个想法过几天我再更新吧。我发现我现在超级懒，真的。好颓废的感觉！！！</p>
-
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        好久没更新了 - DATE:2020/9/8 11:26
-    </div>
-    <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">好久没更新了</font><br>转眼间，离我上次更新已经过去八个月了。这期间发生了好多事情！甚至还爆发了疫情。可是我，还是那个老样子，感觉自己还是很颓废。<br>一个月前，我毕业了。但是在五月份的时候我被一家独立游戏公司看上了。从那个时候起我就开始在那家公司上班，每个星期五星期六都去。毕业之后就是全职了。<br>在公司都干啥呢？我的职业是游戏音效、技术美术、程序。干的活都特别杂，主要是我们有俩项目，事情还是挺多的。<br>目前是在做一个项目的特效，等特效做完准备做另一个项目的音效。<br>你要说感想吧。真的，感觉国内独立游戏行业都一个样。基本都是为了钱而活，感觉都不是真正意义上想做一款好玩的游戏（并非游戏性，较为面向商业化），所以我现在给独立游戏下了个定义。真正的独立游戏，是那些几个热情的伙伴，并且十分热爱当前开发的游戏，在无论如何都想做出来的情况下。并且在非劳动的情况下。（暂时也不知道怎么写，先这样写吧）才能叫做独立游戏，不然我觉得做出来的都叫做商业游戏。<br>最近想再重拾英语这一块，开始锻炼身体。<br>还是那句老话，希望我能坚持下来！！</p>
-
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        学习近况 - DATE:2020/1/3 11:20
-    </div>
-    <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">学习近况</font><br>最近一直跟同学去秘密的探索我们学校。去一些比较奇怪的地方，地下室、楼顶、和一些无人知晓的地方。突然回忆起小时候喜欢探险的那股劲，不过不学计算机，那我一定会选择探险家这条路吧？等我以后生活水平起来了，我一定要去真正的探险一次！</p>
-
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        最后一天 - DATE:2019/12/31 9:42
-    </div>
-    <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">最后一天</font><br>转眼间，已经是2019年的最后一天了。时间过得好快。<br>在这些天里，长了很多教训。不过，吃一堑长一智嘛。这些教训也给我的带来了很多知识。<br>先说说这几天发生了什么吧。<br>不知道是不是移动网络的原因，开了vpn还是连接不上daz的下载器。但是我正好有一台服务器，然后我就开了服务器，开了vpn。结果不出所料，居然连上了！然后我就在服务器上下载，下载完后传到网盘。然后再下载到我的电脑上面。现在我知道了移动有多么烂了，简直就是墙中墙！<br>还有daz里面买素材的事情，有些素材居然还有本体这一说，买了一些发现有些需要买主体。怪我没注意看，不过也是长见识了。<br>接下来就是家里发生的事情。在前几个礼拜得知奶奶得了重病，所以后面更新进度会很慢。</p>
-
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        模型方案 - DATE:2019/12/27 10:50
-    </div>
-    <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">模型方案</font><br>继上次退款cc3之后，开始摸索起了daz 3d。这也是制作3d人物的软件，只不过相对于cc3来说会复杂一些。不过既然复杂一些，肯定功能也会比cc3多吧！<br>退款已经退回我的银行卡，还好不是paypal！在这几天里摸索了一些daz的部分功能。发现iray渲染出来的模型确实惊人，如果在unity里面能达到这种效果就好了！不过unity有hdrp也挺好的，但是模型在unity里面总是有非常多问题。比如说头发，所有跟毛发相关的，就跟纸片一样，这是目前遇到比较严重的问题。还有就是唇形同步。</p>
-<p>总结所有待解决问题：<br>毛发渲染<br>模型渲染<br>唇形同步</p>
-<p>我最近一直在思考能不能加入光追技术，等上面的问题解决之后就来测试一下这项技术。<br>所以我已经放弃了cc3了，转向了daz。daz确实挺好用的，习惯之后就感觉比cc3好用了（毕竟还免费，哈哈哈）。</p>
-
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        血的教训 - DATE:2019/12/20 12:52
-    </div>
-    <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">血的教训</font><br>这次咋说呢，继我上次说的买亏了iclone这个软件，现在又来了个鬼事情。reallusion是有会员等级制度的，第一个等级是Premium，当你购买了他们的产品后，你将会升级到Premium plus，这时候是有20$的降价的。<br>但是我根本不知道有这种事情，在购买iclone后，发现他需要3dxchange这个插件才能导出。然后我就退款了，那时候我还等着，等着退款后再买character creator吧。那时候我还看了很多次，cc3的价格是129$。就在今天上reallusion查看价格的时候，发现它。。。。直接到149$。<br>经过跟客服的沟通，最后知道就像开头说的那样，只要是premium plus，价格就是129$。而我购买的软件已经退款了，目前是premium。</p>
-<p>想起那句话，失去就不会再回来了。<br>就像之前十一月份unity打折一样，unity plus一年1288，现在已经涨回去了，现在是2000+一年。并且在明年还会整体再次涨价。<br>难过啊！</p>
-<p>噢对，今天开始epic games store开始冬季折扣了，还有送一张10$优惠券，满14.9$就可以用，地铁：离去正好14.9$，用了优惠券只要4.9$（折合人民币35元），满足条件购买后还会继续再送一张10$优惠券，这不香吗，哈哈。（香个鬼）</p>
-
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        又是模型问题 - DATE:2019/12/18 21:08
-    </div>
-    <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">又是模型问题</font><br>先说一下昨天（2019/12/17）的事情，昨天去给一个班做学习分享感觉结果让我感觉非常意外，没想到新生班级能有那么多人热爱学习。我大致是讲了讲如何步入自学还有学习英语的重要性这两点吧，后面就是跟学弟学妹进行沟通交流。<br>在昨天下午，在犹豫很久的情况下买了Reallusion旗下的软件iclone 7（折后 $107），当时就想着，都等了那么久了，再拖下去浪费时间啊，然后就买了iclone先试试。在我研究了许久软件后，我的天，这软件导出fbx模型需要一个插件：3DXchange，当时就日了狗了啊，这软件打折后居然还要299刀！后来找了很多解决方法，然后去给官方发了封邮件退款了。<br>解决方法是这样的，他们旗下的iclone是做动画的，character　creator（简称CC）是做人物模型的。目前iclone的版本是7，cc的版本是3。cc是跟iclone是可以互动的，cc做完的模型可以直接导到iclone中。但是cc如果要导出模型，除了购买iclone后可以直接导入icone外，是需要购买Pipeline版本的。简单的说就是：<br>iclone需要单独买，购买后导出动画数据需要3DXchange这款插件。<br>cc是免费使用的，但是导出模型需要购买pipeline的版本。<br>目前与unity配合使用的方法是：<br>购买character creator 3，关于人物装饰可以选择去 <a href="https://sketchfab.com/">sketchfab</a> 下载，然后导入到cc3。关于动画可以选择去 <a href="https://www.mixamo.com/">mixamo</a> 下载。唇形同步可以选择unity商城的 <a href="https://assetstore.unity.com/packages/tools/animation/lipsync-pro-32117">LipSync Pro</a> 或者 <a href="https://assetstore.unity.com/packages/tools/animation/salsa-lipsync-suite-148442">SALSA LipSync Suite</a> （但是我没试过是否可行，正常来说都是可以的）插件。<br>然后这里是从cc导入模型到unity的插件<a href="https://www.reallusion.com/character-creator/unity-auto-setup.html">AUTO SETUP FOR UNITY</a>。<br>上面这些方法我都会出一个教学视频，目前国内好像没有。不过youtube上是有很多参考视频的。<br>希望退款不会退到paypal里面，不然提现需要35刀，我就裂开了！</p>
-
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        关于日记 - DATE:2019/12/16 9:03
-    </div>
-    <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">关于日记</font><br>最近发现日记总是不能按时写，不过我还是会隔几天写一下。最主要的原因还是懒，心里想写但是总动不起手。还有个主要原因就是生活很枯燥，其实没啥可以写的。所以现在想改一改这个页面的标题。由Diary（日记）修改成I wanna talk（我想谈谈）。感觉我写的这个不像日记，像是写感想吧。<br>电脑的所有硬件快递也差不多，这里我想说说装机感受吧。<br>因为很久很久没装机了，装的时候遇到非常多的问题。现在说说机箱，联力 tu150有些地方跟刀子一样，我的手指还被机箱刮流血了，流了一堆，好像很多机箱都这样，下次拆的时候一定要小心一点。<br>第一次装：刚开始装利民的fs140散热，那散热是真的大，因为试试装，忘记插主板供电。刚装进去的散热又要拆出来，结果给U同时拔了起来，还好针脚没事，可把我吓死了。装完之后居然点不亮。<br>第二次装：这个把所有硬件裸机测试，然后发现第一次没开是在自检，要等一会才开机。<br>第三次装：这次装回去终于可以了，然后升级了下bios。装系统的时候发现没认到固态。<br>第四次装：这次把固态拆起来重装，然后给固态散热的螺丝弄丢了。然后全部拆起来找了，找半天都找不到，我都要裂开了。最后重新装上去已经是接近十一点了，宿舍已经断电了。然后开始发现机箱漏电！！！最后因为太晚去睡觉了。<br>第五次装，这次又全部拆起来裸机测试，发现又可以了，好像是因为装散热的时候太用力把u给弄起来了，没插好。最后装起来，完成了。<br>大大小小的，总共装了五六次差不多，可折腾死我了，不过还是挺享受的。</p>
-<p>最后想说一下，3900x太爽了，就是烤鸡温度已经到90了。可能是itx散热真的不太行吧。<br>现在的I wanna talk，我会在发生一些事情上写，而不会逼着自己每天写，这样挺好的。</p>
-
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        谈谈一些事 - DATE:2019/12/12 19:53
-    </div>
-    <div class="spoiler-content">
-        <font style="line-height:50px;" color="white">谈谈一些事</font>
-
-<p>今天跟和我一起学游戏开发的同学聊了好多，也算是抱怨吧。聊了聊父母对我们做独立游戏的看法，看来大多数父母都不赞同，大多数父母看来，这是没出路的，除非你要拿出点成绩。不过大多数父母也不会去换位思考，去理解它们的孩子。<br>其实我们跟父母沟通也好，还是你的朋友。沟通交流最后是为了解决问题，而大多数情况下，并不是这样，到最后都是争吵而不了了之。而我们万般无奈，无能为力！这也是很多人会抑郁的原因吧。</p>
-<p>在今天算是把电脑该买的都买的，最终配置单如下：<br>MB: ROG B450-I    989RMB<br>CPU: R9 3900x    3939RMB<br>GPU: MSI RTX 2060 SUPER    3169RMB<br>RAM: G.SKILL 16x2 1199RMB<br>SSD: SAMSUNG 970 EVO Plus 768RMB<br>POWER: USCORSAIR SF600 859RMB<br>CASE: LILIAN TU150 739RMB<br>CPU FAN: Thermalright FS140 249RMB<br>RGB FAN: Thermalright TL-C12S 279RMB<br><del>RGB HUB: 19.9RMB（这玩意买了但是没用，因为风扇可以串联）</del></p>
-<p>刚刚双十二，海盗船的SF600白金是没货的，等我买完金牌睡一觉起来，我擦，白金有货了！！！差价就50！最后还是用了金牌。<br>哦对了，突然想起来，昨天在上课的时候有个老师听说我去给另一个老师班级做学习分享，然后让我去他们班也做做分享，感觉有点小慌。</p>
-
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        我又拖延了 - DATE:2019/12/11 10:01
-    </div>
-    <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">我又拖延了</font><br>昨天又忘记写日记了！！！！<br>好吧，先写写昨天干了啥吧。就在两周前谢老师邀请我去他们班做一个学习分享。说实话，学习分享应该是面向热爱学习的人来分享，要面向相关知识来分享。我分享了我的学习过程跟方法，在讲的时候我些紧张，有些话都没缕好。不过我还是把我大致想说的都说出来了。昨晚还骑了快一个小时的共享单车，今早有去骑了。以后有空一定要经常骑，骑完感觉做啥事情都很轻松，果然还是要经常锻炼身体，不然以后咋办，哈哈。<br>今天打算学一学Emerald AI这个插件，以后AI打算就用这个。今天早上四节课还调到了下午，直接从一点半上到七点，想想就有点累。不过我打算带我的电脑去上课，总的来说不会浪费时间。</p>
-
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        拒绝拖延症 - DATE:2020/1/3 11:20
-    </div>
-    <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">拒绝拖延症</font><br>转眼过去，已经十几天没更新日记了。连日记都会拖的我，还有啥不拖延呢。所以从今天开始，日记必须天天更！<br>那么多天过去了，我科三居然过了。刚开始写日记的时候我慌得一批，总是担心不过，不知道那时候的我看到现在的我是什么感觉？上周末回去跟我父母沟通我的近况，谈了谈我以后做独立游戏的事情！为了做一个画面比较好的游戏，打算重新配一台电脑。这几天一直在找一些开发上的配置资料。因为我做的游戏不同，所以配置上要求有还是蛮高的呢。<br>这几天好像很颓废，看看技术文档就没了，要开始背背单词，锻炼锻炼了！<br>看看目前的配置单(没确定下来的品牌就没写了 就写个大致的配置)：<br>CPU：R9 3900x/原价4299，京东闪购4099<br>GPU: MSI RTX 2060 SUPRT GAMING/价格在3299<br>RAM: 16G 3000 * 2/品牌未定，预算在1000内<br>MB: MSI B450I/双十二799还是可以的，不知道我买的时候会不会打折<br>POWER: SFX 600W<br>CPU FAN: NOCTUA NH-U12A/没打折价格在799，或许可以大霜塔<br>CASE: LIANLI TU150/没打折价格在890</p>
-
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        莫名其妙的科目三，模型问题 - DATE:2019/11/28 18:30
-    </div>
-    <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">莫名其妙的科目三，模型问题</font><br>原本是今天要去练科目三，然后老师不让请假（教练让下午一点半去，那时候在上课）。可是都已经预约上了，然后就准备周五（29号）去车管所取消预约。我同学打算租车带要回家的同学顺便带我去车管所。结果教练发微信给我说下午下课后去找他，然后找他之后直接让我去练车了。于是把我们所有计划都打乱了！算是这几天一直的烦恼给一个解决吧。<br>昨天是有个人物模型Lipsync的问题一直烦恼着我，后来了解到了character creator这个软件。这个软件是用来做人物（角色）的，超级好用。终于这个事情也解决了！然后我成考好像也过了，心情一下子就升华了。</p>
-
-    </div>
-</div>
-<!-- 文章 -->
-<div class="spoiler collapsed">
-    <div class="spoiler-title">
-        Lipsync的问题 - DATE:2019/11/27 8:30
-    </div>
-    <div class="spoiler-content">
-        <p><font style="line-height:50px;" color="white">Lipsync的问题</font><br>今天才开始写的日记，就从今天的事情开始写吧！昨天遇到模型Lipsync技术上的问题，一直不知道怎么解决。好像是模型需要有blend shape？用了Unity商城上的Lipsync Pro但是很多模型都用不了。一直不太懂模型上的问题，今天想试试Adboe Fuse CC，这个软件好像可以很快的生成人物模型，并且还带有动作。然后想从头开始学习Blender，现在才发现这个真的很重要！问题好多，希望早点能解决这个问题吧！</p>
-
-    </div>
-</div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-  </entry>
-  <entry>
-    <title>Godot wheat wave visual shader</title>
-    <url>/2020/09/09/Godot-wheat-wave-visual-shader/</url>
-    <content><![CDATA[<p>实现Godot麦浪shader<br><span id="more"></span><br>这个shader困惑我挺久的，思路就是让图片移动，然后在上面制造像水浪的那种效果，这样看上去就会像麦浪了。<br>首先需要一张麦浪的图片<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/WheatWave.png" class title="麦浪素材图"><br>把麦浪图片的显示模式更改为重复。这样在播放的时候就不会只播放一次。点击图片然后再点击Import标签里的Flags修改Repeat为Enabled。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Change-wheat-image-mode-to-repeat.PNG" class title="更改麦田图片模式"><br>然后在麦田sprite上创建shader，创建UV贴图将x,y轴分开，在x,y轴上新建一个ScalarOp，方法为Multiply。再在a或者b上创建一个Scalar Uniform，这样可以在外部控制变量。让他乘以某个数可以做到对图片的放大缩小。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-size.PNG" class title="Shader更改UV大小"><br>然后再用x,y轴加上一个值乘以time做到图片上下移动，在乘法上的a或者b连接Scalar Uniform在外部控制移动速度。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-move-uv.PNG" class title="Shader移动UV"><br>做完上面的操作，再用一个VectorCompose将x跟y连接在一起。最终连接上麦浪的Texture与Output的Color值跟Alpha值连接就可以看到麦浪移动的效果了。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-connect-output.PNG" class title="Shader连接output"><br>效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave_1.gif" class title="无波纹麦浪"><br>但是目前这样的效果太单调了，单纯是一张图片在移动，所以可以做一个类似波浪的效果在麦浪上面，这样麦浪看上去一直在变换。<br>现在就需要一张noise，然后在贴图上移动，所以noise做的操作跟上面的步骤也是类似的。<br>noise大小，2048 pixel * 2048pixel，做法就是用Photoshop的滤镜分层云彩或者云彩，然后用涂抹工具涂抹。<br>Noise效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/noise.png" class title="噪声效果图"><br>导入Noise图片的时候注意也要把Repeat改成Enabled，播放一遍就没了。<br>连线跟上面也一样，首先创建UV贴图，然后要可以控制噪声的大小，移动速度。最后再连接到噪声的贴图上。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseShader.PNG" class title="噪声shader连线"><br>Output连线：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseConnectOutput.PNG" class title="噪声shader_output连线"><br>最后再跟上面的连接到一起就OK了！<br><br>参数参考：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Parameter-reference.PNG" class title="参数参考"><br>最终效果<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave.gif" class title="麦浪"></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <tags>
-        <tag>GodotvVisualShader</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Use frequently</title>
-    <url>/2019/11/02/Use%20frequently/</url>
-    <content><![CDATA[<h1 id="介绍-Description"><a href="#介绍-Description" class="headerlink" title="介绍 Description"></a>介绍 Description</h1><p>这个页面将会存放一些我经常使用的工具、插件或网站。<br>This page will store some tools, plugins, or websites that I use often.<br><span id="more"></span> </p>
-<h1 id="Website"><a href="#Website" class="headerlink" title="Website"></a>Website</h1><ul>
-<li>Model download website<br><a href="https://sketchfab.com/">sketchfab</a><br>里面有很多不错的免费模型，也有很好看的付费模型可以下载。对于3D游戏或者建模开发有帮助。</li>
-<li>character model Animation<br><a href="https://www.mixamo.com/">mixamo</a><br>这个网站mixamo目前是被adobe收购的，主要用于人物的动画。里面的动作非常非常多，而且可以免费下载。</li>
-<li>Art images<br><a href="https://www.artstation.com/">Artstation</a><br>里面有很多艺术的图，个人创造的图可以提供给美术参考</li>
-<li>Js library<br><a href="https://threejs.org/">Threejs</a><br>一个庞大的JS库，里面有很多特效都很强大</li>
-<li>Shader<br><a href="https://www.shadertoy.com/">Shadertoy</a><br><a href="http://glslsandbox.com/">Glslsandbox</a><br><a href="https://thebookofshaders.com/">Thebookofshaders</a><br>Shader例子跟教程</li>
-</ul>
-<h1 id="Unity"><a href="#Unity" class="headerlink" title="Unity"></a>Unity</h1><ul>
-<li>LitJSON (json plugin)<br><a href="../../../../downloads/LitJSON.dll" title="LitJSON">Click here to download</a> -Using .NET Standard 2.0 Compiled on 2019-11-2<br>Related Links <a href="https://litjson.net/api/LitJson/">Official_API</a> <a href="https://github.com/LitJSON/litjson">Github</a><br>这是一个用于解析json的插件，虽然在unity分类里面，但是只要是C#就可以使用。我使用的环境是unity2018，版本过低会导致使用不了。</li>
-<li>Lipsync Pro<br><a href="https://assetstore.unity.com/packages/tools/animation/32117">ASSETSTORE</a><br>这是unity一个做唇形同步的插件。</li>
-</ul>
-<h1 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h1><ul>
-<li><a href="https://www.blender.org/">blender</a> 模型制作-免费开源的模型制作软件，非常强大。</li>
-</ul>
-<h1 id="Character"><a href="#Character" class="headerlink" title="Character"></a>Character</h1><ul>
-<li><a href="https://www.reallusion.com/iclone/">iclone</a> 动画制作-软件收费，导出也要收费。</li>
-<li><a href="https://www.reallusion.com/character-creator/">character creator</a> 3D人物制作软件-较为方便，缺点是要收费。</li>
-<li><a href="https://www.daz3d.com/">daz 3D</a> 3D人物制作-较为复杂，但是功能很多，可扩展性也广，教程也多，而且还免费。</li>
-</ul>
-<h1 id="Photo"><a href="#Photo" class="headerlink" title="Photo"></a>Photo</h1><ul>
-<li><a href="https://www.aseprite.org/">aseprite</a> 像素图片制作-界面非常简单，而且不需要花费很多时间学习。</li>
-<li><a href="http://boundingboxsoftware.com/materialize/">materialize</a> 游戏贴图制作</li>
-</ul>
-<h1 id="Work"><a href="#Work" class="headerlink" title="Work"></a>Work</h1><ul>
-<li><a href="https://www.teambition.com/">Teambition</a> 这个是用于团队协作的，有wiki、协作文档等，一起开发的时候十分有用，阿里巴巴也是使用这个</li>
-<li><a href="https://git-scm.com/">Git</a> 可以控制开发的版本，资源上传给远处的伙伴，合作开发很有用！</li>
-</ul>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-  </entry>
-  <entry>
-    <title>github git push remote fatal pack exceeds maximum allowed size error</title>
-    <url>/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/</url>
-    <content><![CDATA[<p>Key words：<br>remote: fatal: pack exceeds maximum allowed size<br>fatal: sha1 file ‘&lt;stdout&gt;’ write error: Broken pipe<br>error: remote unpack failed: index-pack abnormal exit<br>To github.com: <a href="mailto:git@github.com">git@github.com</a>:xxx/xxx.git<br>![remote rejected]    main -&gt; main (failed)<br>error: failed to push some refs to <a href="mailto:&#39;git@github.com">&#39;git@github.com</a>:xxx/xxx.git’<br><span id="more"></span><br><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/error.png" class title="git error"></p>
-<h1 id="Possible-reason"><a href="#Possible-reason" class="headerlink" title="Possible reason"></a>Possible reason</h1><ol>
-<li>Single file is larger than 100MB and git lfs is not turned on</li>
-<li>Single push size is greater than 2GB</li>
-</ol>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><ol>
-<li>For the first problem. Uploading a single file that is larger than 100MB means you have to use git lfs for push. You just need to install lfs on your git to turn it on. And write rules in your gitattributes.<br>If your git doesn’t have lfs integration then you need to go download. <a href="https://github.com/git-lfs/git-lfs/releases">git lfs</a><br>Open git bash and type the command:</li>
-</ol>
-<ul>
-<li>Turn on lfs<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git lfs install</span><br></pre></td></tr></table></figure></li>
-<li>All large file tracking (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></table></figure></li>
-<li>Example: Track all files with png suffix (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git lfs track &quot;*.png&quot;</span><br></pre></td></tr></table></figure></li>
-<li>View existing file tracking patterns<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></table></figure></li>
-<li>Commit code requires a .gitattributes file to be commit to the repository. It keeps trace of file.<br>The list of currently tracked files can be displayed after commit<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git lfs ls-files</span><br></pre></td></tr></table></figure></li>
-<li>Tip:<br>Use lfs must commit to use ssh, using https will not work!<br>Please be sure to commit .gitattributes files to the repository first before commit other files.<br>Github has 1GB lfs repository for free users. Any more than that will be charged. The cost is $5 for 50GB per month.<img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/lfs.png" class title="git_lfs">
-Remember to turn on the Include Git LFS objects in archives option: <a href="https://docs.github.com/en/github-ae@latest/github/administering-a-repository/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository">document</a><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/Project_Setting.png" class title="Project_Setting">
-<img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/LFS_Open.png" class title="LFS_Open"></li>
-<li>For Chinese users:<br>Ali cloud code does not support lfs commit.</li>
-</ul>
-<ol start="2">
-<li>The solution to the second problem is very simple. Because github does not allow a single push larger than 2GB you can push it in batches. Split the push into part1, part2…</li>
-</ol>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <tags>
-        <tag>GithubError</tag>
-      </tags>
-  </entry>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Expedition</title>
+      <link href="2021/08/19/Expedition/"/>
+      <url>2021/08/19/Expedition/</url>
+      
+        <content type="html"><![CDATA[<p>我喜欢安静的环境，就好像真正的大自然。我喜欢独自一人冒险，你可能不会理解我所做的，因为我无法描述我做的事情。这里存放的是我探险之后的留念。</p><span id="more"></span> <hr><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        厦门市高崎废弃铁路 - DATE:2021/8/15    </div>    <div class="spoiler-content">        <p><font style="line-height:50px;" color="white">废弃铁路</font><br>在高崎你可能会遇到一条在马路中穿梭的铁路，其实你沿着这条铁路走你会发现条新大陆。<br>Google Map Coordinates:<br>24.550399552722684, 118.10851210378102<br>作品 《文明》</p><div style="width:50%;margin: 0 auto;line-height:0;"><br><br><br><br><br><br><br><br><br><br></div>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        厦门市忠仑公园山中小屋 - DATE:2021/8/18    </div>    <div class="spoiler-content">        <p><font style="width:50%;line-height:50px;" color="white">山中小屋</font><br>忠仑公园内部一处比较隐蔽的地方，好像有人在这里隐居。<br>Google Map Coordinates:<br>24.483732107748622, 118.14195487440023<br>作品 《山中小屋》</p><div style="width:50%;margin: 0 auto;line-height:0;"><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        厦门市云顶山废弃回收站 - DATE:2021/8/19    </div>    <div class="spoiler-content">        <p><font style="width:50%;line-height:50px;" color="white">废弃回收站</font><br>云顶山里面一个比较奇怪的地方，里面有些废弃的车和电箱。旁边还在开发当中。<br>Google Map Coordinates:<br>24.469986944369417, 118.14517372834327<br>作品 《废弃回收站》</p><div style="width:50%;margin: 0 auto;line-height:0;"><br><br><br><br><br><br><br><br><br><br><br><br></div>    </div></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>github git push remote fatal pack exceeds maximum allowed size error</title>
+      <link href="2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/"/>
+      <url>2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/</url>
+      
+        <content type="html"><![CDATA[<p>Key words：<br>remote: fatal: pack exceeds maximum allowed size<br>fatal: sha1 file ‘&lt;stdout&gt;’ write error: Broken pipe<br>error: remote unpack failed: index-pack abnormal exit<br>To github.com: <a href="mailto:git@github.com">git@github.com</a>:xxx/xxx.git<br>![remote rejected]    main -&gt; main (failed)<br>error: failed to push some refs to <a href="mailto:&#39;git@github.com">&#39;git@github.com</a>:xxx/xxx.git’<br><span id="more"></span><br><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/error.png" class title="git error"></p><h1 id="Possible-reason"><a href="#Possible-reason" class="headerlink" title="Possible reason"></a>Possible reason</h1><ol><li>Single file is larger than 100MB and git lfs is not turned on</li><li>Single push size is greater than 2GB</li></ol><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><ol><li>For the first problem. Uploading a single file that is larger than 100MB means you have to use git lfs for push. You just need to install lfs on your git to turn it on. And write rules in your gitattributes.<br>If your git doesn’t have lfs integration then you need to go download. <a href="https://github.com/git-lfs/git-lfs/releases">git lfs</a><br>Open git bash and type the command:</li></ol><ul><li>Turn on lfs<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs install</span><br></pre></td></tr></table></figure></li><li>All large file tracking (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></table></figure></li><li>Example: Track all files with png suffix (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs track &quot;*.png&quot;</span><br></pre></td></tr></table></figure></li><li>View existing file tracking patterns<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></table></figure></li><li>Commit code requires a .gitattributes file to be commit to the repository. It keeps trace of file.<br>The list of currently tracked files can be displayed after commit<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs ls-files</span><br></pre></td></tr></table></figure></li><li>Tip:<br>Use lfs must commit to use ssh, using https will not work!<br>Please be sure to commit .gitattributes files to the repository first before commit other files.<br>Github has 1GB lfs repository for free users. Any more than that will be charged. The cost is $5 for 50GB per month.<img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/lfs.png" class title="git_lfs">Remember to turn on the Include Git LFS objects in archives option: <a href="https://docs.github.com/en/github-ae@latest/github/administering-a-repository/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository">document</a><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/Project_Setting.png" class title="Project_Setting"><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/LFS_Open.png" class title="LFS_Open"></li><li>For Chinese users:<br>Ali cloud code does not support lfs commit.</li></ul><ol start="2"><li>The solution to the second problem is very simple. Because github does not allow a single push larger than 2GB you can push it in batches. Split the push into part1, part2…</li></ol><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> GithubError </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>GODOT LIGHTNING SHADER</title>
+      <link href="2020/09/15/Godot-lightning-shader/"/>
+      <url>2020/09/15/Godot-lightning-shader/</url>
+      
+        <content type="html"><![CDATA[<p>实现Godot雷电shader<br><span id="more"></span><br><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> plot(<span class="type">vec2</span> st, <span class="type">float</span> pct,<span class="type">float</span> half_width)&#123;</span><br><span class="line">  <span class="keyword">return</span>  <span class="built_in">smoothstep</span>( pct-half_width, pct, st.y) -</span><br><span class="line">          <span class="built_in">smoothstep</span>( pct, pct+half_width, st.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> rand(<span class="type">vec2</span> n) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">fract</span>(<span class="built_in">sin</span>(<span class="built_in">dot</span>(n, <span class="type">vec2</span>(<span class="number">12.9898</span>, <span class="number">4.1414</span>))) * <span class="number">43758.5453</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> noise(<span class="type">vec2</span> n) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="type">vec2</span> d = <span class="type">vec2</span>(<span class="number">0.0</span>, <span class="number">1.0</span>);</span><br><span class="line">    <span class="type">vec2</span> b = <span class="built_in">floor</span>(n), f = <span class="built_in">smoothstep</span>(<span class="type">vec2</span>(<span class="number">0.0</span>), <span class="type">vec2</span>(<span class="number">1.0</span>), <span class="built_in">fract</span>(n));</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">mix</span>(<span class="built_in">mix</span>(rand(b), rand(b + d.yx), f.x), <span class="built_in">mix</span>(rand(b + d.xy), rand(b + d.yy), f.x), f.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> fbm(<span class="type">vec2</span> n) &#123;</span><br><span class="line">    <span class="type">float</span> total = <span class="number">0.0</span>, amplitude = <span class="number">1.0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">        total += noise(n) * amplitude;</span><br><span class="line">        n += n;</span><br><span class="line">        amplitude *= <span class="number">0.5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> fragment()&#123;</span><br><span class="line"><span class="type">vec2</span> uv = UV;</span><br><span class="line"><span class="type">vec4</span> color = <span class="type">vec4</span>(<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>);</span><br><span class="line"><span class="type">vec2</span> t;</span><br><span class="line"><span class="type">float</span> y;</span><br><span class="line"><span class="type">float</span> pct;</span><br><span class="line"><span class="type">float</span> <span class="keyword">buffer</span> = plot(uv,y,<span class="number">0.08</span>);</span><br><span class="line">color += pct * <span class="type">vec4</span>(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>);</span><br><span class="line">color += <span class="keyword">buffer</span> * <span class="type">vec4</span>(<span class="number">0.2</span>,<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.0</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> lightning_number = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; lightning_number; i++)&#123;</span><br><span class="line">t = uv * <span class="type">vec2</span>(<span class="number">2.0</span>,<span class="number">1.0</span>) + <span class="type">vec2</span>(<span class="type">float</span>(i) - <span class="type">float</span>(i)) - TIME*<span class="number">3.0</span>;</span><br><span class="line">y = fbm(t)*<span class="number">0.5</span>;</span><br><span class="line">pct = plot(uv,y,<span class="number">0.02</span>);</span><br><span class="line"><span class="keyword">buffer</span> = plot(uv,y,<span class="number">0.08</span>);</span><br><span class="line">color += pct * <span class="type">vec4</span>(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>);</span><br><span class="line">color += <span class="keyword">buffer</span> * <span class="type">vec4</span>(<span class="number">0.2</span>,<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">COLOR = color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>效果图：<br><img src="/2020/09/15/Godot-lightning-shader/Lightning-shader.gif" class title="雷电shader"></p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> GodotShader </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Godot fabric fluttering shader</title>
+      <link href="2020/09/11/Godot-fabric-fluttering-shader/"/>
+      <url>2020/09/11/Godot-fabric-fluttering-shader/</url>
+      
+        <content type="html"><![CDATA[<p>Godot实现布料飘动的shader<br><span id="more"></span><br>Godot的一些shader是真的不好找，今天在某个论坛里面找到比较不错的shader。<br>可以用在布料飘动上，例如旗帜啥的。<br>出处<a href="https://forum.defold.com/t/2d-pixelated-grass-shader/56501/3">Defold forum</a><br><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> hair_vertical_offs;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> hair_horizontal_offs = - <span class="number">60.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> fragment() &#123;</span><br><span class="line"><span class="type">float</span> t = TIME;</span><br><span class="line"><span class="type">vec2</span> uv = UV;</span><br><span class="line"><span class="type">float</span> uv_x_deform = <span class="built_in">cos</span>(uv.x);</span><br><span class="line"><span class="type">vec2</span> offs_uv = <span class="type">vec2</span>(<span class="built_in">cos</span>(t * <span class="number">2.0</span> + uv.y * <span class="number">10.0</span>) + hair_horizontal_offs * ( uv.x) * ( uv.x) * <span class="number">0.3</span>, <span class="built_in">cos</span>(t * <span class="number">2.0</span> + uv.x * <span class="number">20.0</span>) + hair_vertical_offs * (<span class="number">1.2</span> - uv.x)) * <span class="number">0.03</span> * (<span class="number">1.0</span> - uv.x);</span><br><span class="line"></span><br><span class="line"><span class="type">vec4</span> img = <span class="built_in">texture</span>(TEXTURE, uv + <span class="type">vec2</span>(offs_uv.x, offs_uv.y));</span><br><span class="line">COLOR = img;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>效果图：<br><img src="/2020/09/11/Godot-fabric-fluttering-shader/Fabric-fluttering.gif" class title="飘布"></p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> GodotShader </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Godot wheat wave visual shader</title>
+      <link href="2020/09/09/Godot-wheat-wave-visual-shader/"/>
+      <url>2020/09/09/Godot-wheat-wave-visual-shader/</url>
+      
+        <content type="html"><![CDATA[<p>实现Godot麦浪shader<br><span id="more"></span><br>这个shader困惑我挺久的，思路就是让图片移动，然后在上面制造像水浪的那种效果，这样看上去就会像麦浪了。<br>首先需要一张麦浪的图片<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/WheatWave.png" class title="麦浪素材图"><br>把麦浪图片的显示模式更改为重复。这样在播放的时候就不会只播放一次。点击图片然后再点击Import标签里的Flags修改Repeat为Enabled。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Change-wheat-image-mode-to-repeat.PNG" class title="更改麦田图片模式"><br>然后在麦田sprite上创建shader，创建UV贴图将x,y轴分开，在x,y轴上新建一个ScalarOp，方法为Multiply。再在a或者b上创建一个Scalar Uniform，这样可以在外部控制变量。让他乘以某个数可以做到对图片的放大缩小。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-size.PNG" class title="Shader更改UV大小"><br>然后再用x,y轴加上一个值乘以time做到图片上下移动，在乘法上的a或者b连接Scalar Uniform在外部控制移动速度。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-move-uv.PNG" class title="Shader移动UV"><br>做完上面的操作，再用一个VectorCompose将x跟y连接在一起。最终连接上麦浪的Texture与Output的Color值跟Alpha值连接就可以看到麦浪移动的效果了。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-connect-output.PNG" class title="Shader连接output"><br>效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave_1.gif" class title="无波纹麦浪"><br>但是目前这样的效果太单调了，单纯是一张图片在移动，所以可以做一个类似波浪的效果在麦浪上面，这样麦浪看上去一直在变换。<br>现在就需要一张noise，然后在贴图上移动，所以noise做的操作跟上面的步骤也是类似的。<br>noise大小，2048 pixel * 2048pixel，做法就是用Photoshop的滤镜分层云彩或者云彩，然后用涂抹工具涂抹。<br>Noise效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/noise.png" class title="噪声效果图"><br>导入Noise图片的时候注意也要把Repeat改成Enabled，播放一遍就没了。<br>连线跟上面也一样，首先创建UV贴图，然后要可以控制噪声的大小，移动速度。最后再连接到噪声的贴图上。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseShader.PNG" class title="噪声shader连线"><br>Output连线：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseConnectOutput.PNG" class title="噪声shader_output连线"><br>最后再跟上面的连接到一起就OK了！<br><br>参数参考：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Parameter-reference.PNG" class title="参数参考"><br>最终效果<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave.gif" class title="麦浪"></p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> GodotvVisualShader </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Godot swaying grass shader</title>
+      <link href="2020/09/09/Godot-swaying-grass-shader/"/>
+      <url>2020/09/09/Godot-swaying-grass-shader/</url>
+      
+        <content type="html"><![CDATA[<p>实现Godot草丛晃动shader<br><span id="more"></span><br>在做项目的时候有个需求，就是让草会摇晃起来，找到了下面这个解决方案<br>在一个sprite上添加一个shader<br><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> vertex()&#123;</span><br><span class="line">VERTEX.x += <span class="built_in">cos</span>(TIME * shake_speed) * (VERTEX.y - moving_speed) * stretch_speed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><img src="/2020/09/09/Godot-swaying-grass-shader/Swaying_Grass_No_Limit_Y.gif" class title="摇动的草"><br>会发现整颗草都摇起来了，问题是草根的部分也摇起来了，把网格Y轴限制住就好了<br><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> vertex()&#123;</span><br><span class="line"><span class="keyword">if</span>(VERTEX.y &lt; Limit)</span><br><span class="line">VERTEX.x += <span class="built_in">cos</span>(TIME * shake_speed) * (VERTEX.y - moving_speed) * stretch_speed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><img src="/2020/09/09/Godot-swaying-grass-shader/Swaying_Grass_Limit_Y.gif" class title="锁住Y轴摇动的草"><br>注意，所有参数都要是float<br>参考：Limit = 10.0,shake_speed = 1.5,moving_speed = 38.0,stretch_speed = 0.1;</p><p>但是你会发现如果放入一堆草丛就会导致好像僵尸一样，都向一个方向一个速度位移<br><img src="/2020/09/09/Godot-swaying-grass-shader/Grass.gif" class title="草从"><br>所以接下来就要写脚本了，先在原来的shader里面定义一个外部变量，来控制方向上的速度<br><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> RandomDir;</span><br></pre></td></tr></table></figure><br>将这个数值替换到shake_speed上<br>然后在sprite身上添加一个脚本，随机一个数值赋值到RandomDir上<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">extends Sprite</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">randomize();</span><br><span class="line">self.material.set_shader_param(<span class="string">&quot;RandomDir&quot;</span>, rand_range(<span class="built_in">min</span>,<span class="built_in">max</span>));</span><br></pre></td></tr></table></figure><br><img src="/2020/09/09/Godot-swaying-grass-shader/Random_Grass.gif" class title="随机草从"><br>参考：min = -1,max = 1;<br>意思是方向上的速度1到-1之间随机，这样就达成了群魔乱舞的效果了！</p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> GodotShader </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>AMD PC install Mac os in VMware</title>
+      <link href="2020/01/04/AMD-PC-install-Mac-os-in-VMware/"/>
+      <url>2020/01/04/AMD-PC-install-Mac-os-in-VMware/</url>
+      
+        <content type="html"><![CDATA[<p>AMD平台在VMware安装mac os<br><span id="more"></span><br>其实最早之前是在VMware里装过mac的，但之前是intel的cpu，装mac会比较容易，问题也没那么多。最近去看了看unlocker的github项目好像已经删除了，应该是停止更新了。</p><p>环境：<br>DATE：2020/1/4 22:53<br>CPU：AMD R9 3900X<br>GPU: MSI RTX 2060 Super GAMING X<br>RAM: 32G<br>OS：Windows 10 Pro 18363<br>MacOS Ver：macOS.Mojave.10.14.4.x5 <a href="https://pan.baidu.com/s/1r1JASj7Zfq7My5NfEBw7EA">下载镜像</a> 提取码：axib<br>VMware Ver：15.1.0 | <a href="http://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe">点击下载</a>（试过15.5.1，但是装不上，最后会提示 未能启动虚拟机。并且如果系统是win10 1903或以上的版本，就需要使用15.1.0或以上版本，不然装不上。）<br>MK-unlocker | <a href="https://www.mediafire.com/file/w4khcmcu7hqo1a7/MK-unlocker.zip/file">点击前往下载页</a>（这个版本是民间的一位大神改的，可以兼容15的版本，安装方法网上查就行了，一查一大把）</p><h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p>（以下问题如果没遇到则不需要修改，并且建议从头开始操作，不要拿之前的项目来继续操作。）</p><ol><li>问题1 （报错 客户机操作系统已禁用CPU，请关闭或重置虚拟机。）：<br>！！！注意，这个方案只适合AMD CPU的电脑！！！<br>前往虚拟机所在目录，使用记事本打开vmx后缀的文件，在最后面加上这些配置（其实加在哪里都行）<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">smc.version = &quot;0&quot;</span><br><span class="line">cpuid.0.eax = &quot;0000:0000:0000:0000:0000:0000:0000:1011&quot;</span><br><span class="line">cpuid.0.ebx = &quot;0111:0101:0110:1110:0110:0101:0100:0111&quot;</span><br><span class="line">cpuid.0.ecx = &quot;0110:1100:0110:0101:0111:0100:0110:1110&quot;</span><br><span class="line">cpuid.0.edx = &quot;0100:1001:0110:0101:0110:1110:0110:1001&quot;</span><br><span class="line">cpuid.1.eax = &quot;0000:0000:0000:0001:0000:0110:0111:0001&quot;</span><br><span class="line">cpuid.1.ebx = &quot;0000:0010:0000:0001:0000:1000:0000:0000&quot;</span><br><span class="line">cpuid.1.ecx = &quot;1000:0010:1001:1000:0010:0010:0000:0011&quot;</span><br><span class="line">cpuid.1.edx = &quot;0000:1111:1010:1011:1111:1011:1111:1111&quot;</span><br><span class="line">featureCompat.enable = &quot;FALSE&quot;</span><br></pre></td></tr></table></figure> 分支小问题 （报错 这个虚拟机需要avx2，但是没有avx。）：<br> 将vmx配置文件中 virtualHW.version = “” 中引号内的变量改为 “10”。<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtualHW.version = &quot;10&quot;</span><br></pre></td></tr></table></figure></li><li><p>问题2 （语言选择界面无法使用鼠标键盘）：<br>打开vmx配置文件，在最后面加上这些配置</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">keyboard.vusb.enable = &quot;TRUE&quot;</span><br><span class="line">mouse.vusb.enable = &quot;TRUE&quot;</span><br></pre></td></tr></table></figure><p> 然后点击VMware Workstation菜单里的”虚拟机”-&gt;”设置”，进入&lt;虚拟机设置&gt;界面，选择&lt;硬件&gt;标签页的&lt;USB控制器&gt;，在左侧的界面里勾选&lt;显示所有USB输入设备（S）&gt;，并把顶部的&lt;USB兼容性（C）&gt;改为USB2.0。</p></li><li><p>问题3（安装系统时报错 Mojave应用程序副本已损坏,不能用来安装macOS）：<br>首先，断开虚拟机的网络。选择网卡断开即可。<br>然后打开左上角实用工具–&gt;终端<br>在终端输入:</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date 032208102015.20</span><br></pre></td></tr></table></figure><p> 修改完时间就行了，等进入安装系统的步骤时，再连接网络。<br> 目前只遇到这些问题。</p></li></ol><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> VMware </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Use frequently</title>
+      <link href="2019/11/02/Use%20frequently/"/>
+      <url>2019/11/02/Use%20frequently/</url>
+      
+        <content type="html"><![CDATA[<h1 id="介绍-Description"><a href="#介绍-Description" class="headerlink" title="介绍 Description"></a>介绍 Description</h1><p>这个页面将会存放一些我经常使用的工具、插件或网站。<br>This page will store some tools, plugins, or websites that I use often.<br><span id="more"></span> </p><h1 id="Website"><a href="#Website" class="headerlink" title="Website"></a>Website</h1><ul><li>Model download website<br><a href="https://sketchfab.com/">sketchfab</a><br>里面有很多不错的免费模型，也有很好看的付费模型可以下载。对于3D游戏或者建模开发有帮助。</li><li>character model Animation<br><a href="https://www.mixamo.com/">mixamo</a><br>这个网站mixamo目前是被adobe收购的，主要用于人物的动画。里面的动作非常非常多，而且可以免费下载。</li><li>Art images<br><a href="https://www.artstation.com/">Artstation</a><br>里面有很多艺术的图，个人创造的图可以提供给美术参考</li><li>Js library<br><a href="https://threejs.org/">Threejs</a><br>一个庞大的JS库，里面有很多特效都很强大</li><li>Shader<br><a href="https://www.shadertoy.com/">Shadertoy</a><br><a href="http://glslsandbox.com/">Glslsandbox</a><br><a href="https://thebookofshaders.com/">Thebookofshaders</a><br>Shader例子跟教程</li></ul><h1 id="Unity"><a href="#Unity" class="headerlink" title="Unity"></a>Unity</h1><ul><li>LitJSON (json plugin)<br><a href="../../../../downloads/LitJSON.dll" title="LitJSON">Click here to download</a> -Using .NET Standard 2.0 Compiled on 2019-11-2<br>Related Links <a href="https://litjson.net/api/LitJson/">Official_API</a> <a href="https://github.com/LitJSON/litjson">Github</a><br>这是一个用于解析json的插件，虽然在unity分类里面，但是只要是C#就可以使用。我使用的环境是unity2018，版本过低会导致使用不了。</li><li>Lipsync Pro<br><a href="https://assetstore.unity.com/packages/tools/animation/32117">ASSETSTORE</a><br>这是unity一个做唇形同步的插件。</li></ul><h1 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h1><ul><li><a href="https://www.blender.org/">blender</a> 模型制作-免费开源的模型制作软件，非常强大。</li></ul><h1 id="Character"><a href="#Character" class="headerlink" title="Character"></a>Character</h1><ul><li><a href="https://www.reallusion.com/iclone/">iclone</a> 动画制作-软件收费，导出也要收费。</li><li><a href="https://www.reallusion.com/character-creator/">character creator</a> 3D人物制作软件-较为方便，缺点是要收费。</li><li><a href="https://www.daz3d.com/">daz 3D</a> 3D人物制作-较为复杂，但是功能很多，可扩展性也广，教程也多，而且还免费。</li></ul><h1 id="Photo"><a href="#Photo" class="headerlink" title="Photo"></a>Photo</h1><ul><li><a href="https://www.aseprite.org/">aseprite</a> 像素图片制作-界面非常简单，而且不需要花费很多时间学习。</li><li><a href="http://boundingboxsoftware.com/materialize/">materialize</a> 游戏贴图制作</li></ul><h1 id="Work"><a href="#Work" class="headerlink" title="Work"></a>Work</h1><ul><li><a href="https://www.teambition.com/">Teambition</a> 这个是用于团队协作的，有wiki、协作文档等，一起开发的时候十分有用，阿里巴巴也是使用这个</li><li><a href="https://git-scm.com/">Git</a> 可以控制开发的版本，资源上传给远处的伙伴，合作开发很有用！</li></ul><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>About me</title>
+      <link href="2019/10/18/About%20me/"/>
+      <url>2019/10/18/About%20me/</url>
+      
+        <content type="html"><![CDATA[<h1 id="介绍一下我"><a href="#介绍一下我" class="headerlink" title="介绍一下我"></a>介绍一下我</h1><p>欢迎来到<a href="https://hex3f.com">hex3f</a>，你现在看到的是我的博客，没错，这个博客内容很少，不过我分享的一定是一些干货。那么，这个网站存在的意义是什么呢？<br><span id="more"></span><br>首先跟大家介绍一下我自己，我，出生于1999年，男，喜欢极限运动，（自称）是一名独立游戏制作人，之前在独立游戏工作室做TA，目前在一家游戏公司做前端开发。一直想做一款完全由自己的想法开发的游戏，上架渠道就是steam。<br>虽然一直做做停停，从5月份开始直到八月中旬我正式成为一名上班族。当然，在空闲时间我也做了另外的事情来赚钱。但是我立志，一定要做出属于我的游戏！<br>所以这个网站存在是为什么？从很早之前我就有很多博客，服务器一过期就换种风格。不知道为什么一直热衷于博客，这个博客估计是我的第五个博客，不过这个博客应该也是最后一个。<br>兴趣？我的风格一直在变，~~最近喜欢悠闲的生活，听听canon，码代码。除了码代码的时间那就是喜欢锻炼，从小就喜欢跑酷跟街健，喜欢探险未知。</p><h1 id="从小开始的学习变化："><a href="#从小开始的学习变化：" class="headerlink" title="从小开始的学习变化："></a>从小开始的学习变化：</h1><ol><li>小学</li></ol><ul><li>那时候对游戏有个信仰，接触了很多海外的单机游戏，还不知道steam这个东西，游戏都是在游民星空、3dm和游侠网找的。暴力摩托、帝国时代、孤岛惊魂、孤岛危机等，玩这些游戏感觉真的很有意思，就很好奇是怎么做出来的。后来记得在四年级的时候（好像是2010年），有个跟我很熟的朋友在做游戏，然后问我要不要一起做，当时就对这个非常感兴趣，用的软件是RMXP。当时还创了个工作室叫：天空工作室。后来在六年级的时候还给工作室做了个官网，从那时起就喜欢上了做网站。后来还学了点网络安全的知识，在电脑课上装逼，现在想想就有点搞笑。后来还学了易语言，做完就去电脑课装逼，哈哈哈。</li></ul><ol start="2"><li>初中</li></ol><ul><li>黑客技术：这个时候就跟我那个很要好的朋友分开了。小学时代的游戏人之路好像就这么断开了，后来，我就了解到了黑客技术，开始喜欢在网上找这些技术，了解到了一些组织：红客联盟、黑客联盟、华夏黑客联盟、鹰派联盟、绿色兵团等，鹰派联盟还有个主题曲，叫《黑夜的力量》，现在还躺在我网易云的云盘里面。学习了些关于黑客的基础概念。</li><li>跑酷和街健：那时对于跑酷好像不太了解，就是有个小概念，平时喜欢上窜下跳，拉拉单杠，做做俯卧撑。到了初二，这个时候对跑酷跟街健有了个概念，在优酷看洁癖男爱跑酷的视频，还了解到了城市猴子、TNT跑酷、GUP、STORROR、STORM、3F等的跑酷团队跟红牛跑酷赛事，当时真的非常沉迷于跑酷，现在也是。那时还买了本书，叫《城市就是健身房》，因为这本书才对街健有个比较深的概念。</li><li>网站开发：关于网站开发，学了一点HTML，CSS，PHP的知识，那时都不懂JS。怎么学这些技术的我印象还非常深刻，就是百度HTML源码，然后下载一些比较好看的网站源代码开始COPY（2333）。</li><li>游戏开发：我第一个接触是引擎是RMXP，还有RM的系列引擎，也就是在小学时代了解到的，66RPG里面大部分还是RMXP的资源，我经常在里面下载游戏然后改。在初中了解到UDK，好像当时都没有虚幻4或者没啥人用虚幻4，都是用虚幻3，就叫UDK。然后在不知道啥的教学网站看到了呆蛙的视频，不知道有没有知道虚幻引擎的同学知道他，感觉他的教学风格挺有意思的。</li><li>编程：在初中的时候，班里人都感觉我很厉害的样子，这时候，电脑课的老师就盯上了我，问我学不学编程，他教的是C语言，当时给了我一张考卷，当时不知道在上面写了什么，然后就进了小组，后来还去参加什么学生信息技术奥林匹克竞赛，不过对编程好像一点概念都没有，就是你教我学。</li></ul><ol start="3"><li>职校</li></ol><ul><li>我读职校时候是16年，为什么要来读职校呢，其实刚开始我可以选择进高中，可是我非常讨厌文化课，讨厌背那些僵硬的东西，觉得那东西没卵用（其实非常受亚伦斯沃茨启发）。而且我比较喜欢技术，所以我就进了职校。原来在于职校时间多，没有那么多作业压力，我想干嘛就干嘛）。</li><li>在职校的前半年，不能说过着迷茫的生活，都是按这老师的进度来，老师教什么，我学什么，放学时间都在玩。我接受知识非常快，而且做的作业还挺不错的，老师还挺看重我的。后来，突然想真正的学技术，感觉我之前都是在浪费时间，包括小学，初中（其实不能算浪费时间，只是说有个阅历，有了解些东西，但是没有真正的学习）当时学技术是为了做游戏，学的是Unity。第一个学的是C#。</li><li>在第二年，Unity跟C#的基础的差不多了，后来去系统的学了html,css,js,php，汇编，感觉做网站还挺有意思的。这时候开始喜欢上搭建博客，用过wordpress,discuz（我知道这是做论坛的，但是我用它做过博客）,z-blog等。我做的最大的博客叫鹰网（hawkweb）,我在里面写了很多技术知识。最后服务器过期了就关了。后来还学了python，因为突然对人工智能感兴趣，然后学到一半就没学了。之后对编曲感兴趣，学了点FL Studio的基础。</li><li>我进过平面设计的兴趣小组，参加过一次平面设计世界技能大赛市选拔赛，但是那时候没啥灵感，就没拿奖。后来进了学校的网络安全兴趣小组，但是学习气氛太差我就进了网页设计兴趣小组，准备去参加网页设计的世界技能大赛。不过在这个时候，我发自内心的想开发游戏，之后我就退出了兴趣小组。正式的开始了游戏开发之旅（这是我自己的选择）！<br>4.职业生涯</li><li>游戏音效：为什么一个程序突然去做这个了？因为在19年的时候，参加了一次Game Jam。然后主办方是一家做独立游戏的公司（透露一下，是做纽扣兄弟的，<a href="https://store.steampowered.com/app/623320/Button_Button_Up/">Steam页面</a>）。因为那个时候痴迷于编曲，所以现场就带了把midi键盘编曲。后来因为公司的一个项目需要音效。之前我是有加制作人的微信，后来他就找我谈了这件事情。于是我就阴差阳错的进入了这个行业啦！（原本我是想从事网站开发-后端的）</li><li>技术美术和程序：因为我现在这个部门是专门负责美术的，所以我就学起了特效开发。主要是用shader跟粒子系统。虽然不是非常感兴趣，但是对我未来做游戏帮助还是挺大的，所以就学习了这个。程序就是我们现在游戏的技能编写，主要是用到lua。</li></ul><h1 id="为什么选择做独立游戏这条路"><a href="#为什么选择做独立游戏这条路" class="headerlink" title="为什么选择做独立游戏这条路"></a>为什么选择做独立游戏这条路</h1><p>我想说说为什么进这么多兴趣小组我都不留下，最终选择游戏开发这条路子。在19年4月份，一次偶然的机会让我参加了Game jam，这是我的作品：<a href="https://www.3839.com/a/112430.htm">感知</a>，这是我跟我们学校一个懂一点点美术的同学做的，我知道这个游戏做的不是很好，不过参加这次活动真的让我很开心，也让我坚定的走做游戏这条路。我知道这条路非常艰难，不过，没试试，谁知道呢？不过更多的，是我从小学开始，让我最不放弃的，是做游戏，因为我不放弃，让我觉得，游戏，我做定了，不然对不起我自己！想跟自己说一句话：为什么要和别人一样呢！<br>我一直觉得，市面上的游戏都不能给我带来快乐，所以一直想做一款能让人带来快乐的游戏。并且我非常喜欢那种特别有意思的游戏。<br>希望我未来做出来的游戏，能带给大家快乐！</p><h1 id="做了啥"><a href="#做了啥" class="headerlink" title="做了啥"></a>做了啥</h1><p>以前参加了啥记不清了，就写一些我大概记得的吧<br>1.初中参加过几次C语言的比赛<br>2.第45届世界技能大赛厦门市选拔赛 - 平面设计<br>3.2018年 GitHub开源作品 《AnswerX》、《Hex3F注册用网站》、《网站热力图技术》<br>3.2018年的世界跑酷日 - 厦门EF跑酷团队举办的<br>4.2019游戏出海，如何建立用户为本的商业化模型论坛会<br>5.2019华为开发者大会 厦门站<br>6.2019年的厦门游戏创作节 - GameJam 作品<a href="https://www.3839.com/a/112430.htm">感知</a><br>7.2020年因为疫情举办的游戏元气弹 - GameJam 作品好像举办方把比赛页面删除了，所以找不到了，有空的开源到GitHub上吧<br>8.2021年 CIGA GameJam 作品《西部火车屠杀事件》<br>9.2021年 GitHub开源作品 《MorseX》<br><del>想出来再继续写</del></p><h1 id="平时喜欢做什么"><a href="#平时喜欢做什么" class="headerlink" title="平时喜欢做什么"></a>平时喜欢做什么</h1><p>在亲戚面前我可能是个怪人，因为我不喜欢跟亲戚交流，甚至不讲一句话。我喜欢安静的环境，就好像真正的大自然。我喜欢冒险，你可能不会理解我所做的，因为我无法描述我做的事情。<br>喜欢看生存类影片，看过电视剧：行尸走肉，僵尸国度，行尸之惧等(有这样的电视剧请一定要推荐给我:)）。电影：127小时，垂直极限等（记忆不大好，忘光光了，想起来再写上去）。</p><h1 id="hex3f名字的来历"><a href="#hex3f名字的来历" class="headerlink" title="hex3f名字的来历"></a>hex3f名字的来历</h1><p>记得当时在学汇编的时候了解到了ASCII码，你们会发现ASCII表3F对应的是符号”?”。之前我用过很多网名1.Hawk 老鹰，我很渴望自由（是那种亲近大自然的自由）所以我叫自己老鹰。2.BlackEnergy，黑暗力量，听名字就很霸气有没有！这是一个病毒软件。我感觉我这个人非常怪异，很想要一个独一无二的网名，问号有一种神秘的感觉，而且它来自于ASCII。后来发现好像没有人用这个名字，所以我就拿这个当网名咯！</p><h1 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h1><p>Email: <a href="mailto:hex3f@outlook.com">hex3f@outlook.com</a><br>QQ: 339999909<br>如果你遇到了什么困难可以来找我，我很乐意帮助你解决（但是要我会）。</p><p><del>下面还不知道要写什么</del></p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>I wanna talk</title>
+      <link href="1899/11/30/I%20wanna%20talk/"/>
+      <url>1899/11/30/I%20wanna%20talk/</url>
+      
+        <content type="html"><![CDATA[<p><del>最近觉得写日记好像挺好的，打算今天开始写日记。你问我哪天？就是第一篇日记的时间。</del><br>发现写日记没啥可以写的，于是改了个名字叫 I wanna talk ，想谈谈对这个世界的看法，谈谈我的人生。</p><span id="more"></span> <hr><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        瞧瞧我是谁 - DATE:2021/2/23 19:03    </div>    <div class="spoiler-content">        <p><font style="line-height:50px;" color="white">看看是谁又来了</font><br>嘿！是我。没错，懒惰的我又更新啦！<br>首先是晚来的新年快乐！没更新的这么长时间里发生了好多好多事情。<br>在十月份的时候，我辞掉了在游戏公司的工作。跟同学合伙做起了电商。短短半个月的时间赚了很多钱。但是由于我颈椎出了问题，我离开了。治疗了将近两个多月！<br>治疗好了后开始四处探险，在一次探险中。偶然发现了一只迷路的小山羊。被我带去给别人饲养了，嘿嘿。后来我开始去露营！那几天可是我最快乐的日子！！<br>在之后的时间，我开始策划要开发的游戏。这个想法过几天我再更新吧。我发现我现在超级懒，真的。好颓废的感觉！！！</p>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        好久没更新了 - DATE:2020/9/8 11:26    </div>    <div class="spoiler-content">        <p><font style="line-height:50px;" color="white">好久没更新了</font><br>转眼间，离我上次更新已经过去八个月了。这期间发生了好多事情！甚至还爆发了疫情。可是我，还是那个老样子，感觉自己还是很颓废。<br>一个月前，我毕业了。但是在五月份的时候我被一家独立游戏公司看上了。从那个时候起我就开始在那家公司上班，每个星期五星期六都去。毕业之后就是全职了。<br>在公司都干啥呢？我的职业是游戏音效、技术美术、程序。干的活都特别杂，主要是我们有俩项目，事情还是挺多的。<br>目前是在做一个项目的特效，等特效做完准备做另一个项目的音效。<br>你要说感想吧。真的，感觉国内独立游戏行业都一个样。基本都是为了钱而活，感觉都不是真正意义上想做一款好玩的游戏（并非游戏性，较为面向商业化），所以我现在给独立游戏下了个定义。真正的独立游戏，是那些几个热情的伙伴，并且十分热爱当前开发的游戏，在无论如何都想做出来的情况下。并且在非劳动的情况下。（暂时也不知道怎么写，先这样写吧）才能叫做独立游戏，不然我觉得做出来的都叫做商业游戏。<br>最近想再重拾英语这一块，开始锻炼身体。<br>还是那句老话，希望我能坚持下来！！</p>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        学习近况 - DATE:2020/1/3 11:20    </div>    <div class="spoiler-content">        <p><font style="line-height:50px;" color="white">学习近况</font><br>最近一直跟同学去秘密的探索我们学校。去一些比较奇怪的地方，地下室、楼顶、和一些无人知晓的地方。突然回忆起小时候喜欢探险的那股劲，不过不学计算机，那我一定会选择探险家这条路吧？等我以后生活水平起来了，我一定要去真正的探险一次！</p>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        最后一天 - DATE:2019/12/31 9:42    </div>    <div class="spoiler-content">        <p><font style="line-height:50px;" color="white">最后一天</font><br>转眼间，已经是2019年的最后一天了。时间过得好快。<br>在这些天里，长了很多教训。不过，吃一堑长一智嘛。这些教训也给我的带来了很多知识。<br>先说说这几天发生了什么吧。<br>不知道是不是移动网络的原因，开了vpn还是连接不上daz的下载器。但是我正好有一台服务器，然后我就开了服务器，开了vpn。结果不出所料，居然连上了！然后我就在服务器上下载，下载完后传到网盘。然后再下载到我的电脑上面。现在我知道了移动有多么烂了，简直就是墙中墙！<br>还有daz里面买素材的事情，有些素材居然还有本体这一说，买了一些发现有些需要买主体。怪我没注意看，不过也是长见识了。<br>接下来就是家里发生的事情。在前几个礼拜得知奶奶得了重病，所以后面更新进度会很慢。</p>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        模型方案 - DATE:2019/12/27 10:50    </div>    <div class="spoiler-content">        <p><font style="line-height:50px;" color="white">模型方案</font><br>继上次退款cc3之后，开始摸索起了daz 3d。这也是制作3d人物的软件，只不过相对于cc3来说会复杂一些。不过既然复杂一些，肯定功能也会比cc3多吧！<br>退款已经退回我的银行卡，还好不是paypal！在这几天里摸索了一些daz的部分功能。发现iray渲染出来的模型确实惊人，如果在unity里面能达到这种效果就好了！不过unity有hdrp也挺好的，但是模型在unity里面总是有非常多问题。比如说头发，所有跟毛发相关的，就跟纸片一样，这是目前遇到比较严重的问题。还有就是唇形同步。</p><p>总结所有待解决问题：<br>毛发渲染<br>模型渲染<br>唇形同步</p><p>我最近一直在思考能不能加入光追技术，等上面的问题解决之后就来测试一下这项技术。<br>所以我已经放弃了cc3了，转向了daz。daz确实挺好用的，习惯之后就感觉比cc3好用了（毕竟还免费，哈哈哈）。</p>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        血的教训 - DATE:2019/12/20 12:52    </div>    <div class="spoiler-content">        <p><font style="line-height:50px;" color="white">血的教训</font><br>这次咋说呢，继我上次说的买亏了iclone这个软件，现在又来了个鬼事情。reallusion是有会员等级制度的，第一个等级是Premium，当你购买了他们的产品后，你将会升级到Premium plus，这时候是有20$的降价的。<br>但是我根本不知道有这种事情，在购买iclone后，发现他需要3dxchange这个插件才能导出。然后我就退款了，那时候我还等着，等着退款后再买character creator吧。那时候我还看了很多次，cc3的价格是129$。就在今天上reallusion查看价格的时候，发现它。。。。直接到149$。<br>经过跟客服的沟通，最后知道就像开头说的那样，只要是premium plus，价格就是129$。而我购买的软件已经退款了，目前是premium。</p><p>想起那句话，失去就不会再回来了。<br>就像之前十一月份unity打折一样，unity plus一年1288，现在已经涨回去了，现在是2000+一年。并且在明年还会整体再次涨价。<br>难过啊！</p><p>噢对，今天开始epic games store开始冬季折扣了，还有送一张10$优惠券，满14.9$就可以用，地铁：离去正好14.9$，用了优惠券只要4.9$（折合人民币35元），满足条件购买后还会继续再送一张10$优惠券，这不香吗，哈哈。（香个鬼）</p>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        又是模型问题 - DATE:2019/12/18 21:08    </div>    <div class="spoiler-content">        <p><font style="line-height:50px;" color="white">又是模型问题</font><br>先说一下昨天（2019/12/17）的事情，昨天去给一个班做学习分享感觉结果让我感觉非常意外，没想到新生班级能有那么多人热爱学习。我大致是讲了讲如何步入自学还有学习英语的重要性这两点吧，后面就是跟学弟学妹进行沟通交流。<br>在昨天下午，在犹豫很久的情况下买了Reallusion旗下的软件iclone 7（折后 $107），当时就想着，都等了那么久了，再拖下去浪费时间啊，然后就买了iclone先试试。在我研究了许久软件后，我的天，这软件导出fbx模型需要一个插件：3DXchange，当时就日了狗了啊，这软件打折后居然还要299刀！后来找了很多解决方法，然后去给官方发了封邮件退款了。<br>解决方法是这样的，他们旗下的iclone是做动画的，character　creator（简称CC）是做人物模型的。目前iclone的版本是7，cc的版本是3。cc是跟iclone是可以互动的，cc做完的模型可以直接导到iclone中。但是cc如果要导出模型，除了购买iclone后可以直接导入icone外，是需要购买Pipeline版本的。简单的说就是：<br>iclone需要单独买，购买后导出动画数据需要3DXchange这款插件。<br>cc是免费使用的，但是导出模型需要购买pipeline的版本。<br>目前与unity配合使用的方法是：<br>购买character creator 3，关于人物装饰可以选择去 <a href="https://sketchfab.com/">sketchfab</a> 下载，然后导入到cc3。关于动画可以选择去 <a href="https://www.mixamo.com/">mixamo</a> 下载。唇形同步可以选择unity商城的 <a href="https://assetstore.unity.com/packages/tools/animation/lipsync-pro-32117">LipSync Pro</a> 或者 <a href="https://assetstore.unity.com/packages/tools/animation/salsa-lipsync-suite-148442">SALSA LipSync Suite</a> （但是我没试过是否可行，正常来说都是可以的）插件。<br>然后这里是从cc导入模型到unity的插件<a href="https://www.reallusion.com/character-creator/unity-auto-setup.html">AUTO SETUP FOR UNITY</a>。<br>上面这些方法我都会出一个教学视频，目前国内好像没有。不过youtube上是有很多参考视频的。<br>希望退款不会退到paypal里面，不然提现需要35刀，我就裂开了！</p>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        关于日记 - DATE:2019/12/16 9:03    </div>    <div class="spoiler-content">        <p><font style="line-height:50px;" color="white">关于日记</font><br>最近发现日记总是不能按时写，不过我还是会隔几天写一下。最主要的原因还是懒，心里想写但是总动不起手。还有个主要原因就是生活很枯燥，其实没啥可以写的。所以现在想改一改这个页面的标题。由Diary（日记）修改成I wanna talk（我想谈谈）。感觉我写的这个不像日记，像是写感想吧。<br>电脑的所有硬件快递也差不多，这里我想说说装机感受吧。<br>因为很久很久没装机了，装的时候遇到非常多的问题。现在说说机箱，联力 tu150有些地方跟刀子一样，我的手指还被机箱刮流血了，流了一堆，好像很多机箱都这样，下次拆的时候一定要小心一点。<br>第一次装：刚开始装利民的fs140散热，那散热是真的大，因为试试装，忘记插主板供电。刚装进去的散热又要拆出来，结果给U同时拔了起来，还好针脚没事，可把我吓死了。装完之后居然点不亮。<br>第二次装：这个把所有硬件裸机测试，然后发现第一次没开是在自检，要等一会才开机。<br>第三次装：这次装回去终于可以了，然后升级了下bios。装系统的时候发现没认到固态。<br>第四次装：这次把固态拆起来重装，然后给固态散热的螺丝弄丢了。然后全部拆起来找了，找半天都找不到，我都要裂开了。最后重新装上去已经是接近十一点了，宿舍已经断电了。然后开始发现机箱漏电！！！最后因为太晚去睡觉了。<br>第五次装，这次又全部拆起来裸机测试，发现又可以了，好像是因为装散热的时候太用力把u给弄起来了，没插好。最后装起来，完成了。<br>大大小小的，总共装了五六次差不多，可折腾死我了，不过还是挺享受的。</p><p>最后想说一下，3900x太爽了，就是烤鸡温度已经到90了。可能是itx散热真的不太行吧。<br>现在的I wanna talk，我会在发生一些事情上写，而不会逼着自己每天写，这样挺好的。</p>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        谈谈一些事 - DATE:2019/12/12 19:53    </div>    <div class="spoiler-content">        <font style="line-height:50px;" color="white">谈谈一些事</font><p>今天跟和我一起学游戏开发的同学聊了好多，也算是抱怨吧。聊了聊父母对我们做独立游戏的看法，看来大多数父母都不赞同，大多数父母看来，这是没出路的，除非你要拿出点成绩。不过大多数父母也不会去换位思考，去理解它们的孩子。<br>其实我们跟父母沟通也好，还是你的朋友。沟通交流最后是为了解决问题，而大多数情况下，并不是这样，到最后都是争吵而不了了之。而我们万般无奈，无能为力！这也是很多人会抑郁的原因吧。</p><p>在今天算是把电脑该买的都买的，最终配置单如下：<br>MB: ROG B450-I    989RMB<br>CPU: R9 3900x    3939RMB<br>GPU: MSI RTX 2060 SUPER    3169RMB<br>RAM: G.SKILL 16x2 1199RMB<br>SSD: SAMSUNG 970 EVO Plus 768RMB<br>POWER: USCORSAIR SF600 859RMB<br>CASE: LILIAN TU150 739RMB<br>CPU FAN: Thermalright FS140 249RMB<br>RGB FAN: Thermalright TL-C12S 279RMB<br><del>RGB HUB: 19.9RMB（这玩意买了但是没用，因为风扇可以串联）</del></p><p>刚刚双十二，海盗船的SF600白金是没货的，等我买完金牌睡一觉起来，我擦，白金有货了！！！差价就50！最后还是用了金牌。<br>哦对了，突然想起来，昨天在上课的时候有个老师听说我去给另一个老师班级做学习分享，然后让我去他们班也做做分享，感觉有点小慌。</p>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        我又拖延了 - DATE:2019/12/11 10:01    </div>    <div class="spoiler-content">        <p><font style="line-height:50px;" color="white">我又拖延了</font><br>昨天又忘记写日记了！！！！<br>好吧，先写写昨天干了啥吧。就在两周前谢老师邀请我去他们班做一个学习分享。说实话，学习分享应该是面向热爱学习的人来分享，要面向相关知识来分享。我分享了我的学习过程跟方法，在讲的时候我些紧张，有些话都没缕好。不过我还是把我大致想说的都说出来了。昨晚还骑了快一个小时的共享单车，今早有去骑了。以后有空一定要经常骑，骑完感觉做啥事情都很轻松，果然还是要经常锻炼身体，不然以后咋办，哈哈。<br>今天打算学一学Emerald AI这个插件，以后AI打算就用这个。今天早上四节课还调到了下午，直接从一点半上到七点，想想就有点累。不过我打算带我的电脑去上课，总的来说不会浪费时间。</p>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        拒绝拖延症 - DATE:2020/1/3 11:20    </div>    <div class="spoiler-content">        <p><font style="line-height:50px;" color="white">拒绝拖延症</font><br>转眼过去，已经十几天没更新日记了。连日记都会拖的我，还有啥不拖延呢。所以从今天开始，日记必须天天更！<br>那么多天过去了，我科三居然过了。刚开始写日记的时候我慌得一批，总是担心不过，不知道那时候的我看到现在的我是什么感觉？上周末回去跟我父母沟通我的近况，谈了谈我以后做独立游戏的事情！为了做一个画面比较好的游戏，打算重新配一台电脑。这几天一直在找一些开发上的配置资料。因为我做的游戏不同，所以配置上要求有还是蛮高的呢。<br>这几天好像很颓废，看看技术文档就没了，要开始背背单词，锻炼锻炼了！<br>看看目前的配置单(没确定下来的品牌就没写了 就写个大致的配置)：<br>CPU：R9 3900x/原价4299，京东闪购4099<br>GPU: MSI RTX 2060 SUPRT GAMING/价格在3299<br>RAM: 16G 3000 * 2/品牌未定，预算在1000内<br>MB: MSI B450I/双十二799还是可以的，不知道我买的时候会不会打折<br>POWER: SFX 600W<br>CPU FAN: NOCTUA NH-U12A/没打折价格在799，或许可以大霜塔<br>CASE: LIANLI TU150/没打折价格在890</p>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        莫名其妙的科目三，模型问题 - DATE:2019/11/28 18:30    </div>    <div class="spoiler-content">        <p><font style="line-height:50px;" color="white">莫名其妙的科目三，模型问题</font><br>原本是今天要去练科目三，然后老师不让请假（教练让下午一点半去，那时候在上课）。可是都已经预约上了，然后就准备周五（29号）去车管所取消预约。我同学打算租车带要回家的同学顺便带我去车管所。结果教练发微信给我说下午下课后去找他，然后找他之后直接让我去练车了。于是把我们所有计划都打乱了！算是这几天一直的烦恼给一个解决吧。<br>昨天是有个人物模型Lipsync的问题一直烦恼着我，后来了解到了character creator这个软件。这个软件是用来做人物（角色）的，超级好用。终于这个事情也解决了！然后我成考好像也过了，心情一下子就升华了。</p>    </div></div><!-- 文章 --><div class="spoiler collapsed">    <div class="spoiler-title">        Lipsync的问题 - DATE:2019/11/27 8:30    </div>    <div class="spoiler-content">        <p><font style="line-height:50px;" color="white">Lipsync的问题</font><br>今天才开始写的日记，就从今天的事情开始写吧！昨天遇到模型Lipsync技术上的问题，一直不知道怎么解决。好像是模型需要有blend shape？用了Unity商城上的Lipsync Pro但是很多模型都用不了。一直不太懂模型上的问题，今天想试试Adboe Fuse CC，这个软件好像可以很快的生成人物模型，并且还带有动作。然后想从头开始学习Blender，现在才发现这个真的很重要！问题好多，希望早点能解决这个问题吧！</p>    </div></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
 </search>
