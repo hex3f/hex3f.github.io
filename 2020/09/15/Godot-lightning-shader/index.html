@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta http-equiv="cache-control" content="no-cache">
+  
+  <title>GODOT LIGHTNING SHADER | Hex3F</title>
+  <meta name="author" content="hex3f">
+  
+  <meta name="description" content="一名不起眼的独立游戏开发者">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="GODOT LIGHTNING SHADER"/>
+  <meta property="og:site_name" content="Hex3F"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  
+  <!--有趣的浏览器标题-->
+  <script type="text/javascript" src="\js\FunnyTitle.js"></script>
+  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.2.4.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Hex3F" type="application/atom+xml">
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Hex3F</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class="fa fa-rss-square"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> GODOT LIGHTNING SHADER</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>实现Godot雷电shader<br><span id="more"></span><br><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> plot(<span class="type">vec2</span> st, <span class="type">float</span> pct,<span class="type">float</span> half_width)&#123;</span><br><span class="line">  <span class="keyword">return</span>  <span class="built_in">smoothstep</span>( pct-half_width, pct, st.y) -</span><br><span class="line">          <span class="built_in">smoothstep</span>( pct, pct+half_width, st.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> rand(<span class="type">vec2</span> n) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">fract</span>(<span class="built_in">sin</span>(<span class="built_in">dot</span>(n, <span class="type">vec2</span>(<span class="number">12.9898</span>, <span class="number">4.1414</span>))) * <span class="number">43758.5453</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> noise(<span class="type">vec2</span> n) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="type">vec2</span> d = <span class="type">vec2</span>(<span class="number">0.0</span>, <span class="number">1.0</span>);</span><br><span class="line">    <span class="type">vec2</span> b = <span class="built_in">floor</span>(n), f = <span class="built_in">smoothstep</span>(<span class="type">vec2</span>(<span class="number">0.0</span>), <span class="type">vec2</span>(<span class="number">1.0</span>), <span class="built_in">fract</span>(n));</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">mix</span>(<span class="built_in">mix</span>(rand(b), rand(b + d.yx), f.x), <span class="built_in">mix</span>(rand(b + d.xy), rand(b + d.yy), f.x), f.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> fbm(<span class="type">vec2</span> n) &#123;</span><br><span class="line">    <span class="type">float</span> total = <span class="number">0.0</span>, amplitude = <span class="number">1.0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">        total += noise(n) * amplitude;</span><br><span class="line">        n += n;</span><br><span class="line">        amplitude *= <span class="number">0.5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> fragment()&#123;</span><br><span class="line">	<span class="type">vec2</span> uv = UV;</span><br><span class="line">	<span class="type">vec4</span> color = <span class="type">vec4</span>(<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>);</span><br><span class="line">	<span class="type">vec2</span> t;</span><br><span class="line">	<span class="type">float</span> y;</span><br><span class="line">	<span class="type">float</span> pct;</span><br><span class="line">	<span class="type">float</span> <span class="keyword">buffer</span> = plot(uv,y,<span class="number">0.08</span>);</span><br><span class="line">	color += pct * <span class="type">vec4</span>(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>);</span><br><span class="line">	color += <span class="keyword">buffer</span> * <span class="type">vec4</span>(<span class="number">0.2</span>,<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> lightning_number = <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; lightning_number; i++)&#123;</span><br><span class="line">		t = uv * <span class="type">vec2</span>(<span class="number">2.0</span>,<span class="number">1.0</span>) + <span class="type">vec2</span>(<span class="type">float</span>(i) - <span class="type">float</span>(i)) - TIME*<span class="number">3.0</span>;</span><br><span class="line">		y = fbm(t)*<span class="number">0.5</span>;</span><br><span class="line">		pct = plot(uv,y,<span class="number">0.02</span>);</span><br><span class="line">		<span class="keyword">buffer</span> = plot(uv,y,<span class="number">0.08</span>);</span><br><span class="line">		color += pct * <span class="type">vec4</span>(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>);</span><br><span class="line">		color += <span class="keyword">buffer</span> * <span class="type">vec4</span>(<span class="number">0.2</span>,<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	COLOR = color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>效果图：<br><img src="/2020/09/15/Godot-lightning-shader/Lightning-shader.gif" class title="雷电shader"></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a href="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/" type="button" class="btn btn-default"><i
+                class="fa fa-arrow-circle-o-left"></i> Prev</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2020/09/11/Godot-fabric-fluttering-shader/" type="button" class="btn btn-default ">Next<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+
+	<!-- comment -->
+	
+<!--
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
+-->
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2020-09-15 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/GodotShader/">GodotShader<span>3</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> 
+<div><a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0;margin:10px auto;" src="/images/CC BY 4.0.png" /></a><div>
+  <p>&copy; 2023 hex3f
+  
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | <a target="_blank" rel="noopener" href="https://github.com/blackshow/hexo-theme-freemind.386">Freemind.386</a>
+  </p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span><i class="fa fa-angle-double-up"></i> TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+  
+<!-- 节日输出 -->
+<script type="text/javascript">
+	calendar = new Date();
+	month = calendar.getMonth();
+	date = calendar.getDate();
+	if ((month == 11) && (date == 23)) console.log("今天是我生日哦，祝我自己生日快乐！哈哈哈哈！！");
+</script>
+  
+</body>
+   </html>

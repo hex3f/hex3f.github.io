@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta http-equiv="cache-control" content="no-cache">
+  
+  <title>github git push remote fatal pack exceeds maximum allowed size error | Hex3F</title>
+  <meta name="author" content="hex3f">
+  
+  <meta name="description" content="一名不起眼的独立游戏开发者">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="github git push remote fatal pack exceeds maximum allowed size error"/>
+  <meta property="og:site_name" content="Hex3F"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  
+  <!--有趣的浏览器标题-->
+  <script type="text/javascript" src="\js\FunnyTitle.js"></script>
+  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.2.4.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Hex3F" type="application/atom+xml">
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Hex3F</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class="fa fa-rss-square"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> github git push remote fatal pack exceeds maximum allowed size error</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>Key words：<br>remote: fatal: pack exceeds maximum allowed size<br>fatal: sha1 file ‘&lt;stdout&gt;’ write error: Broken pipe<br>error: remote unpack failed: index-pack abnormal exit<br>To github.com: <a href="mailto:git@github.com">git@github.com</a>:xxx/xxx.git<br>![remote rejected]    main -&gt; main (failed)<br>error: failed to push some refs to <a href="mailto:&#39;git@github.com">&#39;git@github.com</a>:xxx/xxx.git’<br><span id="more"></span><br><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/error.png" class title="git error"></p>
+<h1 id="Possible-reason"><a href="#Possible-reason" class="headerlink" title="Possible reason"></a>Possible reason</h1><ol>
+<li>Single file is larger than 100MB and git lfs is not turned on</li>
+<li>Single push size is greater than 2GB</li>
+</ol>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><ol>
+<li>For the first problem. Uploading a single file that is larger than 100MB means you have to use git lfs for push. You just need to install lfs on your git to turn it on. And write rules in your gitattributes.<br>If your git doesn’t have lfs integration then you need to go download. <a target="_blank" rel="noopener" href="https://github.com/git-lfs/git-lfs/releases">git lfs</a><br>Open git bash and type the command:</li>
+</ol>
+<ul>
+<li>Turn on lfs<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs install</span><br></pre></td></tr></table></figure></li>
+<li>All large file tracking (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></table></figure></li>
+<li>Example: Track all files with png suffix (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs track &quot;*.png&quot;</span><br></pre></td></tr></table></figure></li>
+<li>View existing file tracking patterns<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></table></figure></li>
+<li>Commit code requires a .gitattributes file to be commit to the repository. It keeps trace of file.<br>The list of currently tracked files can be displayed after commit<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs ls-files</span><br></pre></td></tr></table></figure></li>
+<li>Tip:<br>Use lfs must commit to use ssh, using https will not work!<br>Please be sure to commit .gitattributes files to the repository first before commit other files.<br>Github has 1GB lfs repository for free users. Any more than that will be charged. The cost is $5 for 50GB per month.<img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/lfs.png" class title="git_lfs">
+Remember to turn on the Include Git LFS objects in archives option: <a target="_blank" rel="noopener" href="https://docs.github.com/en/github-ae@latest/github/administering-a-repository/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository">document</a><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/Project_Setting.png" class title="Project_Setting">
+<img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/LFS_Open.png" class title="LFS_Open"></li>
+<li>For Chinese users:<br>Ali cloud code does not support lfs commit.</li>
+</ul>
+<ol start="2">
+<li>The solution to the second problem is very simple. Because github does not allow a single push larger than 2GB you can push it in batches. Split the push into part1, part2…</li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a href="/2021/08/19/Expedition/" type="button" class="btn btn-default"><i
+                class="fa fa-arrow-circle-o-left"></i> Prev</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2020/09/15/Godot-lightning-shader/" type="button" class="btn btn-default ">Next<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+
+	<!-- comment -->
+	
+<!--
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
+-->
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2021-06-20 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/GithubError/">GithubError<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> 
+<div><a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0;margin:10px auto;" src="/images/CC BY 4.0.png" /></a><div>
+  <p>&copy; 2023 hex3f
+  
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | <a target="_blank" rel="noopener" href="https://github.com/blackshow/hexo-theme-freemind.386">Freemind.386</a>
+  </p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span><i class="fa fa-angle-double-up"></i> TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+  
+<!-- 节日输出 -->
+<script type="text/javascript">
+	calendar = new Date();
+	month = calendar.getMonth();
+	date = calendar.getDate();
+	if ((month == 11) && (date == 23)) console.log("今天是我生日哦，祝我自己生日快乐！哈哈哈哈！！");
+</script>
+  
+</body>
+   </html>

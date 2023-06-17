@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hex3F</title>
+  <icon>https://hex3f.com/icon.png</icon>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://hex3f.com/"/>
+  <updated>2021-08-20T04:51:52.204Z</updated>
+  <id>https://hex3f.com/</id>
+  
+  <author>
+    <name>hex3f</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Expedition</title>
+    <link href="https://hex3f.com/2021/08/19/Expedition/"/>
+    <id>https://hex3f.com/2021/08/19/Expedition/</id>
+    <published>2021-08-19T03:52:58.000Z</published>
+    <updated>2021-08-20T04:51:52.204Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我喜欢安静的环境，就好像真正的大自然。我喜欢独自一人冒险，你可能不会理解我所做的，因为我无法描述我做的事情。这里存放的是我探险之后的留念。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>github git push remote fatal pack exceeds maximum allowed size error</title>
+    <link href="https://hex3f.com/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/"/>
+    <id>https://hex3f.com/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/</id>
+    <published>2021-06-20T15:40:44.000Z</published>
+    <updated>2021-06-26T12:17:38.534Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Key words：&lt;br&gt;remote: fatal: pack exceeds maximum allowed size&lt;br&gt;fatal: sha1 file ‘&amp;lt;stdout&amp;gt;’ write error: Broken pipe&lt;br&gt;error: remote unpack failed: index-pack abnormal exit&lt;br&gt;To github.com: &lt;a href=&quot;mailto:git@github.com&quot;&gt;git@github.com&lt;/a&gt;:xxx/xxx.git&lt;br&gt;![remote rejected]    main -&amp;gt; main (failed)&lt;br&gt;error: failed to push some refs to &lt;a href=&quot;mailto:&amp;#39;git@github.com&quot;&gt;&amp;#39;git@github.com&lt;/a&gt;:xxx/xxx.git’&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="GithubError" scheme="https://hex3f.com/tags/GithubError/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GODOT LIGHTNING SHADER</title>
+    <link href="https://hex3f.com/2020/09/15/Godot-lightning-shader/"/>
+    <id>https://hex3f.com/2020/09/15/Godot-lightning-shader/</id>
+    <published>2020-09-15T10:20:59.000Z</published>
+    <updated>2021-02-23T10:43:56.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;实现Godot雷电shader&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="GodotShader" scheme="https://hex3f.com/tags/GodotShader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Godot fabric fluttering shader</title>
+    <link href="https://hex3f.com/2020/09/11/Godot-fabric-fluttering-shader/"/>
+    <id>https://hex3f.com/2020/09/11/Godot-fabric-fluttering-shader/</id>
+    <published>2020-09-11T08:52:54.000Z</published>
+    <updated>2020-09-11T09:06:56.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Godot实现布料飘动的shader&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="GodotShader" scheme="https://hex3f.com/tags/GodotShader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Godot wheat wave visual shader</title>
+    <link href="https://hex3f.com/2020/09/09/Godot-wheat-wave-visual-shader/"/>
+    <id>https://hex3f.com/2020/09/09/Godot-wheat-wave-visual-shader/</id>
+    <published>2020-09-09T12:05:36.000Z</published>
+    <updated>2020-09-11T10:38:36.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;实现Godot麦浪shader&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="GodotvVisualShader" scheme="https://hex3f.com/tags/GodotvVisualShader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Godot swaying grass shader</title>
+    <link href="https://hex3f.com/2020/09/09/Godot-swaying-grass-shader/"/>
+    <id>https://hex3f.com/2020/09/09/Godot-swaying-grass-shader/</id>
+    <published>2020-09-09T11:24:59.000Z</published>
+    <updated>2020-09-09T12:00:52.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;实现Godot草丛晃动shader&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="GodotShader" scheme="https://hex3f.com/tags/GodotShader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AMD PC install Mac os in VMware</title>
+    <link href="https://hex3f.com/2020/01/04/AMD-PC-install-Mac-os-in-VMware/"/>
+    <id>https://hex3f.com/2020/01/04/AMD-PC-install-Mac-os-in-VMware/</id>
+    <published>2020-01-04T14:25:16.000Z</published>
+    <updated>2021-06-20T18:17:30.562Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;AMD平台在VMware安装mac os&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="VMware" scheme="https://hex3f.com/tags/VMware/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Use frequently</title>
+    <link href="https://hex3f.com/2019/11/02/Use%20frequently/"/>
+    <id>https://hex3f.com/2019/11/02/Use%20frequently/</id>
+    <published>2019-11-02T10:39:09.000Z</published>
+    <updated>2020-09-08T09:54:38.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;介绍-Description&quot;&gt;&lt;a href=&quot;#介绍-Description&quot; class=&quot;headerlink&quot; title=&quot;介绍 Description&quot;&gt;&lt;/a&gt;介绍 Description&lt;/h1&gt;&lt;p&gt;这个页面将会存放一些我经常使用的工具、插件或网站。&lt;br&gt;This page will store some tools, plugins, or websites that I use often.&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>About me</title>
+    <link href="https://hex3f.com/2019/10/18/About%20me/"/>
+    <id>https://hex3f.com/2019/10/18/About%20me/</id>
+    <published>2019-10-18T05:07:45.000Z</published>
+    <updated>2021-09-21T08:07:47.523Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;介绍一下我&quot;&gt;&lt;a href=&quot;#介绍一下我&quot; class=&quot;headerlink&quot; title=&quot;介绍一下我&quot;&gt;&lt;/a&gt;介绍一下我&lt;/h1&gt;&lt;p&gt;欢迎来到&lt;a href=&quot;https://hex3f.com&quot;&gt;hex3f&lt;/a&gt;，你现在看到的是我的博客，没错，这个博客内容很少，不过我分享的一定是一些干货。那么，这个网站存在的意义是什么呢？&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>I wanna talk</title>
+    <link href="https://hex3f.com/1899/11/30/I%20wanna%20talk/"/>
+    <id>https://hex3f.com/1899/11/30/I%20wanna%20talk/</id>
+    <published>1899-11-29T15:55:00.000Z</published>
+    <updated>2021-09-21T08:11:37.452Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;del&gt;最近觉得写日记好像挺好的，打算今天开始写日记。你问我哪天？就是第一篇日记的时间。&lt;/del&gt;&lt;br&gt;发现写日记没啥可以写的，于是改了个名字叫 I wanna talk ，想谈谈对这个世界的看法，谈谈我的人生。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>

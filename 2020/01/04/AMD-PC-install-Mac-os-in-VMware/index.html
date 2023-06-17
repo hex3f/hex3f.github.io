@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta http-equiv="cache-control" content="no-cache">
+  
+  <title>AMD PC install Mac os in VMware | Hex3F</title>
+  <meta name="author" content="hex3f">
+  
+  <meta name="description" content="一名不起眼的独立游戏开发者">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="AMD PC install Mac os in VMware"/>
+  <meta property="og:site_name" content="Hex3F"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  
+  <!--有趣的浏览器标题-->
+  <script type="text/javascript" src="\js\FunnyTitle.js"></script>
+  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.2.4.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Hex3F" type="application/atom+xml">
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Hex3F</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class="fa fa-rss-square"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> AMD PC install Mac os in VMware</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>AMD平台在VMware安装mac os<br><span id="more"></span><br>其实最早之前是在VMware里装过mac的，但之前是intel的cpu，装mac会比较容易，问题也没那么多。最近去看了看unlocker的github项目好像已经删除了，应该是停止更新了。</p>
+<p>环境：<br>DATE：2020/1/4 22:53<br>CPU：AMD R9 3900X<br>GPU: MSI RTX 2060 Super GAMING X<br>RAM: 32G<br>OS：Windows 10 Pro 18363<br>MacOS Ver：macOS.Mojave.10.14.4.x5 <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1r1JASj7Zfq7My5NfEBw7EA">下载镜像</a> 提取码：axib<br>VMware Ver：15.1.0 | <a target="_blank" rel="noopener" href="http://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe">点击下载</a>（试过15.5.1，但是装不上，最后会提示 未能启动虚拟机。并且如果系统是win10 1903或以上的版本，就需要使用15.1.0或以上版本，不然装不上。）<br>MK-unlocker | <a target="_blank" rel="noopener" href="https://www.mediafire.com/file/w4khcmcu7hqo1a7/MK-unlocker.zip/file">点击前往下载页</a>（这个版本是民间的一位大神改的，可以兼容15的版本，安装方法网上查就行了，一查一大把）</p>
+<h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p>（以下问题如果没遇到则不需要修改，并且建议从头开始操作，不要拿之前的项目来继续操作。）</p>
+<ol>
+<li>问题1 （报错 客户机操作系统已禁用CPU，请关闭或重置虚拟机。）：<br>！！！注意，这个方案只适合AMD CPU的电脑！！！<br>前往虚拟机所在目录，使用记事本打开vmx后缀的文件，在最后面加上这些配置（其实加在哪里都行）<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">smc.version = &quot;0&quot;</span><br><span class="line">cpuid.0.eax = &quot;0000:0000:0000:0000:0000:0000:0000:1011&quot;</span><br><span class="line">cpuid.0.ebx = &quot;0111:0101:0110:1110:0110:0101:0100:0111&quot;</span><br><span class="line">cpuid.0.ecx = &quot;0110:1100:0110:0101:0111:0100:0110:1110&quot;</span><br><span class="line">cpuid.0.edx = &quot;0100:1001:0110:0101:0110:1110:0110:1001&quot;</span><br><span class="line">cpuid.1.eax = &quot;0000:0000:0000:0001:0000:0110:0111:0001&quot;</span><br><span class="line">cpuid.1.ebx = &quot;0000:0010:0000:0001:0000:1000:0000:0000&quot;</span><br><span class="line">cpuid.1.ecx = &quot;1000:0010:1001:1000:0010:0010:0000:0011&quot;</span><br><span class="line">cpuid.1.edx = &quot;0000:1111:1010:1011:1111:1011:1111:1111&quot;</span><br><span class="line">featureCompat.enable = &quot;FALSE&quot;</span><br></pre></td></tr></table></figure>
+ 分支小问题 （报错 这个虚拟机需要avx2，但是没有avx。）：<br> 将vmx配置文件中 virtualHW.version = “” 中引号内的变量改为 “10”。<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtualHW.version = &quot;10&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>问题2 （语言选择界面无法使用鼠标键盘）：<br>打开vmx配置文件，在最后面加上这些配置</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">keyboard.vusb.enable = &quot;TRUE&quot;</span><br><span class="line">mouse.vusb.enable = &quot;TRUE&quot;</span><br></pre></td></tr></table></figure>
+<p> 然后点击VMware Workstation菜单里的”虚拟机”-&gt;”设置”，进入&lt;虚拟机设置&gt;界面，选择&lt;硬件&gt;标签页的&lt;USB控制器&gt;，在左侧的界面里勾选&lt;显示所有USB输入设备（S）&gt;，并把顶部的&lt;USB兼容性（C）&gt;改为USB2.0。</p>
+</li>
+<li><p>问题3（安装系统时报错 Mojave应用程序副本已损坏,不能用来安装macOS）：<br>首先，断开虚拟机的网络。选择网卡断开即可。<br>然后打开左上角实用工具–&gt;终端<br>在终端输入:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date 032208102015.20</span><br></pre></td></tr></table></figure>
+<p> 修改完时间就行了，等进入安装系统的步骤时，再连接网络。<br> 目前只遇到这些问题。</p>
+</li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a href="/2020/09/09/Godot-swaying-grass-shader/" type="button" class="btn btn-default"><i
+                class="fa fa-arrow-circle-o-left"></i> Prev</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2019/11/02/Use frequently/" type="button" class="btn btn-default ">Next<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+
+	<!-- comment -->
+	
+<!--
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
+-->
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2020-01-04 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/VMware/">VMware<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> 
+<div><a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0;margin:10px auto;" src="/images/CC BY 4.0.png" /></a><div>
+  <p>&copy; 2023 hex3f
+  
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | <a target="_blank" rel="noopener" href="https://github.com/blackshow/hexo-theme-freemind.386">Freemind.386</a>
+  </p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span><i class="fa fa-angle-double-up"></i> TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+  
+<!-- 节日输出 -->
+<script type="text/javascript">
+	calendar = new Date();
+	month = calendar.getMonth();
+	date = calendar.getDate();
+	if ((month == 11) && (date == 23)) console.log("今天是我生日哦，祝我自己生日快乐！哈哈哈哈！！");
+</script>
+  
+</body>
+   </html>

@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta http-equiv="cache-control" content="no-cache">
+  
+  <title>Godot wheat wave visual shader | Hex3F</title>
+  <meta name="author" content="hex3f">
+  
+  <meta name="description" content="一名不起眼的独立游戏开发者">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Godot wheat wave visual shader"/>
+  <meta property="og:site_name" content="Hex3F"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  
+  <!--有趣的浏览器标题-->
+  <script type="text/javascript" src="\js\FunnyTitle.js"></script>
+  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.2.4.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Hex3F" type="application/atom+xml">
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Hex3F</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class="fa fa-rss-square"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> Godot wheat wave visual shader</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>实现Godot麦浪shader<br><span id="more"></span><br>这个shader困惑我挺久的，思路就是让图片移动，然后在上面制造像水浪的那种效果，这样看上去就会像麦浪了。<br>首先需要一张麦浪的图片<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/WheatWave.png" class title="麦浪素材图"><br>把麦浪图片的显示模式更改为重复。这样在播放的时候就不会只播放一次。点击图片然后再点击Import标签里的Flags修改Repeat为Enabled。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Change-wheat-image-mode-to-repeat.PNG" class title="更改麦田图片模式"><br>然后在麦田sprite上创建shader，创建UV贴图将x,y轴分开，在x,y轴上新建一个ScalarOp，方法为Multiply。再在a或者b上创建一个Scalar Uniform，这样可以在外部控制变量。让他乘以某个数可以做到对图片的放大缩小。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-size.PNG" class title="Shader更改UV大小"><br>然后再用x,y轴加上一个值乘以time做到图片上下移动，在乘法上的a或者b连接Scalar Uniform在外部控制移动速度。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-move-uv.PNG" class title="Shader移动UV"><br>做完上面的操作，再用一个VectorCompose将x跟y连接在一起。最终连接上麦浪的Texture与Output的Color值跟Alpha值连接就可以看到麦浪移动的效果了。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-connect-output.PNG" class title="Shader连接output"><br>效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave_1.gif" class title="无波纹麦浪"><br>但是目前这样的效果太单调了，单纯是一张图片在移动，所以可以做一个类似波浪的效果在麦浪上面，这样麦浪看上去一直在变换。<br>现在就需要一张noise，然后在贴图上移动，所以noise做的操作跟上面的步骤也是类似的。<br>noise大小，2048 pixel * 2048pixel，做法就是用Photoshop的滤镜分层云彩或者云彩，然后用涂抹工具涂抹。<br>Noise效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/noise.png" class title="噪声效果图"><br>导入Noise图片的时候注意也要把Repeat改成Enabled，播放一遍就没了。<br>连线跟上面也一样，首先创建UV贴图，然后要可以控制噪声的大小，移动速度。最后再连接到噪声的贴图上。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseShader.PNG" class title="噪声shader连线"><br>Output连线：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseConnectOutput.PNG" class title="噪声shader_output连线"><br>最后再跟上面的连接到一起就OK了！<br><br>参数参考：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Parameter-reference.PNG" class title="参数参考"><br>最终效果<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave.gif" class title="麦浪"></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a href="/2020/09/11/Godot-fabric-fluttering-shader/" type="button" class="btn btn-default"><i
+                class="fa fa-arrow-circle-o-left"></i> Prev</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2020/09/09/Godot-swaying-grass-shader/" type="button" class="btn btn-default ">Next<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+
+	<!-- comment -->
+	
+<!--
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
+-->
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2020-09-09 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/GodotvVisualShader/">GodotvVisualShader<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> 
+<div><a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0;margin:10px auto;" src="/images/CC BY 4.0.png" /></a><div>
+  <p>&copy; 2023 hex3f
+  
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | <a target="_blank" rel="noopener" href="https://github.com/blackshow/hexo-theme-freemind.386">Freemind.386</a>
+  </p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span><i class="fa fa-angle-double-up"></i> TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+  
+<!-- 节日输出 -->
+<script type="text/javascript">
+	calendar = new Date();
+	month = calendar.getMonth();
+	date = calendar.getDate();
+	if ((month == 11) && (date == 23)) console.log("今天是我生日哦，祝我自己生日快乐！哈哈哈哈！！");
+</script>
+  
+</body>
+   </html>
