@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>About me</title>
-    <url>/2019/10/18/About%20me/</url>
-    <content><![CDATA[<h1 id="介绍一下我"><a href="#介绍一下我" class="headerlink" title="介绍一下我"></a>介绍一下我</h1><p>欢迎来到<a href="https://hex3f.com">hex3f</a>，你现在看到的是我的博客，没错，这个博客内容很少，不过我分享的一定是一些干货。那么，这个网站存在的意义是什么呢？<br><span id="more"></span><br>首先跟大家介绍一下我自己，我，出生于1999年，男，喜欢极限运动，（自称）是一名独立游戏制作人，之前在独立游戏工作室做TA，目前在一家游戏公司做前端开发。一直想做一款完全由自己的想法开发的游戏，上架渠道就是steam。<br>虽然一直做做停停，从5月份开始直到八月中旬我正式成为一名上班族。当然，在空闲时间我也做了另外的事情来赚钱。但是我立志，一定要做出属于我的游戏！<br>所以这个网站存在是为什么？从很早之前我就有很多博客，服务器一过期就换种风格。不知道为什么一直热衷于博客，这个博客估计是我的第五个博客，不过这个博客应该也是最后一个。<br>兴趣？我的风格一直在变，~~最近喜欢悠闲的生活，听听canon，码代码。除了码代码的时间那就是喜欢锻炼，从小就喜欢跑酷跟街健，喜欢探险未知。</p>
-<h1 id="从小开始的学习变化："><a href="#从小开始的学习变化：" class="headerlink" title="从小开始的学习变化："></a>从小开始的学习变化：</h1><ol>
-<li>小学</li>
-</ol>
-<ul>
-<li>那时候对游戏有个信仰，接触了很多海外的单机游戏，还不知道steam这个东西，游戏都是在游民星空、3dm和游侠网找的。暴力摩托、帝国时代、孤岛惊魂、孤岛危机等，玩这些游戏感觉真的很有意思，就很好奇是怎么做出来的。后来记得在四年级的时候（好像是2010年），有个跟我很熟的朋友在做游戏，然后问我要不要一起做，当时就对这个非常感兴趣，用的软件是RMXP。当时还创了个工作室叫：天空工作室。后来在六年级的时候还给工作室做了个官网，从那时起就喜欢上了做网站。后来还学了点网络安全的知识，在电脑课上装逼，现在想想就有点搞笑。后来还学了易语言，做完就去电脑课装逼，哈哈哈。</li>
-</ul>
-<ol start="2">
-<li>初中</li>
-</ol>
-<ul>
-<li>黑客技术：这个时候就跟我那个很要好的朋友分开了。小学时代的游戏人之路好像就这么断开了，后来，我就了解到了黑客技术，开始喜欢在网上找这些技术，了解到了一些组织：红客联盟、黑客联盟、华夏黑客联盟、鹰派联盟、绿色兵团等，鹰派联盟还有个主题曲，叫《黑夜的力量》，现在还躺在我网易云的云盘里面。学习了些关于黑客的基础概念。</li>
-<li>跑酷和街健：那时对于跑酷好像不太了解，就是有个小概念，平时喜欢上窜下跳，拉拉单杠，做做俯卧撑。到了初二，这个时候对跑酷跟街健有了个概念，在优酷看洁癖男爱跑酷的视频，还了解到了城市猴子、TNT跑酷、GUP、STORROR、STORM、3F等的跑酷团队跟红牛跑酷赛事，当时真的非常沉迷于跑酷，现在也是。那时还买了本书，叫《城市就是健身房》，因为这本书才对街健有个比较深的概念。</li>
-<li>网站开发：关于网站开发，学了一点HTML，CSS，PHP的知识，那时都不懂JS。怎么学这些技术的我印象还非常深刻，就是百度HTML源码，然后下载一些比较好看的网站源代码开始COPY（2333）。</li>
-<li>游戏开发：我第一个接触是引擎是RMXP，还有RM的系列引擎，也就是在小学时代了解到的，66RPG里面大部分还是RMXP的资源，我经常在里面下载游戏然后改。在初中了解到UDK，好像当时都没有虚幻4或者没啥人用虚幻4，都是用虚幻3，就叫UDK。然后在不知道啥的教学网站看到了呆蛙的视频，不知道有没有知道虚幻引擎的同学知道他，感觉他的教学风格挺有意思的。</li>
-<li>编程：在初中的时候，班里人都感觉我很厉害的样子，这时候，电脑课的老师就盯上了我，问我学不学编程，他教的是C语言，当时给了我一张考卷，当时不知道在上面写了什么，然后就进了小组，后来还去参加什么学生信息技术奥林匹克竞赛，不过对编程好像一点概念都没有，就是你教我学。</li>
-</ul>
-<ol start="3">
-<li>职校</li>
-</ol>
-<ul>
-<li>我读职校时候是16年，为什么要来读职校呢，其实刚开始我可以选择进高中，可是我非常讨厌文化课，讨厌背那些僵硬的东西，觉得那东西没卵用（其实非常受亚伦斯沃茨启发）。而且我比较喜欢技术，所以我就进了职校。原来在于职校时间多，没有那么多作业压力，我想干嘛就干嘛）。</li>
-<li>在职校的前半年，不能说过着迷茫的生活，都是按这老师的进度来，老师教什么，我学什么，放学时间都在玩。我接受知识非常快，而且做的作业还挺不错的，老师还挺看重我的。后来，突然想真正的学技术，感觉我之前都是在浪费时间，包括小学，初中（其实不能算浪费时间，只是说有个阅历，有了解些东西，但是没有真正的学习）当时学技术是为了做游戏，学的是Unity。第一个学的是C#。</li>
-<li>在第二年，Unity跟C#的基础的差不多了，后来去系统的学了html,css,js,php，汇编，感觉做网站还挺有意思的。这时候开始喜欢上搭建博客，用过wordpress,discuz（我知道这是做论坛的，但是我用它做过博客）,z-blog等。我做的最大的博客叫鹰网（hawkweb）,我在里面写了很多技术知识。最后服务器过期了就关了。后来还学了python，因为突然对人工智能感兴趣，然后学到一半就没学了。之后对编曲感兴趣，学了点FL Studio的基础。</li>
-<li>我进过平面设计的兴趣小组，参加过一次平面设计世界技能大赛市选拔赛，但是那时候没啥灵感，就没拿奖。后来进了学校的网络安全兴趣小组，但是学习气氛太差我就进了网页设计兴趣小组，准备去参加网页设计的世界技能大赛。不过在这个时候，我发自内心的想开发游戏，之后我就退出了兴趣小组。正式的开始了游戏开发之旅（这是我自己的选择）！<br>4.职业生涯</li>
-<li>游戏音效：为什么一个程序突然去做这个了？因为在19年的时候，参加了一次Game Jam。然后主办方是一家做独立游戏的公司（透露一下，是做纽扣兄弟的，<a href="https://store.steampowered.com/app/623320/Button_Button_Up/">Steam页面</a>）。因为那个时候痴迷于编曲，所以现场就带了把midi键盘编曲。后来因为公司的一个项目需要音效。之前我是有加制作人的微信，后来他就找我谈了这件事情。于是我就阴差阳错的进入了这个行业啦！（原本我是想从事网站开发-后端的）</li>
-<li>技术美术和程序：因为我现在这个部门是专门负责美术的，所以我就学起了特效开发。主要是用shader跟粒子系统。虽然不是非常感兴趣，但是对我未来做游戏帮助还是挺大的，所以就学习了这个。程序就是我们现在游戏的技能编写，主要是用到lua。</li>
-</ul>
-<h1 id="为什么选择做独立游戏这条路"><a href="#为什么选择做独立游戏这条路" class="headerlink" title="为什么选择做独立游戏这条路"></a>为什么选择做独立游戏这条路</h1><p>我想说说为什么进这么多兴趣小组我都不留下，最终选择游戏开发这条路子。在19年4月份，一次偶然的机会让我参加了Game jam，这是我的作品：<a href="https://www.3839.com/a/112430.htm">感知</a>，这是我跟我们学校一个懂一点点美术的同学做的，我知道这个游戏做的不是很好，不过参加这次活动真的让我很开心，也让我坚定的走做游戏这条路。我知道这条路非常艰难，不过，没试试，谁知道呢？不过更多的，是我从小学开始，让我最不放弃的，是做游戏，因为我不放弃，让我觉得，游戏，我做定了，不然对不起我自己！想跟自己说一句话：为什么要和别人一样呢！<br>我一直觉得，市面上的游戏都不能给我带来快乐，所以一直想做一款能让人带来快乐的游戏。并且我非常喜欢那种特别有意思的游戏。<br>希望我未来做出来的游戏，能带给大家快乐！</p>
-<h1 id="做了啥"><a href="#做了啥" class="headerlink" title="做了啥"></a>做了啥</h1><p>以前参加了啥记不清了，就写一些我大概记得的吧<br>1.初中参加过几次C语言的比赛<br>2.第45届世界技能大赛厦门市选拔赛 - 平面设计<br>3.2018年 GitHub开源作品 《AnswerX》、《Hex3F注册用网站》、《网站热力图技术》<br>3.2018年的世界跑酷日 - 厦门EF跑酷团队举办的<br>4.2019游戏出海，如何建立用户为本的商业化模型论坛会<br>5.2019华为开发者大会 厦门站<br>6.2019年的厦门游戏创作节 - GameJam 作品<a href="https://www.3839.com/a/112430.htm">感知</a><br>7.2020年因为疫情举办的游戏元气弹 - GameJam 作品好像举办方把比赛页面删除了，所以找不到了，有空的开源到GitHub上吧<br>8.2021年 CIGA GameJam 作品《西部火车屠杀事件》<br>9.2021年 GitHub开源作品 《MorseX》<br><del>想出来再继续写</del></p>
-<h1 id="平时喜欢做什么"><a href="#平时喜欢做什么" class="headerlink" title="平时喜欢做什么"></a>平时喜欢做什么</h1><p>在亲戚面前我可能是个怪人，因为我不喜欢跟亲戚交流，甚至不讲一句话。我喜欢安静的环境，就好像真正的大自然。我喜欢冒险，你可能不会理解我所做的，因为我无法描述我做的事情。<br>喜欢看生存类影片，看过电视剧：行尸走肉，僵尸国度，行尸之惧等(有这样的电视剧请一定要推荐给我:)）。电影：127小时，垂直极限等（记忆不大好，忘光光了，想起来再写上去）。</p>
-<h1 id="hex3f名字的来历"><a href="#hex3f名字的来历" class="headerlink" title="hex3f名字的来历"></a>hex3f名字的来历</h1><p>记得当时在学汇编的时候了解到了ASCII码，你们会发现ASCII表3F对应的是符号”?”。之前我用过很多网名1.Hawk 老鹰，我很渴望自由（是那种亲近大自然的自由）所以我叫自己老鹰。2.BlackEnergy，黑暗力量，听名字就很霸气有没有！这是一个病毒软件。我感觉我这个人非常怪异，很想要一个独一无二的网名，问号有一种神秘的感觉，而且它来自于ASCII。后来发现好像没有人用这个名字，所以我就拿这个当网名咯！</p>
-<h1 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h1><p>Email: <a href="mailto:hex3f@outlook.com">hex3f@outlook.com</a><br>QQ: 339999909<br>如果你遇到了什么困难可以来找我，我很乐意帮助你解决（但是要我会）。</p>
-<p><del>下面还不知道要写什么</del></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-  </entry>
-  <entry>
     <title>AMD PC install Mac os in VMware</title>
     <url>/2020/01/04/AMD-PC-install-Mac-os-in-VMware/</url>
     <content><![CDATA[<p>AMD平台在VMware安装mac os<br><span id="more"></span><br>其实最早之前是在VMware里装过mac的，但之前是intel的cpu，装mac会比较容易，问题也没那么多。最近去看了看unlocker的github项目好像已经删除了，应该是停止更新了。</p>
@@ -100,6 +61,45 @@
 </div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
+    <title>About me</title>
+    <url>/2019/10/18/About%20me/</url>
+    <content><![CDATA[<h1 id="介绍一下我"><a href="#介绍一下我" class="headerlink" title="介绍一下我"></a>介绍一下我</h1><p>欢迎来到<a href="https://hex3f.com">hex3f</a>，你现在看到的是我的博客，没错，这个博客内容很少，不过我分享的一定是一些干货。那么，这个网站存在的意义是什么呢？<br><span id="more"></span><br>首先跟大家介绍一下我自己，我，出生于1999年，男，喜欢极限运动，（自称）是一名独立游戏制作人，之前在独立游戏工作室做TA，目前在一家游戏公司做前端开发。一直想做一款完全由自己的想法开发的游戏，上架渠道就是steam。<br>虽然一直做做停停，从5月份开始直到八月中旬我正式成为一名上班族。当然，在空闲时间我也做了另外的事情来赚钱。但是我立志，一定要做出属于我的游戏！<br>所以这个网站存在是为什么？从很早之前我就有很多博客，服务器一过期就换种风格。不知道为什么一直热衷于博客，这个博客估计是我的第五个博客，不过这个博客应该也是最后一个。<br>兴趣？我的风格一直在变，~~最近喜欢悠闲的生活，听听canon，码代码。除了码代码的时间那就是喜欢锻炼，从小就喜欢跑酷跟街健，喜欢探险未知。</p>
+<h1 id="从小开始的学习变化："><a href="#从小开始的学习变化：" class="headerlink" title="从小开始的学习变化："></a>从小开始的学习变化：</h1><ol>
+<li>小学</li>
+</ol>
+<ul>
+<li>那时候对游戏有个信仰，接触了很多海外的单机游戏，还不知道steam这个东西，游戏都是在游民星空、3dm和游侠网找的。暴力摩托、帝国时代、孤岛惊魂、孤岛危机等，玩这些游戏感觉真的很有意思，就很好奇是怎么做出来的。后来记得在四年级的时候（好像是2010年），有个跟我很熟的朋友在做游戏，然后问我要不要一起做，当时就对这个非常感兴趣，用的软件是RMXP。当时还创了个工作室叫：天空工作室。后来在六年级的时候还给工作室做了个官网，从那时起就喜欢上了做网站。后来还学了点网络安全的知识，在电脑课上装逼，现在想想就有点搞笑。后来还学了易语言，做完就去电脑课装逼，哈哈哈。</li>
+</ul>
+<ol start="2">
+<li>初中</li>
+</ol>
+<ul>
+<li>黑客技术：这个时候就跟我那个很要好的朋友分开了。小学时代的游戏人之路好像就这么断开了，后来，我就了解到了黑客技术，开始喜欢在网上找这些技术，了解到了一些组织：红客联盟、黑客联盟、华夏黑客联盟、鹰派联盟、绿色兵团等，鹰派联盟还有个主题曲，叫《黑夜的力量》，现在还躺在我网易云的云盘里面。学习了些关于黑客的基础概念。</li>
+<li>跑酷和街健：那时对于跑酷好像不太了解，就是有个小概念，平时喜欢上窜下跳，拉拉单杠，做做俯卧撑。到了初二，这个时候对跑酷跟街健有了个概念，在优酷看洁癖男爱跑酷的视频，还了解到了城市猴子、TNT跑酷、GUP、STORROR、STORM、3F等的跑酷团队跟红牛跑酷赛事，当时真的非常沉迷于跑酷，现在也是。那时还买了本书，叫《城市就是健身房》，因为这本书才对街健有个比较深的概念。</li>
+<li>网站开发：关于网站开发，学了一点HTML，CSS，PHP的知识，那时都不懂JS。怎么学这些技术的我印象还非常深刻，就是百度HTML源码，然后下载一些比较好看的网站源代码开始COPY（2333）。</li>
+<li>游戏开发：我第一个接触是引擎是RMXP，还有RM的系列引擎，也就是在小学时代了解到的，66RPG里面大部分还是RMXP的资源，我经常在里面下载游戏然后改。在初中了解到UDK，好像当时都没有虚幻4或者没啥人用虚幻4，都是用虚幻3，就叫UDK。然后在不知道啥的教学网站看到了呆蛙的视频，不知道有没有知道虚幻引擎的同学知道他，感觉他的教学风格挺有意思的。</li>
+<li>编程：在初中的时候，班里人都感觉我很厉害的样子，这时候，电脑课的老师就盯上了我，问我学不学编程，他教的是C语言，当时给了我一张考卷，当时不知道在上面写了什么，然后就进了小组，后来还去参加什么学生信息技术奥林匹克竞赛，不过对编程好像一点概念都没有，就是你教我学。</li>
+</ul>
+<ol start="3">
+<li>职校</li>
+</ol>
+<ul>
+<li>我读职校时候是16年，为什么要来读职校呢，其实刚开始我可以选择进高中，可是我非常讨厌文化课，讨厌背那些僵硬的东西，觉得那东西没卵用（其实非常受亚伦斯沃茨启发）。而且我比较喜欢技术，所以我就进了职校。原来在于职校时间多，没有那么多作业压力，我想干嘛就干嘛）。</li>
+<li>在职校的前半年，不能说过着迷茫的生活，都是按这老师的进度来，老师教什么，我学什么，放学时间都在玩。我接受知识非常快，而且做的作业还挺不错的，老师还挺看重我的。后来，突然想真正的学技术，感觉我之前都是在浪费时间，包括小学，初中（其实不能算浪费时间，只是说有个阅历，有了解些东西，但是没有真正的学习）当时学技术是为了做游戏，学的是Unity。第一个学的是C#。</li>
+<li>在第二年，Unity跟C#的基础的差不多了，后来去系统的学了html,css,js,php，汇编，感觉做网站还挺有意思的。这时候开始喜欢上搭建博客，用过wordpress,discuz（我知道这是做论坛的，但是我用它做过博客）,z-blog等。我做的最大的博客叫鹰网（hawkweb）,我在里面写了很多技术知识。最后服务器过期了就关了。后来还学了python，因为突然对人工智能感兴趣，然后学到一半就没学了。之后对编曲感兴趣，学了点FL Studio的基础。</li>
+<li>我进过平面设计的兴趣小组，参加过一次平面设计世界技能大赛市选拔赛，但是那时候没啥灵感，就没拿奖。后来进了学校的网络安全兴趣小组，但是学习气氛太差我就进了网页设计兴趣小组，准备去参加网页设计的世界技能大赛。不过在这个时候，我发自内心的想开发游戏，之后我就退出了兴趣小组。正式的开始了游戏开发之旅（这是我自己的选择）！<br>4.职业生涯</li>
+<li>游戏音效：为什么一个程序突然去做这个了？因为在19年的时候，参加了一次Game Jam。然后主办方是一家做独立游戏的公司（透露一下，是做纽扣兄弟的，<a href="https://store.steampowered.com/app/623320/Button_Button_Up/">Steam页面</a>）。因为那个时候痴迷于编曲，所以现场就带了把midi键盘编曲。后来因为公司的一个项目需要音效。之前我是有加制作人的微信，后来他就找我谈了这件事情。于是我就阴差阳错的进入了这个行业啦！（原本我是想从事网站开发-后端的）</li>
+<li>技术美术和程序：因为我现在这个部门是专门负责美术的，所以我就学起了特效开发。主要是用shader跟粒子系统。虽然不是非常感兴趣，但是对我未来做游戏帮助还是挺大的，所以就学习了这个。程序就是我们现在游戏的技能编写，主要是用到lua。</li>
+</ul>
+<h1 id="为什么选择做独立游戏这条路"><a href="#为什么选择做独立游戏这条路" class="headerlink" title="为什么选择做独立游戏这条路"></a>为什么选择做独立游戏这条路</h1><p>我想说说为什么进这么多兴趣小组我都不留下，最终选择游戏开发这条路子。在19年4月份，一次偶然的机会让我参加了Game jam，这是我的作品：<a href="https://www.3839.com/a/112430.htm">感知</a>，这是我跟我们学校一个懂一点点美术的同学做的，我知道这个游戏做的不是很好，不过参加这次活动真的让我很开心，也让我坚定的走做游戏这条路。我知道这条路非常艰难，不过，没试试，谁知道呢？不过更多的，是我从小学开始，让我最不放弃的，是做游戏，因为我不放弃，让我觉得，游戏，我做定了，不然对不起我自己！想跟自己说一句话：为什么要和别人一样呢！<br>我一直觉得，市面上的游戏都不能给我带来快乐，所以一直想做一款能让人带来快乐的游戏。并且我非常喜欢那种特别有意思的游戏。<br>希望我未来做出来的游戏，能带给大家快乐！</p>
+<h1 id="做了啥"><a href="#做了啥" class="headerlink" title="做了啥"></a>做了啥</h1><p>以前参加了啥记不清了，就写一些我大概记得的吧<br>1.初中参加过几次C语言的比赛<br>2.第45届世界技能大赛厦门市选拔赛 - 平面设计<br>3.2018年 GitHub开源作品 《AnswerX》、《Hex3F注册用网站》、《网站热力图技术》<br>3.2018年的世界跑酷日 - 厦门EF跑酷团队举办的<br>4.2019游戏出海，如何建立用户为本的商业化模型论坛会<br>5.2019华为开发者大会 厦门站<br>6.2019年的厦门游戏创作节 - GameJam 作品<a href="https://www.3839.com/a/112430.htm">感知</a><br>7.2020年因为疫情举办的游戏元气弹 - GameJam 作品好像举办方把比赛页面删除了，所以找不到了，有空的开源到GitHub上吧<br>8.2021年 CIGA GameJam 作品《西部火车屠杀事件》<br>9.2021年 GitHub开源作品 《MorseX》<br><del>想出来再继续写</del></p>
+<h1 id="平时喜欢做什么"><a href="#平时喜欢做什么" class="headerlink" title="平时喜欢做什么"></a>平时喜欢做什么</h1><p>在亲戚面前我可能是个怪人，因为我不喜欢跟亲戚交流，甚至不讲一句话。我喜欢安静的环境，就好像真正的大自然。我喜欢冒险，你可能不会理解我所做的，因为我无法描述我做的事情。<br>喜欢看生存类影片，看过电视剧：行尸走肉，僵尸国度，行尸之惧等(有这样的电视剧请一定要推荐给我:)）。电影：127小时，垂直极限等（记忆不大好，忘光光了，想起来再写上去）。</p>
+<h1 id="hex3f名字的来历"><a href="#hex3f名字的来历" class="headerlink" title="hex3f名字的来历"></a>hex3f名字的来历</h1><p>记得当时在学汇编的时候了解到了ASCII码，你们会发现ASCII表3F对应的是符号”?”。之前我用过很多网名1.Hawk 老鹰，我很渴望自由（是那种亲近大自然的自由）所以我叫自己老鹰。2.BlackEnergy，黑暗力量，听名字就很霸气有没有！这是一个病毒软件。我感觉我这个人非常怪异，很想要一个独一无二的网名，问号有一种神秘的感觉，而且它来自于ASCII。后来发现好像没有人用这个名字，所以我就拿这个当网名咯！</p>
+<h1 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h1><p>Email: <a href="mailto:hex3f@outlook.com">hex3f@outlook.com</a><br>QQ: 339999909<br>如果你遇到了什么困难可以来找我，我很乐意帮助你解决（但是要我会）。</p>
+<p><del>下面还不知道要写什么</del></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+  </entry>
+  <entry>
     <title>Godot fabric fluttering shader</title>
     <url>/2020/09/11/Godot-fabric-fluttering-shader/</url>
     <content><![CDATA[<p>Godot实现布料飘动的shader<br><span id="more"></span><br>Godot的一些shader是真的不好找，今天在某个论坛里面找到比较不错的shader。<br>可以用在布料飘动上，例如旗帜啥的。<br>出处<a href="https://forum.defold.com/t/2d-pixelated-grass-shader/56501/3">Defold forum</a><br><figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line">shader_type canvas_item;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> hair_vertical_offs;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span> hair_horizontal_offs = - <span class="number">60.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> fragment() &#123;</span><br><span class="line">	<span class="type">float</span> t = TIME;</span><br><span class="line">	<span class="type">vec2</span> uv = UV;</span><br><span class="line">	<span class="type">float</span> uv_x_deform = <span class="built_in">cos</span>(uv.x);</span><br><span class="line">	<span class="type">vec2</span> offs_uv = <span class="type">vec2</span>(<span class="built_in">cos</span>(t * <span class="number">2.0</span> + uv.y * <span class="number">10.0</span>) + hair_horizontal_offs * ( uv.x) * ( uv.x) * <span class="number">0.3</span>, <span class="built_in">cos</span>(t * <span class="number">2.0</span> + uv.x * <span class="number">20.0</span>) + hair_vertical_offs * (<span class="number">1.2</span> - uv.x)) * <span class="number">0.03</span> * (<span class="number">1.0</span> - uv.x);</span><br><span class="line">	</span><br><span class="line">	<span class="type">vec4</span> img = <span class="built_in">texture</span>(TEXTURE, uv + <span class="type">vec2</span>(offs_uv.x, offs_uv.y));</span><br><span class="line">	COLOR = img;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>效果图：<br><img src="/2020/09/11/Godot-fabric-fluttering-shader/Fabric-fluttering.gif" class title="飘布"></p>
@@ -125,15 +125,6 @@
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <tags>
         <tag>GodotShader</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Godot wheat wave visual shader</title>
-    <url>/2020/09/09/Godot-wheat-wave-visual-shader/</url>
-    <content><![CDATA[<p>实现Godot麦浪shader<br><span id="more"></span><br>这个shader困惑我挺久的，思路就是让图片移动，然后在上面制造像水浪的那种效果，这样看上去就会像麦浪了。<br>首先需要一张麦浪的图片<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/WheatWave.png" class title="麦浪素材图"><br>把麦浪图片的显示模式更改为重复。这样在播放的时候就不会只播放一次。点击图片然后再点击Import标签里的Flags修改Repeat为Enabled。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Change-wheat-image-mode-to-repeat.PNG" class title="更改麦田图片模式"><br>然后在麦田sprite上创建shader，创建UV贴图将x,y轴分开，在x,y轴上新建一个ScalarOp，方法为Multiply。再在a或者b上创建一个Scalar Uniform，这样可以在外部控制变量。让他乘以某个数可以做到对图片的放大缩小。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-size.PNG" class title="Shader更改UV大小"><br>然后再用x,y轴加上一个值乘以time做到图片上下移动，在乘法上的a或者b连接Scalar Uniform在外部控制移动速度。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-move-uv.PNG" class title="Shader移动UV"><br>做完上面的操作，再用一个VectorCompose将x跟y连接在一起。最终连接上麦浪的Texture与Output的Color值跟Alpha值连接就可以看到麦浪移动的效果了。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-connect-output.PNG" class title="Shader连接output"><br>效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave_1.gif" class title="无波纹麦浪"><br>但是目前这样的效果太单调了，单纯是一张图片在移动，所以可以做一个类似波浪的效果在麦浪上面，这样麦浪看上去一直在变换。<br>现在就需要一张noise，然后在贴图上移动，所以noise做的操作跟上面的步骤也是类似的。<br>noise大小，2048 pixel * 2048pixel，做法就是用Photoshop的滤镜分层云彩或者云彩，然后用涂抹工具涂抹。<br>Noise效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/noise.png" class title="噪声效果图"><br>导入Noise图片的时候注意也要把Repeat改成Enabled，播放一遍就没了。<br>连线跟上面也一样，首先创建UV贴图，然后要可以控制噪声的大小，移动速度。最后再连接到噪声的贴图上。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseShader.PNG" class title="噪声shader连线"><br>Output连线：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseConnectOutput.PNG" class title="噪声shader_output连线"><br>最后再跟上面的连接到一起就OK了！<br><br>参数参考：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Parameter-reference.PNG" class title="参数参考"><br>最终效果<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave.gif" class title="麦浪"></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <tags>
-        <tag>GodotvVisualShader</tag>
       </tags>
   </entry>
   <entry>
@@ -283,6 +274,15 @@
 </div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
+    <title>Godot wheat wave visual shader</title>
+    <url>/2020/09/09/Godot-wheat-wave-visual-shader/</url>
+    <content><![CDATA[<p>实现Godot麦浪shader<br><span id="more"></span><br>这个shader困惑我挺久的，思路就是让图片移动，然后在上面制造像水浪的那种效果，这样看上去就会像麦浪了。<br>首先需要一张麦浪的图片<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/WheatWave.png" class title="麦浪素材图"><br>把麦浪图片的显示模式更改为重复。这样在播放的时候就不会只播放一次。点击图片然后再点击Import标签里的Flags修改Repeat为Enabled。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Change-wheat-image-mode-to-repeat.PNG" class title="更改麦田图片模式"><br>然后在麦田sprite上创建shader，创建UV贴图将x,y轴分开，在x,y轴上新建一个ScalarOp，方法为Multiply。再在a或者b上创建一个Scalar Uniform，这样可以在外部控制变量。让他乘以某个数可以做到对图片的放大缩小。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-size.PNG" class title="Shader更改UV大小"><br>然后再用x,y轴加上一个值乘以time做到图片上下移动，在乘法上的a或者b连接Scalar Uniform在外部控制移动速度。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-move-uv.PNG" class title="Shader移动UV"><br>做完上面的操作，再用一个VectorCompose将x跟y连接在一起。最终连接上麦浪的Texture与Output的Color值跟Alpha值连接就可以看到麦浪移动的效果了。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Shader-uv-connect-output.PNG" class title="Shader连接output"><br>效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave_1.gif" class title="无波纹麦浪"><br>但是目前这样的效果太单调了，单纯是一张图片在移动，所以可以做一个类似波浪的效果在麦浪上面，这样麦浪看上去一直在变换。<br>现在就需要一张noise，然后在贴图上移动，所以noise做的操作跟上面的步骤也是类似的。<br>noise大小，2048 pixel * 2048pixel，做法就是用Photoshop的滤镜分层云彩或者云彩，然后用涂抹工具涂抹。<br>Noise效果图：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/noise.png" class title="噪声效果图"><br>导入Noise图片的时候注意也要把Repeat改成Enabled，播放一遍就没了。<br>连线跟上面也一样，首先创建UV贴图，然后要可以控制噪声的大小，移动速度。最后再连接到噪声的贴图上。<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseShader.PNG" class title="噪声shader连线"><br>Output连线：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/NoiseConnectOutput.PNG" class title="噪声shader_output连线"><br>最后再跟上面的连接到一起就OK了！<br><br>参数参考：<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/Parameter-reference.PNG" class title="参数参考"><br>最终效果<br><img src="/2020/09/09/Godot-wheat-wave-visual-shader/wheat_wave.gif" class title="麦浪"></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <tags>
+        <tag>GodotvVisualShader</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Use frequently</title>
     <url>/2019/11/02/Use%20frequently/</url>
     <content><![CDATA[<h1 id="介绍-Description"><a href="#介绍-Description" class="headerlink" title="介绍 Description"></a>介绍 Description</h1><p>这个页面将会存放一些我经常使用的工具、插件或网站。<br>This page will store some tools, plugins, or websites that I use often.<br><span id="more"></span> </p>
@@ -327,11 +327,11 @@
 <li>For the first problem. Uploading a single file that is larger than 100MB means you have to use git lfs for push. You just need to install lfs on your git to turn it on. And write rules in your gitattributes.<br>If your git doesn’t have lfs integration then you need to go download. <a href="https://github.com/git-lfs/git-lfs/releases">git lfs</a><br>Open git bash and type the command:</li>
 </ol>
 <ul>
-<li>Turn on lfs<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs install</span><br></pre></td></tr></table></figure></li>
-<li>All large file tracking (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></table></figure></li>
-<li>Example: Track all files with png suffix (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs track &quot;*.png&quot;</span><br></pre></td></tr></table></figure></li>
-<li>View existing file tracking patterns<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></table></figure></li>
-<li>Commit code requires a .gitattributes file to be commit to the repository. It keeps trace of file.<br>The list of currently tracked files can be displayed after commit<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs ls-files</span><br></pre></td></tr></table></figure></li>
+<li>Turn on lfs<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git lfs install</span><br></pre></td></tr></table></figure></li>
+<li>All large file tracking (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></table></figure></li>
+<li>Example: Track all files with png suffix (It will be written to the .gitattributes file, if not it will be generated)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git lfs track &quot;*.png&quot;</span><br></pre></td></tr></table></figure></li>
+<li>View existing file tracking patterns<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git lfs track</span><br></pre></td></tr></table></figure></li>
+<li>Commit code requires a .gitattributes file to be commit to the repository. It keeps trace of file.<br>The list of currently tracked files can be displayed after commit<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git lfs ls-files</span><br></pre></td></tr></table></figure></li>
 <li>Tip:<br>Use lfs must commit to use ssh, using https will not work!<br>Please be sure to commit .gitattributes files to the repository first before commit other files.<br>Github has 1GB lfs repository for free users. Any more than that will be charged. The cost is $5 for 50GB per month.<img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/lfs.png" class title="git_lfs">
 Remember to turn on the Include Git LFS objects in archives option: <a href="https://docs.github.com/en/github-ae@latest/github/administering-a-repository/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository">document</a><img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/Project_Setting.png" class title="Project_Setting">
 <img src="/2021/06/20/github-git-push-remote-fatal-pack-exceeds-maximum-allowed-size-error/LFS_Open.png" class title="LFS_Open"></li>
